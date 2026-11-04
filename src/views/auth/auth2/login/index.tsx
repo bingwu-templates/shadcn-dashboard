@@ -1,14 +1,11 @@
-import { Card } from "@/components/ui/card";
-import { Link } from "react-router";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import FullLogo from "src/layouts/full/shared/logo/FullLogo";
-import SocialButtons from "../../authforms/social-buttons";
-
-
-
+import { Card } from '@/components/ui/card';
+import { Link } from 'react-router';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import FullLogo from 'src/layouts/full/shared/logo/FullLogo';
+import SocialButtons from '../../authforms/social-buttons';
 
 const BoxedLogin = () => {
   return (
@@ -24,39 +21,20 @@ const BoxedLogin = () => {
           <form className="space-y-6 w-full">
             <div className="space-y-4">
               <div className="space-y-1.5">
-                <Label
-                  htmlFor="email"
-                  className="text-sm font-normal text-muted-foreground"
-                >
+                <Label htmlFor="email" className="text-sm font-normal text-muted-foreground">
                   Email*
                 </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter Your Email"
-                  required
-                />
+                <Input id="email" type="email" placeholder="Enter Your Email" required />
               </div>
               <div className="space-y-1.5">
-                <Label
-                  htmlFor="password"
-                  className="text-sm font-normal text-muted-foreground"
-                >
+                <Label htmlFor="password" className="text-sm font-normal text-muted-foreground">
                   Password*
                 </Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  required
-                />
+                <Input id="password" type="password" placeholder="Enter your password" required />
               </div>
               <div className="flex items-center justify-between text-sm flex-wrap gap-4">
                 <div className="flex items-center space-x-3">
-                  <Checkbox
-                    id="remember"
-                    className={"cursor-pointer"}
-                  />
+                  <Checkbox id="remember" className={'cursor-pointer'} />
                   <Label
                     htmlFor="remember"
                     className="text-muted-foreground font-normal cursor-pointer leading-0"
@@ -72,10 +50,7 @@ const BoxedLogin = () => {
                 </a>
               </div>
             </div>
-            <Button
-              size="lg"
-              className="w-full rounded-lg"
-            >
+            <Button size="lg" className="w-full rounded-lg">
               Sign in
             </Button>
           </form>
@@ -83,7 +58,7 @@ const BoxedLogin = () => {
           <div className="flex gap-2 text-base font-medium mt-4 items-center justify-center">
             <p className="text-muted-foreground">New to ShadcnDashboard ?</p>
             <Link
-              to={"/auth/auth2/register"}
+              to={'/auth/auth2/register'}
               className="text-primary/80 hover:text-primary text-sm font-medium"
             >
               Create an account

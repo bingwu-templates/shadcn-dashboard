@@ -8,21 +8,15 @@ import { EmployeeData } from 'src/components/tables/table-data';
 import StyleDivider from 'src/components/shared/StyleDivider';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 
-const BCrumb = [
-  { to: '/', title: 'Home' },
-  { title: 'Tables' },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Tables' }];
 
 function TablesPage() {
   return (
-    <StyleAwareWrapper
-      lyraClassName="flex flex-col p-px gap-px bg-border"
-    >
+    <StyleAwareWrapper lyraClassName="flex flex-col p-px gap-px bg-border">
       <BreadcrumbComp title="Tables" items={BCrumb} />
       <StyleDivider />
 
-      <StyleAwareWrapper
-        lyraClassName="grid grid-cols-12 gap-px bg-border">
+      <StyleAwareWrapper lyraClassName="grid grid-cols-12 gap-px bg-border">
         <div className="col-span-12">
           <BasicTable />
         </div>
@@ -54,7 +48,6 @@ function TablesPage() {
           <StyleDivider />
         </div>
       </StyleAwareWrapper>
-
     </StyleAwareWrapper>
   );
 }

@@ -1,5 +1,4 @@
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Select,
   SelectContent,
@@ -8,14 +7,12 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { useState } from "react";
+} from '@/components/ui/select';
+import { useState } from 'react';
 
 const Status = () => {
-  const statuses = ["Draft", "Schedule", "Publish", "Inactive"];
-  const [selectedStatus, setSelectedStatus] = useState<string | null>(
-    "Publish"
-  );
+  const statuses = ['Draft', 'Schedule', 'Publish', 'Inactive'];
+  const [selectedStatus, setSelectedStatus] = useState<string | null>('Publish');
 
   return (
     <>
@@ -23,12 +20,12 @@ const Status = () => {
         <CardHeader>
           <CardTitle>
             <div className="flex justify-between items-center">
-              <h5 >Blog Status</h5>
-              {selectedStatus === "Publish" ? (
+              <h5>Blog Status</h5>
+              {selectedStatus === 'Publish' ? (
                 <span className="h-3 w-3 p-0 bg-chart-2 rounded-full" />
-              ) : selectedStatus === "Schedule" ? (
+              ) : selectedStatus === 'Schedule' ? (
                 <span className="h-3 w-3 p-0 bg-secondary rounded-full" />
-              ) : selectedStatus === "Draft" ? (
+              ) : selectedStatus === 'Draft' ? (
                 <span className="h-3 w-3 p-0 bg-destructive rounded-full" />
               ) : (
                 <span className="h-3 w-3 p-0 bg-chart-4 rounded-full" />
@@ -43,8 +40,7 @@ const Status = () => {
               onValueChange={(value) => {
                 setSelectedStatus(value);
               }}
-              defaultValue={"Select status"}
-
+              defaultValue={'Select status'}
             >
               <SelectTrigger className="w-full" id="status">
                 <SelectValue />
@@ -60,9 +56,7 @@ const Status = () => {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <small className="text-xs text-muted-foreground">
-              Set the blog status.
-            </small>
+            <small className="text-xs text-muted-foreground">Set the blog status.</small>
           </div>
         </CardContent>
       </Card>

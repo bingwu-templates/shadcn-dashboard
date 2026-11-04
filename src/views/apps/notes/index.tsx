@@ -1,12 +1,9 @@
-import NotesApp from "src/components/apps/notes";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import NotesApp from 'src/components/apps/notes';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Notes" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Notes' }];
 
 const Notes = () => {
   return (

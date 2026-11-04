@@ -1,13 +1,10 @@
-import CreateTicketForm from "src/components/apps/tickets/create-ticketform";
-import { TicketProvider } from "src/context/ticket-context";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import CreateTicketForm from 'src/components/apps/tickets/create-ticketform';
+import { TicketProvider } from 'src/context/ticket-context';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Tickets" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Tickets' }];
 
 const CreateTickets = () => {
   return (

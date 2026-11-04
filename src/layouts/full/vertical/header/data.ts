@@ -12,64 +12,61 @@ interface NotificationType {
 }
 
 const Notification: NotificationType[] = [
-
   {
     icon: Calendar,
-    bgcolor: "bg-chart-4/10",
+    bgcolor: 'bg-chart-4/10',
     color: 'text-chart-4',
-    title: "Event Today",
-    subtitle: "Just a reminder that you have event",
-    time: "9:15 AM",
+    title: 'Event Today',
+    subtitle: 'Just a reminder that you have event',
+    time: '9:15 AM',
     isRead: false,
   },
   {
     icon: Settings,
-    bgcolor: "bg-chart-1/10",
+    bgcolor: 'bg-chart-1/10',
     color: 'text-chart-1',
-    title: "Settings",
-    subtitle: "You can customize this template as you want",
-    time: "4:36 PM",
+    title: 'Settings',
+    subtitle: 'You can customize this template as you want',
+    time: '4:36 PM',
     isRead: false,
   },
   {
     icon: LayoutPanelLeft,
-    bgcolor: "bg-chart-2/10 ",
+    bgcolor: 'bg-chart-2/10 ',
     color: 'text-chart-2',
-    title: "Launch Admin",
-    subtitle: "Just see the my new admin!",
-    time: "9:30 AM",
+    title: 'Launch Admin',
+    subtitle: 'Just see the my new admin!',
+    time: '9:30 AM',
     isRead: false,
   },
   {
     icon: Command,
-    bgcolor: "bg-primary/5",
+    bgcolor: 'bg-primary/5',
     color: 'text-primary',
-    title: "Launch Admin",
-    subtitle: "Just see the my new admin!",
-    time: "9:30 AM",
+    title: 'Launch Admin',
+    subtitle: 'Just see the my new admin!',
+    time: '9:30 AM',
     isRead: false,
   },
   {
     icon: Calendar,
-    bgcolor: "bg-chart-5/10 ",
+    bgcolor: 'bg-chart-5/10 ',
     color: 'text-chart-5',
-    title: "Event Today",
-    subtitle: "Just a reminder that you have event",
-    time: "9:15 AM",
+    title: 'Event Today',
+    subtitle: 'Just a reminder that you have event',
+    time: '9:15 AM',
     isRead: false,
   },
   {
     icon: Settings,
-    bgcolor: "bg-chart-1/10",
+    bgcolor: 'bg-chart-1/10',
     color: 'text-chart-1',
-    title: "Settings",
-    subtitle: "You can customize this template as you want",
-    time: "4:36 PM",
+    title: 'Settings',
+    subtitle: 'You can customize this template as you want',
+    time: '4:36 PM',
     isRead: true,
   },
 ];
-
-
 
 interface profileType {
   avatar: LucideIcon;
@@ -85,35 +82,32 @@ const profileDD: profileType[] = [
     avatar: Home,
     title: 'Home',
     href: '/',
-    badge: false
+    badge: false,
   },
   {
     avatar: User,
     title: 'Profile',
     href: '/',
-    badge: false
+    badge: false,
   },
   {
     avatar: Files,
     title: 'Invoice',
     href: '/',
-    badge: true
+    badge: true,
   },
   {
     avatar: Keyboard,
     title: 'Subscription',
     href: '/',
-    badge: false
+    badge: false,
   },
   {
     avatar: Settings,
     title: 'Account Settings',
     href: '/',
-    badge: false
-  }
+    badge: false,
+  },
 ];
 
-export {
-  Notification,
-  profileDD,
-};
+export { Notification, profileDD };

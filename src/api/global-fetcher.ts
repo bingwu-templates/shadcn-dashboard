@@ -1,7 +1,6 @@
 // SWR fetcher function
 
 const getFetcher = (url: string | Request | URL) =>
-
   fetch(url).then((res) => {
     if (!res.ok) {
       throw new Error('Failed to fetch the data');

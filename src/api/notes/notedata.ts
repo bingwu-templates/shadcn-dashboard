@@ -54,7 +54,7 @@ export const NotesHandlers = [
   http.delete('/api/notes/delete', async ({ request }) => {
     try {
       const { id } = (await request.json()) as { id: string | number };
-      const remainingNotes = NotesData.filter(note => note.id !== id);
+      const remainingNotes = NotesData.filter((note) => note.id !== id);
       NotesData = remainingNotes;
       return HttpResponse.json({ status: 200, msg: 'Success', data: NotesData });
     } catch (error) {

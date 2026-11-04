@@ -10,21 +10,21 @@ This skill encodes the exact patterns and conventions used in this Vite + React 
 
 ## Quick Reference: What Goes Where
 
-| Task                    | Location                                                        |
-| ------------------------ | ---------------------------------------------------------------- |
-| New page/view             | `src/views/<area>/<page>/index.tsx`                              |
-| Route registration          | `src/routes/Router.tsx` (lazy + `Loadable`)                     |
-| Sidebar nav entry             | `src/layouts/full/vertical/sidebar/`                            |
-| Reusable UI component            | `src/components/<domain>/`                                    |
-| shadcn-style primitive              | `src/components/ui/`                                        |
-| Feature mock data                     | `src/api/<feature>/<feature>-data.ts`                       |
-| MSW request handlers                    | `src/api/mocks/handlers/mock-handlers.ts`                 |
-| SWR fetchers                              | `src/api/global-fetcher.ts`                             |
-| Feature state/context                       | `src/context/<feature>-context/`                       |
-| Shared types                                  | `src/types/apps/<feature>.ts`                        |
-| Custom hooks                                    | `src/hooks/`                                       |   |
-| Tailwind/global styles                              | `src/css/`                                     |
-| Theme (dark/light) context                            | `src/context/shadcntheme/`                   |
+| Task                       | Location                                    |
+| -------------------------- | ------------------------------------------- |
+| New page/view              | `src/views/<area>/<page>/index.tsx`         |
+| Route registration         | `src/routes/Router.tsx` (lazy + `Loadable`) |
+| Sidebar nav entry          | `src/layouts/full/vertical/sidebar/`        |
+| Reusable UI component      | `src/components/<domain>/`                  |
+| shadcn-style primitive     | `src/components/ui/`                        |
+| Feature mock data          | `src/api/<feature>/<feature>-data.ts`       |
+| MSW request handlers       | `src/api/mocks/handlers/mock-handlers.ts`   |
+| SWR fetchers               | `src/api/global-fetcher.ts`                 |
+| Feature state/context      | `src/context/<feature>-context/`            |
+| Shared types               | `src/types/apps/<feature>.ts`               |
+| Custom hooks               | `src/hooks/`                                |     |
+| Tailwind/global styles     | `src/css/`                                  |
+| Theme (dark/light) context | `src/context/shadcntheme/`                  |
 
 ## Adding a New Feature (6 Steps)
 
@@ -60,12 +60,10 @@ Use `recharts` (see `src/components/ui/chart.tsx` and `src/components/dashboards
 
 Match whichever icon package the file you're editing already imports.
 
-
-
 ## Code Conventions
 
 - Use `cn()` from `src/lib/utils.ts` for class merging — never concatenate className strings.
 - Path aliases `src/*` and `@/*` both resolve to `./src/*` — match the convention already used in the file you're editing.
-- `npm run build` runs `tsc` before `vite build`; type errors block the build.
-- `npm run lint` runs with `--max-warnings 0` — fix warnings, don't suppress them.
-- Package manager is **npm** (`package-lock.json`) — don't introduce pnpm/yarn/bun lockfiles or commands.
+- `pnpm build` runs `tsc` before `vite build`; type errors block the build.
+- `pnpm lint` runs Oxlint with `--max-warnings 0` — fix warnings, don't suppress them. Run `pnpm format:check` for Oxfmt formatting.
+- Package manager is **pnpm** (`pnpm-lock.yaml`) — don't introduce npm/yarn/bun lockfiles or commands.

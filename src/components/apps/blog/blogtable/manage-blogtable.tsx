@@ -1,5 +1,4 @@
-
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -8,45 +7,48 @@ import {
   flexRender,
   getPaginationRowModel,
   createColumnHelper,
-} from "@tanstack/react-table";
-import { Pen, Trash2, ChevronUp, ChevronDown, ChevronsUpDown, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Switch } from "@/components/ui/switch";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from '@tanstack/react-table';
 import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipProvider,
-  TooltipContent,
-} from "@/components/ui/tooltip";
+  Pen,
+  Trash2,
+  ChevronUp,
+  ChevronDown,
+  ChevronsUpDown,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Switch } from '@/components/ui/switch';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Tooltip, TooltipTrigger, TooltipProvider, TooltipContent } from '@/components/ui/tooltip';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SearchIcon } from "lucide-react";
-import { BlogContext } from "src/context/blog-context";
-import { BlogPostType } from "src/types/apps/blog";
-import { useNavigate } from "react-router";
-import PlaceholdersInput from "src/components/animated-components/animatedinput-placeholder";
+} from '@/components/ui/dialog';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { SearchIcon } from 'lucide-react';
+import { BlogContext } from 'src/context/blog-context';
+import { BlogPostType } from 'src/types/apps/blog';
+import { useNavigate } from 'react-router';
+import PlaceholdersInput from 'src/components/animated-components/animatedinput-placeholder';
 
 const ManageBlogTable = () => {
   const { posts } = useContext(BlogContext);
   const [tableData, setTableData] = useState<BlogPostType[]>([]);
-  const [globalFilter, setGlobalFilter] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
+  const [globalFilter, setGlobalFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState<string>('');
   const [rowSelection, setRowSelection] = useState({});
   const [showSearch, setShowSearch] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -67,35 +69,31 @@ const ManageBlogTable = () => {
 
   const columns = [
     columnHelper.display({
-      id: "select",
+      id: 'select',
       header: ({ table }) => (
         <Checkbox
           checked={table.getIsAllPageRowsSelected()}
-          onCheckedChange={(checked) =>
-            table.toggleAllPageRowsSelected(checked === true)
-
-          }
-          className={"cursor-pointer"}
+          onCheckedChange={(checked) => table.toggleAllPageRowsSelected(checked === true)}
+          className={'cursor-pointer'}
         />
       ),
       cell: ({ row }) => (
         <Checkbox
           checked={!!row.getIsSelected()}
           onCheckedChange={(checked) => row.toggleSelected(checked === true)}
-          className={"cursor-pointer"}
-
+          className={'cursor-pointer'}
         />
       ),
     }),
-    columnHelper.accessor("title", {
-      header: "Title",
+    columnHelper.accessor('title', {
+      header: 'Title',
       cell: (info) => {
         const { title, coverImg } = info.row.original;
         return (
           <div className="flex items-center gap-2">
             <img
-              src={coverImg || ""}
-              alt={title || ""}
+              src={coverImg || ''}
+              alt={title || ''}
               className="w-12 h-9 object-cover rounded"
               width={48}
               height={36}
@@ -107,23 +105,24 @@ const ManageBlogTable = () => {
         );
       },
     }),
-    columnHelper.accessor("category", {
-      header: "Category",
+    columnHelper.accessor('category', {
+      header: 'Category',
       cell: (info) => {
-        const category = info.getValue() ?? "Unknown";
+        const category = info.getValue() ?? 'Unknown';
 
         const categoryColors: Record<string, string> = {
-          Design: "bg-chart-2/12! text-chart-2!",
-          Lifestyle: "bg-chart-4/12! text-chart-4!",
-          Gadget: "bg-primary/5! text-primary!",
-          Social: "bg-destructive/12! text-destructive!",
-          Health: "bg-chart-5/12! text-chart-5!",
+          Design: 'bg-chart-2/12! text-chart-2!',
+          Lifestyle: 'bg-chart-4/12! text-chart-4!',
+          Gadget: 'bg-primary/5! text-primary!',
+          Social: 'bg-destructive/12! text-destructive!',
+          Health: 'bg-chart-5/12! text-chart-5!',
         };
 
         return (
           <Badge
-            className={`text-xs font-medium ${categoryColors[category] ?? "bg-muted text-muted-foreground"
-              }`}
+            className={`text-xs font-medium ${
+              categoryColors[category] ?? 'bg-muted text-muted-foreground'
+            }`}
             variant="secondary"
           >
             {category}
@@ -132,60 +131,57 @@ const ManageBlogTable = () => {
       },
     }),
     columnHelper.accessor((row) => row.author, {
-      id: "authorName",
-      header: "Author",
+      id: 'authorName',
+      header: 'Author',
       cell: (info) => (
         <div className="flex items-center gap-2 whitespace-nowrap ">
           <Avatar>
-            <AvatarImage
-              src={info.getValue()?.avatar}
-              alt={info.getValue()?.name}
-            />
+            <AvatarImage src={info.getValue()?.avatar} alt={info.getValue()?.name} />
             <AvatarFallback>{info?.getValue()?.name}</AvatarFallback>
           </Avatar>
           <p className="text-sm font-medium ">{info.getValue()?.name}</p>
         </div>
       ),
     }),
-    columnHelper.accessor("createdAt", {
-      header: "Created At",
+    columnHelper.accessor('createdAt', {
+      header: 'Created At',
       cell: (info) => {
         const dateValue = info.getValue();
-        return (
-          <span>
-            {dateValue ? new Date(dateValue).toLocaleDateString() : "—"}
-          </span>
-        );
+        return <span>{dateValue ? new Date(dateValue).toLocaleDateString() : '—'}</span>;
       },
     }),
-    columnHelper.accessor("published", {
-      header: "published",
+    columnHelper.accessor('published', {
+      header: 'published',
       cell: ({ row }) => {
         const postId = row.original.id;
         const published = row.original.published;
 
         const togglePublished = () => {
           const updatedData = tableData.map((item) =>
-            item.id === postId ? { ...item, published: !item.published } : item
+            item.id === postId ? { ...item, published: !item.published } : item,
           );
           setTableData(updatedData);
         };
 
         return (
           <>
-            <Switch checked={published} onCheckedChange={togglePublished} className={"cursor-pointer"} />
+            <Switch
+              checked={published}
+              onCheckedChange={togglePublished}
+              className={'cursor-pointer'}
+            />
           </>
         );
       },
     }),
     columnHelper.display({
-      id: "actions",
-      header: "Actions",
+      id: 'actions',
+      header: 'Actions',
       cell: ({ row }) => {
         const { id } = row.original;
 
         const handleEdit = () => {
-          navigate("/apps/blog/edit");
+          navigate('/apps/blog/edit');
         };
 
         const handleRowDelete = () => {
@@ -209,9 +205,9 @@ const ManageBlogTable = () => {
                 <TooltipTrigger>
                   <Button
                     onClick={handleEdit}
-                    size={"sm"}
-                    variant={"outline"}
-                    className={"h-8! w-8! rounded-md! hover:bg-primary/5 bg-background"}
+                    size={'sm'}
+                    variant={'outline'}
+                    className={'h-8! w-8! rounded-md! hover:bg-primary/5 bg-background'}
                   >
                     <Pen size={18} />
                   </Button>
@@ -221,10 +217,12 @@ const ManageBlogTable = () => {
               <Tooltip>
                 <TooltipTrigger>
                   <Button
-                    size={"sm"}
+                    size={'sm'}
                     onClick={handleRowDelete}
-                    variant={"outline"}
-                    className={"h-8! w-8! rounded-md! text-destructive! bg-background hover:bg-destructive/5"}
+                    variant={'outline'}
+                    className={
+                      'h-8! w-8! rounded-md! text-destructive! bg-background hover:bg-destructive/5'
+                    }
                   >
                     <Trash2 size={18} />
                   </Button>
@@ -253,9 +251,7 @@ const ManageBlogTable = () => {
     onRowSelectionChange: setRowSelection,
     onPaginationChange: setPagination,
     globalFilterFn: (row, columnId, filterValue: string) => {
-      return String(row.getValue(columnId))
-        .toLowerCase()
-        .includes(filterValue.toLowerCase());
+      return String(row.getValue(columnId)).toLowerCase().includes(filterValue.toLowerCase());
     },
   });
 
@@ -265,14 +261,10 @@ const ManageBlogTable = () => {
     if (actionDeleteId) {
       selectedIds = [actionDeleteId];
     } else {
-      selectedIds = table
-        .getSelectedRowModel()
-        .rows.map((row) => String(row.original.id));
+      selectedIds = table.getSelectedRowModel().rows.map((row) => String(row.original.id));
     }
 
-    const newData = tableData.filter(
-      (item) => !selectedIds.includes(String(item.id))
-    );
+    const newData = tableData.filter((item) => !selectedIds.includes(String(item.id)));
 
     setTableData(newData);
     setRowSelection({});
@@ -293,15 +285,8 @@ const ManageBlogTable = () => {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Button
-                      size={"sm"}
-                      onClick={() => setShowSearch(true)}
-                      variant={"ghost"}
-                    >
-
-                      <SearchIcon size={16}
-
-                      />
+                    <Button size={'sm'} onClick={() => setShowSearch(true)} variant={'ghost'}>
+                      <SearchIcon size={16} />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>Search</TooltipContent>
@@ -315,40 +300,41 @@ const ManageBlogTable = () => {
                 onBlur={() => {
                   if (!globalFilter) setShowSearch(false);
                 }}
-                placeholders={[
-                  "Search blogs...",
-                  "Find top blogs...",
-                  "Look up blogs...",
-                ]}
+                placeholders={['Search blogs...', 'Find top blogs...', 'Look up blogs...']}
               />
             )}
             {/* Category Filter */}
             <Select
               value={categoryFilter}
               onValueChange={(value) => {
-                setCategoryFilter(value || "");
-                table.getColumn("category")?.setFilterValue(value);
+                setCategoryFilter(value || '');
+                table.getColumn('category')?.setFilterValue(value);
               }}
             >
-              <SelectTrigger className={"cursor-pointer"}>
-                <SelectValue>
-                  {categoryFilter ? categoryFilter : "All Categories"}
-                </SelectValue>
+              <SelectTrigger className={'cursor-pointer'}>
+                <SelectValue>{categoryFilter ? categoryFilter : 'All Categories'}</SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem className={"cursor-pointer"} value="Design">Design</SelectItem>
-                <SelectItem className={"cursor-pointer"} value="Lifestyle">Lifestyle</SelectItem>
-                <SelectItem className={"cursor-pointer"} value="Gadget">Gadget</SelectItem>
-                <SelectItem className={"cursor-pointer"} value="Social">Social</SelectItem>
-                <SelectItem className={"cursor-pointer"} value="Health">Health</SelectItem>
+                <SelectItem className={'cursor-pointer'} value="Design">
+                  Design
+                </SelectItem>
+                <SelectItem className={'cursor-pointer'} value="Lifestyle">
+                  Lifestyle
+                </SelectItem>
+                <SelectItem className={'cursor-pointer'} value="Gadget">
+                  Gadget
+                </SelectItem>
+                <SelectItem className={'cursor-pointer'} value="Social">
+                  Social
+                </SelectItem>
+                <SelectItem className={'cursor-pointer'} value="Health">
+                  Health
+                </SelectItem>
               </SelectContent>
             </Select>
             {/* Bulk delete button */}
             {table.getIsAllPageRowsSelected() && (
-              <Button
-                variant="destructive"
-                onClick={() => setShowConfirm(true)}
-              >
+              <Button variant="destructive" onClick={() => setShowConfirm(true)}>
                 <Trash2 size={18} />
               </Button>
             )}
@@ -364,30 +350,22 @@ const ManageBlogTable = () => {
                   {table.getHeaderGroups().map((headerGroup) => (
                     <tr key={headerGroup.id}>
                       {headerGroup.headers.map((header) => (
-                        <th
-                          key={header.id}
-                          className="px-4 py-2 border-b  text-left  "
-                        >
+                        <th key={header.id} className="px-4 py-2 border-b  text-left  ">
                           {header.isPlaceholder ? null : (
                             <div
                               className={
-                                header.column.getCanSort()
-                                  ? "cursor-pointer select-none"
-                                  : ""
+                                header.column.getCanSort() ? 'cursor-pointer select-none' : ''
                               }
                               onClick={header.column.getToggleSortingHandler()}
                             >
                               <div className="flex items-center gap-1 text-sm font-semibold">
-                                {flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext()
-                                )}
+                                {flexRender(header.column.columnDef.header, header.getContext())}
                                 {header.column.getCanSort() && (
                                   <>
-                                    {header.column.getIsSorted() === "asc" && (
+                                    {header.column.getIsSorted() === 'asc' && (
                                       <ChevronUp size={14} />
                                     )}
-                                    {header.column.getIsSorted() === "desc" && (
+                                    {header.column.getIsSorted() === 'desc' && (
                                       <ChevronDown size={14} />
                                     )}
                                     {header.column.getIsSorted() === false && (
@@ -424,10 +402,7 @@ const ManageBlogTable = () => {
                       <tr key={row.id} className="border-b last:border-b-0 ">
                         {row.getVisibleCells().map((cell) => (
                           <td key={cell.id} className="px-4 py-2">
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
                           </td>
                         ))}
                       </tr>
@@ -467,14 +442,15 @@ const ManageBlogTable = () => {
                 <div>
                   <p className="text-sm font-normal text-muted-foreground">
                     {table.getRowModel().rows.length > 0
-                      ? `${table.getState().pagination.pageIndex *
-                      table.getState().pagination.pageSize +
-                      1
-                      }-${Math.min(
-                        (table.getState().pagination.pageIndex + 1) *
-                        table.getState().pagination.pageSize,
-                        table.getFilteredRowModel().rows.length
-                      )} of ${table.getFilteredRowModel().rows.length}`
+                      ? `${
+                          table.getState().pagination.pageIndex *
+                            table.getState().pagination.pageSize +
+                          1
+                        }-${Math.min(
+                          (table.getState().pagination.pageIndex + 1) *
+                            table.getState().pagination.pageSize,
+                          table.getFilteredRowModel().rows.length,
+                        )} of ${table.getFilteredRowModel().rows.length}`
                       : `0 of 0`}
                   </p>
                 </div>
@@ -482,10 +458,11 @@ const ManageBlogTable = () => {
                 <div className="flex items-center gap-2">
                   <ChevronLeft
                     size={20}
-                    className={`text-muted-foreground hover:text-primary cursor-pointer ${table.getState().pagination.pageIndex === 0
-                      ? "opacity-50 cursor-not-allowed!"
-                      : ""
-                      }`}
+                    className={`text-muted-foreground hover:text-primary cursor-pointer ${
+                      table.getState().pagination.pageIndex === 0
+                        ? 'opacity-50 cursor-not-allowed!'
+                        : ''
+                    }`}
                     onClick={() => table.previousPage()}
                   />
                   <span className="w-8 h-8 text-primary flex items-center justify-center rounded-md  text-sm font-normal">
@@ -493,14 +470,14 @@ const ManageBlogTable = () => {
                   </span>
                   <ChevronRight
                     size={20}
-                    className={`text-muted-foreground hover:text-primary cursor-pointer ${table.getState().pagination.pageIndex + 1 ===
-                      table.getPageCount()
-                      ? "opacity-50 cursor-not-allowed!"
-                      : ""
-                      }`}
+                    className={`text-muted-foreground hover:text-primary cursor-pointer ${
+                      table.getState().pagination.pageIndex + 1 === table.getPageCount()
+                        ? 'opacity-50 cursor-not-allowed!'
+                        : ''
+                    }`}
                     onClick={() =>
-                      table.getState().pagination.pageIndex + 1 <
-                      table.getPageCount() && table.nextPage()
+                      table.getState().pagination.pageIndex + 1 < table.getPageCount() &&
+                      table.nextPage()
                     }
                   />
                 </div>
@@ -520,14 +497,11 @@ const ManageBlogTable = () => {
               <DialogFooter className="flex justify-center gap-4">
                 <Button
                   onClick={handleDelete}
-                  className={"bg-primary/5 text-primary hover:bg-primary/30 "}
+                  className={'bg-primary/5 text-primary hover:bg-primary/30 '}
                 >
                   Yes, Delete
                 </Button>
-                <Button
-                  variant="destructive"
-                  onClick={() => setShowConfirm(false)}
-                >
+                <Button variant="destructive" onClick={() => setShowConfirm(false)}>
                   Cancel
                 </Button>
               </DialogFooter>

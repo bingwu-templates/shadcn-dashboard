@@ -1,6 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Link } from "react-router";
-
+import { Card } from '@/components/ui/card';
+import { Link } from 'react-router';
 
 interface BreadcrumbItem {
   to?: string;
@@ -16,15 +15,10 @@ interface BreadCrumbType {
 const BreadcrumbComp = ({ title }: BreadCrumbType) => {
   return (
     <>
-      <Card
-        className={`py-5 px-6 bg-background  overflow-hidden rounded-xl border`}
-      >
+      <Card className={`py-5 px-6 bg-background  overflow-hidden rounded-xl border`}>
         <div className="flex items-center justify-between gap-6 relative">
           <h4 className="font-semibold text-xl text-forground">{title}</h4>
-          <ol
-            className="flex items-center whitespace-nowrap"
-            aria-label="Breadcrumb"
-          >
+          <ol className="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
             <li className="flex items-center">
               <Link className="text-forground text-sm  leading-none" to="/">
                 Home

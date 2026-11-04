@@ -1,18 +1,12 @@
+import { format } from 'date-fns';
+import { Circle, Eye, MessageSquare } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { Link } from 'react-router';
 
-import { format } from "date-fns";
-import { Circle, Eye, MessageSquare } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { Link } from "react-router";
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { BlogPostType } from "src/types/apps/blog";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { BlogPostType } from 'src/types/apps/blog';
 
 interface Btype {
   post: BlogPostType;
@@ -22,27 +16,24 @@ const BlogCard = ({ post }: Btype) => {
   const { coverImg, title, view, comments, category, author, createdAt } = post;
   const linkTo = title
     ? title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "")
-    : "";
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+    : '';
   return (
     <>
       <div className="lg:col-span-4 md:col-span-6 col-span-12 ">
         <Card className="py-0! group card-hover h-full gap-2!">
-          <Link to={`/apps/blog/detail/${linkTo}`} >
+          <Link to={`/apps/blog/detail/${linkTo}`}>
             <div className="relative overflow-hidden">
               <div className="overflow-hidden! h-[240px]">
                 <img
-                  src={coverImg || ""}
+                  src={coverImg || ''}
                   alt="shadcn-admin"
                   className="w-full h-full object-cover object-center transition-transform duration-200 group-hover:scale-[1.09] overflow-hidden!"
                 />
               </div>
-              <Badge
-
-                className="absolute bottom-8 end-6 bg-muted text-muted-foreground"
-              >
+              <Badge className="absolute bottom-8 end-6 bg-muted text-muted-foreground">
                 2 min Read
               </Badge>
             </div>
@@ -63,15 +54,10 @@ const BlogCard = ({ post }: Btype) => {
             </div>
           </div>
           <div className="px-6 pb-6">
-            <Badge className="mt-3 rounded-md bg-muted text-muted-foreground">
-              {category}
-            </Badge>
+            <Badge className="mt-3 rounded-md bg-muted text-muted-foreground">{category}</Badge>
             <h5 className="text-xl py-6 group-hover:text-primary">
-              <Link
-                to={`/apps/blog/detail/${linkTo}`}
-                className="line-clamp-2"
-              >
-                {" "}
+              <Link to={`/apps/blog/detail/${linkTo}`} className="line-clamp-2">
+                {' '}
                 {title}
               </Link>
             </h5>
@@ -86,14 +72,11 @@ const BlogCard = ({ post }: Btype) => {
                 </div>
                 <div className="ms-auto flex gap-2 items-center  text-sm">
                   <Circle size={7} />
-                  <small>
-                    {createdAt ? format(new Date(createdAt), "E, MMM d") : ""}
-                  </small>
+                  <small>{createdAt ? format(new Date(createdAt), 'E, MMM d') : ''}</small>
                 </div>
               </div>
             </div>
           </div>
-
         </Card>
       </div>
     </>

@@ -1,12 +1,9 @@
-import IconifyIcon from "src/components/icons/iconify-icons";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import IconifyIcon from 'src/components/icons/iconify-icons';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Iconify Icons" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Iconify Icons' }];
 
 const page = () => {
   return (

@@ -1,13 +1,12 @@
+import { useContext } from 'react';
+import { orderBy } from 'lodash';
 
-import { useContext } from "react";
-import { orderBy } from "lodash";
+import { BlogContext } from '../../../context/blog-context';
+import BlogFeaturedCard from './blog-featuredcard';
 
-import { BlogContext } from "../../../context/blog-context";
-import BlogFeaturedCard from "./blog-featuredcard";
-
-import BlogCard from "./blog-card";
-import { BlogPostType } from "src/types/apps/blog";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
+import BlogCard from './blog-card';
+import { BlogPostType } from 'src/types/apps/blog';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 
 const BlogListing = () => {
   const { posts, sortBy } = useContext(BlogContext);
@@ -16,12 +15,12 @@ const BlogListing = () => {
   const filterBlogs = (posts: BlogPostType[], sortBy: string) => {
     let filteredPosts = [...posts];
 
-    if (sortBy === "newest") {
-      filteredPosts = orderBy(filteredPosts, ["createdAt"], ["desc"]);
-    } else if (sortBy === "oldest") {
-      filteredPosts = orderBy(filteredPosts, ["createdAt"], ["asc"]);
-    } else if (sortBy === "popular") {
-      filteredPosts = orderBy(filteredPosts, ["view"], ["desc"]);
+    if (sortBy === 'newest') {
+      filteredPosts = orderBy(filteredPosts, ['createdAt'], ['desc']);
+    } else if (sortBy === 'oldest') {
+      filteredPosts = orderBy(filteredPosts, ['createdAt'], ['asc']);
+    } else if (sortBy === 'popular') {
+      filteredPosts = orderBy(filteredPosts, ['view'], ['desc']);
     }
 
     // Filter out featured posts
@@ -39,7 +38,8 @@ const BlogListing = () => {
   return (
     <StyleAwareWrapper
       lyraClassName="grid grid-cols-12 gap-px"
-      defaultClassName="grid grid-cols-12 gap-6">
+      defaultClassName="grid grid-cols-12 gap-6"
+    >
       {featuredPosts.map((post, index) => {
         return <BlogFeaturedCard index={index} post={post} key={post.id} />;
       })}

@@ -1,4 +1,3 @@
-
 import { Chance } from 'chance';
 import { TicketType } from 'src/types/apps/ticket';
 import { http, HttpResponse } from 'msw';
@@ -111,8 +110,7 @@ let TicketData: TicketType[] = [
     Date: chance.date(),
     deleted: false,
   },
-]
-
+];
 
 export const TicketHandlers = [
   // Mock GET request to retrieve Ticket data

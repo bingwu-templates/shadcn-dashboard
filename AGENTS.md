@@ -17,8 +17,8 @@ This file provides essential information for AI coding agents working on this pr
 - **Data fetching / mocking**: `swr` for fetching, `msw` for mocked API responses
 - **Charts**: `recharts` (the only charting library in the project)
 - **Icons**: `lucide-react` and `@iconify/react` are the two icon packages in use
-- **Build Output**: `npm run build` generates static assets in `dist/`
-- **Package Manager**: npm (`package-lock.json` is the lockfile of record)
+- **Build Output**: `pnpm build` generates static assets in `dist/`
+- **Package Manager**: pnpm 10.34.4 (`pnpm-lock.yaml` is the lockfile of record)
 
 There is no backend in this repo. All "API" calls go through mock handlers (`msw`) backed by static data in `src/api/*/**-data.ts`.
 
@@ -74,22 +74,26 @@ There is no backend in this repo. All "API" calls go through mock handlers (`msw
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Development server (http://localhost:5173)
-npm run dev
+pnpm dev
 
 # Type-check + production build
-npm run build
+pnpm build
 
 # Preview the production build
-npm run preview
+pnpm preview
 
-# Lint (ESLint, must pass with zero warnings)
-npm run lint
+# Lint (Oxlint, must pass with zero warnings)
+pnpm lint
+
+# Format supported project files / check formatting without writing
+pnpm format
+pnpm format:check
 ```
 
-`npm run build` runs `tsc` before `vite build` — TypeScript errors fail the build, not just lint. Always run `npm run lint` before considering frontend changes done.
+`pnpm build` runs `tsc` before `vite build` — TypeScript errors fail the build, not just lint. Always run `pnpm lint` and `pnpm format:check` before considering frontend changes done. Use `pnpm install --frozen-lockfile` for reproducible installs.
 
 ---
 
@@ -136,23 +140,26 @@ When adding a new feature that needs data, mirror the blog/notes/ticket pattern:
 ## TypeScript & Path Aliases
 
 - Both `src/*` and `@/*` alias to `./src/*` (see `vite.config.ts` and `tsconfig.json`). Existing files use a mix of `src/...` and `@/...` imports — match whichever convention the file you're editing already uses.
-- `npm run build` type-checks the whole project with `tsc` first; don't rely on Vite dev-server transpilation alone to catch type errors.
+- `pnpm build` type-checks the whole project with `tsc` first; don't rely on Vite dev-server transpilation alone to catch type errors.
 
 ---
 
 ## Linting
 
-ESLint 10 uses `eslint.config.js` (flat config):
+Oxlint uses `oxlint.config.ts`:
 
-- Applies the ESLint and TypeScript recommended rules, plus React hooks rules and exhaustive-deps checks
-- `react-refresh/only-export-components` is a warning
-- `npm run lint` runs with `--max-warnings 0` — treat warnings as build-breaking
+- Preserves the previous ESLint and TypeScript recommended rule selection for TS/TSX, plus the two React Hooks checks; other default Oxlint rules are disabled
+- Uses native TypeScript, Hooks, and React Refresh rules; `react/only-export-components` remains a warning with directory-specific export exceptions
+- Omits the unavailable `no-octal` rule by explicit project choice; ESLint and its plugins are removed. Use Oxlint's `jsPlugins` for future plugins without native equivalents
+- `pnpm lint` rejects unused suppression directives and runs with `--max-warnings 0` — treat warnings as build-breaking
+
+Oxfmt uses `oxfmt.config.ts`. Preserve the existing style and keep import, package field, and Tailwind class sorting disabled. Generated files, lockfiles, and SVG artwork are excluded. Use `pnpm format` to format files and `pnpm format:check` to verify them.
 
 ---
 
 ## Build Output
 
-`npm run build` generates static assets in `dist/`; use `npm run preview` to preview them locally. Hosting configuration is not included. A future host must serve `/index.html` for unmatched paths so client-side routes work on direct navigation and refresh.
+`pnpm build` generates static assets in `dist/`; use `pnpm preview` to preview them locally. Hosting configuration is not included. A future host must serve `/index.html` for unmatched paths so client-side routes work on direct navigation and refresh.
 
 ---
 
@@ -163,9 +170,9 @@ ESLint 10 uses `eslint.config.js` (flat config):
 3. **Match existing import conventions** — check sibling files in `views`/`components` for path alias style (`src/...` vs `@/...`) and icon package before adding new code.
 4. **Icons**: prefer `lucide-react` or `@iconify/react`, matching whichever the file already uses.
 5. **Mock data first** — new features should follow the mock-data + MSW-handler + context pattern in `src/api/`, not fetch a real endpoint, unless one already exists.
-6. **Package manager is npm** — use `npm install`/`npm run <script>`; don't reintroduce pnpm/yarn/bun lockfiles or commands.
-7. **Type errors block the build** — `npm run build` runs `tsc` before `vite build`, so don't leave `any`-typed shortcuts assuming the dev server alone will catch problems.
-8. **Lint must be clean** — `npm run lint` uses `--max-warnings 0`; fix warnings, don't suppress them with disable comments unless justified.
+6. **Package manager is pnpm** — use `pnpm install`/`pnpm <script>`; keep `pnpm-lock.yaml` and do not introduce npm/yarn/bun lockfiles.
+7. **Type errors block the build** — `pnpm build` runs `tsc` before `vite build`, so don't leave `any`-typed shortcuts assuming the dev server alone will catch problems.
+8. **Lint and formatting must be clean** — `pnpm lint` uses `--max-warnings 0`; fix warnings, don't suppress them with disable comments unless justified. Also run `pnpm format:check`.
 
 ---
 

@@ -1,14 +1,12 @@
+import { Circle, Eye, MessageSquare } from 'lucide-react';
+import { format } from 'date-fns';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { useEffect, useContext } from 'react';
 
-
-import { Circle, Eye, MessageSquare } from "lucide-react";
-import { format } from "date-fns";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { useEffect, useContext } from "react";
-
-import { Link } from "react-router";
-import { BlogContext, BlogContextProps } from "src/context/blog-context";
-import { BlogPostType } from "src/types/apps/blog";
+import { Link } from 'react-router';
+import { BlogContext, BlogContextProps } from 'src/context/blog-context';
+import { BlogPostType } from 'src/types/apps/blog';
 
 interface Btype {
   post: BlogPostType;
@@ -18,10 +16,10 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
   const { coverImg, title, view, comments, category, author, createdAt } = post;
   const linkTo = title
     ? title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "")
-    : "";
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+    : '';
   const mainPost = index === 0;
   const { setLoading }: BlogContextProps = useContext(BlogContext);
   useEffect(() => {
@@ -35,17 +33,14 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
   return (
     <>
       {post ? (
-        <div
-          className={`lg:col-span-${mainPost ? 8 : 4
-            } md:col-span-12 col-span-12`}
-        >
+        <div className={`lg:col-span-${mainPost ? 8 : 4} md:col-span-12 col-span-12`}>
           <div className="w-full h-[400px] p-0 overflow-hidden flex-row shadow-none relative group transition-shadow duration-300 ease-in-out">
             {/* Background Image */}
 
             <div className="absolute inset-0">
               <img
-                src={coverImg || ""}
-                alt={title || "blog image"}
+                src={coverImg || ''}
+                alt={title || 'blog image'}
                 className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.09]"
                 width={786}
                 height={400}
@@ -59,11 +54,9 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
                   <div className="flex justify-between items-center">
                     <Avatar className="h-10 w-10">
                       <AvatarImage src={author?.avatar} alt={author?.name} />
-                      <AvatarFallback>
-                        {author?.name ? author.name[0] : "?"}
-                      </AvatarFallback>
+                      <AvatarFallback>{author?.name ? author.name[0] : '?'}</AvatarFallback>
                     </Avatar>
-                    <Badge  >{category}</Badge>
+                    <Badge>{category}</Badge>
                   </div>
                   <div>
                     <h2 className="text-2xl text-white my-6">
@@ -74,16 +67,11 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
                         <Eye size={18} /> {view}
                       </div>
                       <div className="flex gap-2 items-center text-white text-sm">
-                        <MessageSquare size={18} />{" "}
-                        {comments?.length}
+                        <MessageSquare size={18} /> {comments?.length}
                       </div>
                       <div className="ms-auto flex gap-2 items-center text-white text-sm">
                         <Circle size={7} />
-                        <small>
-                          {createdAt
-                            ? format(new Date(createdAt), "E, MMM d")
-                            : ""}
-                        </small>
+                        <small>{createdAt ? format(new Date(createdAt), 'E, MMM d') : ''}</small>
                       </div>
                     </div>
                   </div>

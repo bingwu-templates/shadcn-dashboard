@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "src/context/shadcntheme/ThemeContext";
+import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'src/context/shadcntheme/ThemeContext';
 
 const LightDark = () => {
   const { theme: activeMode, setTheme: setActiveMode } = useTheme();
@@ -13,7 +13,7 @@ const LightDark = () => {
 
   const toggleTheme = async () => {
     const toggleMode = () => {
-      setActiveMode(activeMode === "light" ? "dark" : "light");
+      setActiveMode(activeMode === 'light' ? 'dark' : 'light');
     };
 
     if (!document.startViewTransition) {
@@ -29,13 +29,13 @@ const LightDark = () => {
 
     document.documentElement.animate(
       {
-        clipPath: ["inset(0 0 100% 0)", "inset(0)"],
+        clipPath: ['inset(0 0 100% 0)', 'inset(0)'],
       },
       {
         duration: 800,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      }
+        easing: 'ease-in-out',
+        pseudoElement: '::view-transition-new(root)',
+      },
     );
   };
 
@@ -47,7 +47,7 @@ const LightDark = () => {
   return (
     <div>
       {/* Theme Toggle */}
-      {activeMode === "light" ? (
+      {activeMode === 'light' ? (
         <Button
           variant="ghost"
           className=" h-10 w-10  hover:bg-primary/5  rounded-full cursor-pointer"
@@ -70,5 +70,3 @@ const LightDark = () => {
 };
 
 export default LightDark;
-
-

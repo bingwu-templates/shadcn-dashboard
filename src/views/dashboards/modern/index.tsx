@@ -1,13 +1,13 @@
-import AdvertisementCost from "@/components/dashboards/modern/advertisement-cost";
-import OverviewTab from "@/components/dashboards/modern/overview-tab";
-import TotalOrders from "@/components/dashboards/modern/total-orders";
-import TotalProfit from "@/components/dashboards/modern/total-profit";
-import TotalSales from "@/components/dashboards/modern/total-sales";
-import UpdateBanner from "@/components/dashboards/modern/update-banner"
-import TotalAssets from "@/components/dashboards/modern/totals-assets";
-import ProjectsOrders from "src/components/dashboards/modern/projects-orders";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import AdvertisementCost from '@/components/dashboards/modern/advertisement-cost';
+import OverviewTab from '@/components/dashboards/modern/overview-tab';
+import TotalOrders from '@/components/dashboards/modern/total-orders';
+import TotalProfit from '@/components/dashboards/modern/total-profit';
+import TotalSales from '@/components/dashboards/modern/total-sales';
+import UpdateBanner from '@/components/dashboards/modern/update-banner';
+import TotalAssets from '@/components/dashboards/modern/totals-assets';
+import ProjectsOrders from 'src/components/dashboards/modern/projects-orders';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
 const page = () => {
   return (

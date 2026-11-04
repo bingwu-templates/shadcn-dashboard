@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { lazy } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
@@ -7,7 +5,6 @@ import Loadable from '../layouts/full/shared/loadable/Loadable';
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
-
 
 // dashboards
 
@@ -73,7 +70,6 @@ const Router = [
 
       { path: '/icons/iconify', element: <SolarIcon /> },
 
-    
       { path: '*', element: <Navigate to="/auth/404" /> },
     ],
   },

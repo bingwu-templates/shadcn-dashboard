@@ -1,13 +1,10 @@
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import { BlogProvider } from "src/context/blog-context";
-import ManageBlogTable from "@/components/apps/blog/blogtable/manage-blogtable";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import { BlogProvider } from 'src/context/blog-context';
+import ManageBlogTable from '@/components/apps/blog/blogtable/manage-blogtable';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Manage Blog" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Manage Blog' }];
 
 const MangeBlog = () => {
   return (

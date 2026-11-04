@@ -1,6 +1,4 @@
-
-import Notelist from "./notes-list";
-
+import Notelist from './notes-list';
 
 const NotesSidebar = () => {
   return (

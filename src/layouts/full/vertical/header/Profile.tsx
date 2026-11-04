@@ -1,25 +1,21 @@
-
-
 import {
   Sheet,
   SheetTrigger,
   SheetContent,
   SheetFooter,
   SheetClose,
-} from "src/components/ui/sheet";
-import { Avatar, AvatarImage, AvatarFallback } from "src/components/ui/avatar";
-import { Button } from "src/components/ui/button";
-import { Icon } from "@iconify/react";
+} from 'src/components/ui/sheet';
+import { Avatar, AvatarImage, AvatarFallback } from 'src/components/ui/avatar';
+import { Button } from 'src/components/ui/button';
+import { Icon } from '@iconify/react';
 
-import { cn } from "src/lib/utils";
+import { cn } from 'src/lib/utils';
 import { Mailbox } from 'lucide-react';
 
-import { profileDD } from "./data";
-import { Link } from "react-router";
+import { profileDD } from './data';
+import { Link } from 'react-router';
 import avatar from '@/assets/images/profile/avtar.webp';
 export default function ProfileSheet() {
-
-
   return (
     <Sheet>
       {/* Trigger Button */}
@@ -43,21 +39,14 @@ export default function ProfileSheet() {
         <div className="p-6 py-6">
           <div className="flex flex-col gap-4 justify-center items-center pt-10">
             <Avatar className="h-16 w-16">
-              <AvatarImage
-                src={avatar}
-                alt="Profile"
-                width={30}
-                height={30}
-              />
+              <AvatarImage src={avatar} alt="Profile" width={30} height={30} />
               <AvatarFallback>CM</AvatarFallback>
             </Avatar>
 
             <div className="text-center">
               <h6 className="text-lg font-semibold">Cameron</h6>
               <div className="flex items-center gap-2 justify-center">
-                <Mailbox
-                  size={18} className="text-muted-foreground"
-                />
+                <Mailbox size={18} className="text-muted-foreground" />
                 <span className="text-sm font-normal text-muted-foreground">
                   info@shadcndashboard.com
                 </span>
@@ -74,19 +63,13 @@ export default function ProfileSheet() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex gap-3 py-2 px-3 rounded-md group-hover:bg-primary/5 text-muted-foreground"
+                    'flex gap-3 py-2 px-3 rounded-md group-hover:bg-primary/5 text-muted-foreground',
                   )}
                 >
-                  <item.avatar
-                    width={20}
-                    height={20}
-                    className="group-hover:text-primary"
-                  />
+                  <item.avatar width={20} height={20} className="group-hover:text-primary" />
 
                   <div className="flex gap-3 items-center">
-                    <h6 className="text-sm group-hover:text-primary">
-                      {item.title}
-                    </h6>
+                    <h6 className="text-sm group-hover:text-primary">{item.title}</h6>
 
                     {item.badge && (
                       <span className="h-5 w-6 text-sm flex justify-center items-center text-primary rounded-sm bg-primary/5">

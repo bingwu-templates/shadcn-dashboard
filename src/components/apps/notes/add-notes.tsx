@@ -1,6 +1,4 @@
-
-
-import { useContext, useState } from "react";
+import { useContext, useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -8,11 +6,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
-import { NotesContext } from "@/context/notes-context/index";
+} from '@/components/ui/dialog';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
+import { NotesContext } from '@/context/notes-context/index';
 
 interface ColorOption {
   lineColor: string;
@@ -28,8 +26,8 @@ const AddNotes = ({ colors }: Props) => {
   const { addNote } = useContext(NotesContext);
 
   const [openNoteModal, setOpenNoteModal] = useState(false);
-  const [scolor, setScolor] = useState<string>("primary");
-  const [title, setTitle] = useState("");
+  const [scolor, setScolor] = useState<string>('primary');
+  const [title, setTitle] = useState('');
 
   const setColor = (color: string) => {
     setScolor(color);
@@ -43,7 +41,7 @@ const AddNotes = ({ colors }: Props) => {
       deleted: false,
     });
     setOpenNoteModal(false);
-    setTitle("");
+    setTitle('');
   };
 
   return (
@@ -72,16 +70,14 @@ const AddNotes = ({ colors }: Props) => {
                 onClick={() => setColor(color.disp)}
                 className={`h-7 w-7 flex justify-center items-center rounded-full cursor-pointer bg-${color.disp}`}
               >
-                {scolor === color.disp && (
-                  <Check size={18} className="text-white" />
-                )}
+                {scolor === color.disp && <Check size={18} className="text-white" />}
               </div>
             ))}
           </div>
         </div>
 
         <DialogFooter className="pt-4">
-          <Button disabled={!title} onClick={handleSave} >
+          <Button disabled={!title} onClick={handleSave}>
             Save
           </Button>
           <Button

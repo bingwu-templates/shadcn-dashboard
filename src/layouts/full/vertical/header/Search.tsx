@@ -1,15 +1,12 @@
-
-
-import { useState, useMemo } from "react";
+import { useState, useMemo } from 'react';
 import { Component, Search as SearchIcon } from 'lucide-react';
 
-import SimpleBar from "simplebar-react";
-import SidebarContent from "../../vertical/sidebar/sidebaritems";
-import type { ChildItem, MenuItem } from "../../vertical/sidebar/sidebaritems";
+import SimpleBar from 'simplebar-react';
+import SidebarContent from '../../vertical/sidebar/sidebaritems';
+import type { ChildItem, MenuItem } from '../../vertical/sidebar/sidebaritems';
 
-
-import { Input } from "@/components/ui/input";
-import { Link } from "react-router";
+import { Input } from '@/components/ui/input';
+import { Link } from 'react-router';
 
 interface SearchResult {
   name: string;
@@ -19,39 +16,37 @@ interface SearchResult {
 }
 
 // Recursive search through menu, shared across renders.
-const searchItems = (items: (MenuItem | ChildItem)[], q: string, parentPath = ""): SearchResult[] => {
-    let results: SearchResult[] = [];
+const searchItems = (
+  items: (MenuItem | ChildItem)[],
+  q: string,
+  parentPath = '',
+): SearchResult[] => {
+  let results: SearchResult[] = [];
 
-    items.forEach((item) => {
-      const currentPath = parentPath
-        ? `${parentPath} → ${item.name}`
-        : item.name;
+  items.forEach((item) => {
+    const currentPath = parentPath ? `${parentPath} → ${item.name}` : item.name;
 
-      // If match found
-      if (
-        item.name &&
-        item.url &&
-        item.name.toLowerCase().includes(q.toLowerCase())
-      ) {
-        results.push({
-          name: item.name,
-          url: item.url,
-          path: currentPath,
-          icon: item.icon,
-        });
-      }
+    // If match found
+    if (item.name && item.url && item.name.toLowerCase().includes(q.toLowerCase())) {
+      results.push({
+        name: item.name,
+        url: item.url,
+        path: currentPath,
+        icon: item.icon,
+      });
+    }
 
-      // Search deeper children
-      if (item.items) {
-        results = [...results, ...searchItems(item.items, q, currentPath)];
-      }
-    });
+    // Search deeper children
+    if (item.items) {
+      results = [...results, ...searchItems(item.items, q, currentPath)];
+    }
+  });
 
-    return results;
+  return results;
 };
 
 function Search() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   // Memoize filtered results
   const results = useMemo(() => {
@@ -62,7 +57,8 @@ function Search() {
   return (
     <div className="relative w-full">
       <div className="flex items-center relative w-xs mx-auto ">
-        <SearchIcon size={16}
+        <SearchIcon
+          size={16}
           className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
         />
         <Input
@@ -74,8 +70,9 @@ function Search() {
         />
       </div>
       <div
-        className={`absolute w-full bg-card rounded-md top-11 z-10 start-0 shadow-md border border-border ${query ? "block" : "hidden"
-          }`}
+        className={`absolute w-full bg-card rounded-md top-11 z-10 start-0 shadow-md border border-border ${
+          query ? 'block' : 'hidden'
+        }`}
       >
         <SimpleBar className="h-72 p-4 custom-scroll">
           {results.length > 0 ? (
@@ -83,27 +80,21 @@ function Search() {
               <Link
                 key={i}
                 to={item.url}
-                onClick={() => setQuery("")}
+                onClick={() => setQuery('')}
                 className="  p-2 mb-1.5 last:mb-0 flex items-center bg-input/30 gap-2 text-sm font-medium rounded-md hover:bg-primary/5 hover:text-primary w-full overflow-hidden"
               >
                 <div className="flex items-center">
                   <Component width={18} height={18} />
                   <div className="ps-3">
-                    <h5 className="mb-1 text-sm group-hover/link:text-primary">
-                      {item.name}
-                    </h5>
-                    <span className="text-xs block  truncate max-w-60">
-                      {item.url}
-                    </span>
+                    <h5 className="mb-1 text-sm group-hover/link:text-primary">{item.name}</h5>
+                    <span className="text-xs block  truncate max-w-60">{item.url}</span>
                   </div>
                 </div>
               </Link>
             ))
           ) : (
             <div className="flex items-center justify-center h-full">
-              <h1 className="text-medium font-medium ">
-                No Components Found!
-              </h1>
+              <h1 className="text-medium font-medium ">No Components Found!</h1>
             </div>
           )}
         </SimpleBar>

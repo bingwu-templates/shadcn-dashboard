@@ -1,12 +1,9 @@
-import TicketsApp from "src/components/apps/tickets";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import TicketsApp from 'src/components/apps/tickets';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Tickets" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Tickets' }];
 
 const Tickets = () => {
   return (

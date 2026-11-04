@@ -1,19 +1,14 @@
-
 import { Card } from 'src/components/ui/card';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco, vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { docco, vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { useTheme } from 'src/context/shadcntheme/ThemeContext';
-
-
-
 
 const SolarIcon = () => {
   const { theme } = useTheme();
-  const selectedStyle = theme === "dark" ? vs2015 : docco;
+  const selectedStyle = theme === 'dark' ? vs2015 : docco;
 
   return (
     <>
-
       <Card className="flex flex-col gap-3 p-6">
         <div className="space-y-2">
           <h6> Installation</h6>

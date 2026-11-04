@@ -1,8 +1,7 @@
-
-import React, { useContext, useState, useEffect } from "react";
-import { Check } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
-import { NotesContext } from "@/context/notes-context/index";
+import React, { useContext, useState, useEffect } from 'react';
+import { Check } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { NotesContext } from '@/context/notes-context/index';
 
 interface colorsType {
   lineColor: string;
@@ -10,28 +9,25 @@ interface colorsType {
   id: number;
 }
 
-
 const NoteContent = () => {
   const { notes, updateNote, selectedNoteId } = useContext(NotesContext);
   const noteDetails = notes.find((note) => note.id === selectedNoteId);
 
   // Initialize state for updatedTitle, initialTitle, and isEditing status
-  const [initialTitle, setInitialTitle] = useState("");
-  const [updatedTitle, setUpdatedTitle] = useState("");
+  const [initialTitle, setInitialTitle] = useState('');
+  const [updatedTitle, setUpdatedTitle] = useState('');
   const [isEditing, setIsEditing] = useState(false); // State to track whether editing is in progress
 
   // Effect to update initialTitle when noteDetails changes
   useEffect(() => {
     if (noteDetails) {
-      setInitialTitle(noteDetails.title ?? "");
-      setUpdatedTitle(noteDetails.title ?? "");
+      setInitialTitle(noteDetails.title ?? '');
+      setUpdatedTitle(noteDetails.title ?? '');
     }
   }, [noteDetails]);
 
   // Function to handle changes in the title text field
-  const handleTitleChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleTitleChange = (e: { target: { value: React.SetStateAction<string> } }) => {
     setUpdatedTitle(e.target.value);
     setIsEditing(true); // Set editing state to true when user starts editing
   };
@@ -46,17 +42,17 @@ const NoteContent = () => {
   const handleBlur = () => {
     setIsEditing(false); // Reset editing state when user finishes editing
     // Call updateNote to save changes with the current color
-    if (noteDetails && typeof noteDetails.color === "string") {
+    if (noteDetails && typeof noteDetails.color === 'string') {
       updateNote(selectedNoteId, updatedTitle, noteDetails.color);
     }
   };
 
   const colorvariation: colorsType[] = [
-    { id: 1, lineColor: "chart-4", disp: "chart-4" },
-    { id: 2, lineColor: "primary", disp: "primary" },
-    { id: 3, lineColor: "destructive", disp: "destructive" },
-    { id: 4, lineColor: "chart-2", disp: "chart-2" },
-    { id: 5, lineColor: "chart-3", disp: "chart-3" },
+    { id: 1, lineColor: 'chart-4', disp: 'chart-4' },
+    { id: 2, lineColor: 'primary', disp: 'primary' },
+    { id: 3, lineColor: 'destructive', disp: 'destructive' },
+    { id: 4, lineColor: 'chart-2', disp: 'chart-2' },
+    { id: 5, lineColor: 'chart-3', disp: 'chart-3' },
   ];
 
   return (

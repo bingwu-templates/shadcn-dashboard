@@ -1,16 +1,10 @@
-
-import { useState } from "react";
-import { CornerUpLeft } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { BlogType } from "src/types/apps/blog";
+import { useState } from 'react';
+import { CornerUpLeft } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { BlogType } from 'src/types/apps/blog';
 
 const BlogComment = ({ comment }: { comment: BlogType }) => {
   const [showReply, setShowReply] = useState(false);
@@ -19,10 +13,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
       <div className="mt-5 p-5 bg-primary/5 rounded-md">
         <div className="flex gap-3 items-center">
           <Avatar>
-            <AvatarImage
-              src={comment?.profile?.avatar}
-              alt={comment?.profile?.name}
-            />
+            <AvatarImage src={comment?.profile?.avatar} alt={comment?.profile?.name} />
             <AvatarFallback>{comment?.profile?.name}</AvatarFallback>
           </Avatar>
           <h6 className="text-base">{comment?.profile?.name}</h6>
@@ -37,7 +28,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
             <Tooltip>
               <TooltipTrigger>
                 <Button
-                  variant={"ghost"}
+                  variant={'ghost'}
                   className="flex items-center border border-border"
                   onClick={() => setShowReply(!showReply)}
                 >
@@ -57,10 +48,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
                 <div className="mt-5 p-5 rounded-md bg-primary/5 ">
                   <div className="flex gap-3 items-center">
                     <Avatar>
-                      <AvatarImage
-                        src={reply.profile?.avatar}
-                        alt={reply.profile?.name}
-                      />
+                      <AvatarImage src={reply.profile?.avatar} alt={reply.profile?.name} />
                       <AvatarFallback>{reply.profile?.name}</AvatarFallback>
                     </Avatar>
                     <h6 className="text-base">{reply.profile?.name}</h6>
@@ -81,10 +69,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
           <div className="flex gap-3 items-center">
             <div className="w-10">
               <Avatar>
-                <AvatarImage
-                  src={comment.profile?.avatar}
-                  alt={comment.profile?.name}
-                />
+                <AvatarImage src={comment.profile?.avatar} alt={comment.profile?.name} />
                 <AvatarFallback>{comment.profile?.name}</AvatarFallback>
               </Avatar>
             </div>
@@ -93,7 +78,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
           </div>
         </div>
       ) : (
-        ""
+        ''
       )}
     </>
   );

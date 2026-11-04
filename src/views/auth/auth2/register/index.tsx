@@ -1,12 +1,11 @@
-import { Card } from "@/components/ui/card";
+import { Card } from '@/components/ui/card';
 
-
-import { Link } from "react-router";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import FullLogo from "src/layouts/full/shared/logo/FullLogo";
-import SocialButtons from "../../authforms/social-buttons";
+import { Link } from 'react-router';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import FullLogo from 'src/layouts/full/shared/logo/FullLogo';
+import SocialButtons from '../../authforms/social-buttons';
 
 const BoxedRegister = () => {
   return (
@@ -23,10 +22,7 @@ const BoxedRegister = () => {
             <form className="space-y-6 w-full">
               <div className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label
-                    htmlFor="name"
-                    className="text-sm font-normal text-muted-foreground"
-                  >
+                  <Label htmlFor="name" className="text-sm font-normal text-muted-foreground">
                     Name*
                   </Label>
                   <Input
@@ -38,10 +34,7 @@ const BoxedRegister = () => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label
-                    htmlFor="email"
-                    className="text-sm font-normal text-muted-foreground"
-                  >
+                  <Label htmlFor="email" className="text-sm font-normal text-muted-foreground">
                     Email*
                   </Label>
                   <Input
@@ -53,10 +46,7 @@ const BoxedRegister = () => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label
-                    htmlFor="password"
-                    className="text-sm font-normal text-muted-foreground"
-                  >
+                  <Label htmlFor="password" className="text-sm font-normal text-muted-foreground">
                     Password*
                   </Label>
                   <Input
@@ -68,17 +58,14 @@ const BoxedRegister = () => {
                   />
                 </div>
               </div>
-              <Button
-                size="lg"
-                className="w-full rounded-lg"
-              >
+              <Button size="lg" className="w-full rounded-lg">
                 Sign in
               </Button>
             </form>
             <div className="flex gap-2 text-base text-muted-foreground font-medium mt-4 items-center justify-center">
               <p>Already have an Account?</p>
               <Link
-                to={"/auth/auth2/login"}
+                to={'/auth/auth2/login'}
                 className="text-primary/80 text-base hover:text-primary font-medium"
               >
                 Sign in

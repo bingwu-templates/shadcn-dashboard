@@ -30,7 +30,7 @@ export interface MenuItem {
   badgeContent?: string;
   isActive?: boolean;
 }
-import { uniqueId } from "lodash";
+import { uniqueId } from 'lodash';
 import {
   BarChart3,
   Banknote,
@@ -51,341 +51,341 @@ import {
   Table2,
   Form,
   CircleUserRound,
-} from "lucide-react";
+} from 'lucide-react';
 const SidebarContent: MenuItem[] = [
   {
-    heading: "Dashboard",
+    heading: 'Dashboard',
     items: [
       {
         id: uniqueId(),
-        name: "Modern",
+        name: 'Modern',
         icon: House,
-        url: "/",
-      }
-    ]
+        url: '/',
+      },
+    ],
   },
   {
-    heading: "Pages",
+    heading: 'Pages',
     items: [
       {
         id: uniqueId(),
-        name: "Table",
+        name: 'Table',
         icon: Table2,
-        url: "/pages/tables",
+        url: '/pages/tables',
       },
       {
         id: uniqueId(),
-        name: "Form",
+        name: 'Form',
         icon: Form,
-        url: "/pages/form",
+        url: '/pages/form',
       },
       {
         id: uniqueId(),
-        name: "User Profile",
+        name: 'User Profile',
         icon: CircleUserRound,
-        url: "/pages/user-profile",
-      }
-    ]
+        url: '/pages/user-profile',
+      },
+    ],
   },
   {
-    heading: "Apps",
+    heading: 'Apps',
     items: [
       {
         id: uniqueId(),
-        name: "Notes",
+        name: 'Notes',
         icon: NotebookText,
-        url: "/apps/notes",
+        url: '/apps/notes',
       },
       {
-        name: "Blogs",
+        name: 'Blogs',
         id: uniqueId(),
         icon: BookOpen,
         items: [
           {
             id: uniqueId(),
-            name: "Blog Listing",
-            url: "/apps/blog/post",
+            name: 'Blog Listing',
+            url: '/apps/blog/post',
           },
           {
             id: uniqueId(),
-            name: "Blog Detail",
-            url: "/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow",
+            name: 'Blog Detail',
+            url: '/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow',
           },
           {
             id: uniqueId(),
-            name: "Blog Edit",
-            url: "/apps/blog/edit",
+            name: 'Blog Edit',
+            url: '/apps/blog/edit',
           },
           {
             id: uniqueId(),
-            name: "Blog Create",
-            url: "/apps/blog/create",
+            name: 'Blog Create',
+            url: '/apps/blog/create',
           },
           {
             id: uniqueId(),
-            name: "Manage Blog",
-            url: "/apps/blog/manage-blog",
-          }
-        ]
+            name: 'Manage Blog',
+            url: '/apps/blog/manage-blog',
+          },
+        ],
       },
       {
         id: uniqueId(),
-        name: "Tickets",
+        name: 'Tickets',
         icon: Ticket,
-        url: "/apps/tickets",
-      }
-    ]
+        url: '/apps/tickets',
+      },
+    ],
   },
   {
-    heading: "UI ELEMENTS",
+    heading: 'UI ELEMENTS',
     items: [
       {
-        name: "ShadCn",
+        name: 'ShadCn',
         id: uniqueId(),
         icon: Component,
         items: [
           {
             id: uniqueId(),
-            name: "Button",
-            url: "https://shadcndashboard.dev/components/button",
+            name: 'Button',
+            url: 'https://shadcndashboard.dev/components/button',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Avatar",
-            url: "https://shadcndashboard.dev/components/avatar",
+            name: 'Avatar',
+            url: 'https://shadcndashboard.dev/components/avatar',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Badge",
-            url: "https://shadcndashboard.dev/components/badge",
+            name: 'Badge',
+            url: 'https://shadcndashboard.dev/components/badge',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Tooltip",
-            url: "https://shadcndashboard.dev/components/tooltip",
+            name: 'Tooltip',
+            url: 'https://shadcndashboard.dev/components/tooltip',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Input",
-            url: "https://shadcndashboard.dev/components/input",
+            name: 'Input',
+            url: 'https://shadcndashboard.dev/components/input',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Textarea",
-            url: "https://shadcndashboard.dev/components/textarea",
+            name: 'Textarea',
+            url: 'https://shadcndashboard.dev/components/textarea',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Switch",
-            url: "https://shadcndashboard.dev/components/switch",
+            name: 'Switch',
+            url: 'https://shadcndashboard.dev/components/switch',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Tab",
-            url: "https://shadcndashboard.dev/components/tab",
+            name: 'Tab',
+            url: 'https://shadcndashboard.dev/components/tab',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Select",
-            url: "https://shadcndashboard.dev/components/select",
+            name: 'Select',
+            url: 'https://shadcndashboard.dev/components/select',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Checkbox",
-            url: "https://shadcndashboard.dev/components/checkbox",
+            name: 'Checkbox',
+            url: 'https://shadcndashboard.dev/components/checkbox',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Accordion",
-            url: "https://shadcndashboard.dev/components/accordion",
+            name: 'Accordion',
+            url: 'https://shadcndashboard.dev/components/accordion',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Card",
-            url: "https://shadcndashboard.dev/components/card",
+            name: 'Card',
+            url: 'https://shadcndashboard.dev/components/card',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Radio Group",
-            url: "https://shadcndashboard.dev/components/radio-group",
+            name: 'Radio Group',
+            url: 'https://shadcndashboard.dev/components/radio-group',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Datepicker",
-            url: "https://shadcndashboard.dev/components/calendar",
+            name: 'Datepicker',
+            url: 'https://shadcndashboard.dev/components/calendar',
             external: true,
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
-    heading: "FORM ELEMENTS",
+    heading: 'FORM ELEMENTS',
     items: [
       {
-        name: "Shadcn Forms",
+        name: 'Shadcn Forms',
         id: uniqueId(),
         icon: Banknote,
         items: [
           {
             id: uniqueId(),
-            name: "Input",
-            url: "https://shadcndashboard.dev/components/input",
+            name: 'Input',
+            url: 'https://shadcndashboard.dev/components/input',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Select",
-            url: "https://shadcndashboard.dev/components/select",
+            name: 'Select',
+            url: 'https://shadcndashboard.dev/components/select',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Checkbox",
-            url: "https://shadcndashboard.dev/components/checkbox",
+            name: 'Checkbox',
+            url: 'https://shadcndashboard.dev/components/checkbox',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Radio",
-            url: "https://shadcndashboard.dev/components/radio-group",
+            name: 'Radio',
+            url: 'https://shadcndashboard.dev/components/radio-group',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Datepicker",
-            url: "https://shadcndashboard.dev/components/calendar",
+            name: 'Datepicker',
+            url: 'https://shadcndashboard.dev/components/calendar',
             external: true,
           },
           {
             id: uniqueId(),
-            name: "Select",
-            url: "https://shadcndashboard.dev/components/select",
+            name: 'Select',
+            url: 'https://shadcndashboard.dev/components/select',
             external: true,
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
-    heading: "Widgets",
+    heading: 'Widgets',
     items: [
       {
-        name: "Cards",
+        name: 'Cards',
         id: uniqueId(),
         icon: CreditCard,
-        url: "https://shadcndashboard.dev/ui-blocks/card",
-        external: true
+        url: 'https://shadcndashboard.dev/ui-blocks/card',
+        external: true,
       },
       {
-        name: "Charts",
+        name: 'Charts',
         id: uniqueId(),
         icon: PieChart,
         url: 'https://shadcndashboard.dev/ui-blocks/chart',
-        external: true
-      }
-    ]
+        external: true,
+      },
+    ],
   },
   {
-    heading: "Icons",
+    heading: 'Icons',
     items: [
       {
         id: uniqueId(),
-        name: "Iconify Icons",
+        name: 'Iconify Icons',
         icon: Smile,
-        url: "/icons/iconify",
-      }
-    ]
+        url: '/icons/iconify',
+      },
+    ],
   },
   {
-    heading: "Auth",
+    heading: 'Auth',
     items: [
       {
         id: uniqueId(),
-        name: "Error",
+        name: 'Error',
         icon: Unlink,
-        url: "/auth/error",
+        url: '/auth/error',
       },
       {
-        name: "Login",
+        name: 'Login',
         id: uniqueId(),
         icon: LogIn,
         items: [
           {
             id: uniqueId(),
-            name: "Boxed Login",
-            url: "/auth/auth2/login",
-          }
-        ]
+            name: 'Boxed Login',
+            url: '/auth/auth2/login',
+          },
+        ],
       },
       {
-        name: "Register",
+        name: 'Register',
         id: uniqueId(),
         icon: UserPlus,
         items: [
           {
             id: uniqueId(),
-            name: "Boxed Register",
-            url: "/auth/auth2/register",
-          }
-        ]
+            name: 'Boxed Register',
+            url: '/auth/auth2/register',
+          },
+        ],
       },
       {
-        name: "Forgot Password",
+        name: 'Forgot Password',
         id: uniqueId(),
         icon: Lock,
         items: [
           {
             id: uniqueId(),
-            name: "Boxed Forgot Pwd",
-            url: "/auth/auth2/forgot-password",
-          }
-        ]
+            name: 'Boxed Forgot Pwd',
+            url: '/auth/auth2/forgot-password',
+          },
+        ],
       },
       {
-        name: "Two Steps",
+        name: 'Two Steps',
         id: uniqueId(),
         icon: ShieldCheck,
         items: [
           {
             id: uniqueId(),
-            name: "Boxed Two Steps",
-            url: "/auth/auth2/two-steps",
-          }
-        ]
+            name: 'Boxed Two Steps',
+            url: '/auth/auth2/two-steps',
+          },
+        ],
       },
       {
         id: uniqueId(),
-        name: "Menu Level",
+        name: 'Menu Level',
         icon: BarChart3,
         items: [
           {
             id: uniqueId(),
-            name: "Level 1",
+            name: 'Level 1',
             items: [
               {
                 id: uniqueId(),
-                name: "Level 1.1",
-                url: "#",
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                name: 'Level 1.1',
+                url: '#',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 export default SidebarContent;

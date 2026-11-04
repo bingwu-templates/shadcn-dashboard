@@ -11,11 +11,11 @@ const __dirname = dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    resolve: {
-        alias: {
-            src: resolve(__dirname, 'src'),
-            '@': resolve(__dirname, 'src'),
-        },
+  resolve: {
+    alias: {
+      src: resolve(__dirname, 'src'),
+      '@': resolve(__dirname, 'src'),
     },
-    plugins: [svgr(), react()],
+  },
+  plugins: [svgr(), react()],
 });

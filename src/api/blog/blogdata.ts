@@ -68,7 +68,7 @@ const BlogComment: BlogType[] = [
     comment: chance.paragraph({ sentences: 2 }),
     replies: [],
   },
-]
+];
 
 const BlogPost: BlogPostType[] = [
   {
@@ -109,8 +109,7 @@ const BlogPost: BlogPostType[] = [
   },
   {
     id: uniqueId(),
-    title:
-      'Apple is apparently working on a new streamlined accessibility for iOS',
+    title: 'Apple is apparently working on a new streamlined accessibility for iOS',
     content: chance.paragraph({ sentences: 2 }),
     coverImg: blogImg3,
     createdAt: sub(new Date(), { days: 5, hours: 2, minutes: 20 }),
@@ -182,8 +181,7 @@ const BlogPost: BlogPostType[] = [
   },
   {
     id: uniqueId(),
-    title:
-      'Intel loses bid to revive antitrust case against patent foe Fortress',
+    title: 'Intel loses bid to revive antitrust case against patent foe Fortress',
     content: chance.paragraph({ sentences: 2 }),
     coverImg: blogImg9,
     createdAt: sub(new Date(), { days: 3, hours: 6, minutes: 20 }),
@@ -271,7 +269,7 @@ const BlogPost: BlogPostType[] = [
     comments: BlogComment,
     published: true,
   },
-]
+];
 // Mocked Apis
 export const Bloghandlers = [
   // Mock api endpoint to fetch all blogposts

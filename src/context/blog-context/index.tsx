@@ -25,11 +25,11 @@ export const BlogContext = createContext<BlogContextProps>({
   sortBy: 'newest',
   selectedPost: null,
   isLoading: true,
-  setPosts: () => { },
-  setSortBy: () => { },
-  setSelectedPost: () => { },
-  setLoading: () => { },
-  addComment: () => { },
+  setPosts: () => {},
+  setSortBy: () => {},
+  setSelectedPost: () => {},
+  setLoading: () => {},
+  addComment: () => {},
   error: null,
 });
 

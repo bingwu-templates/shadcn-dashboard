@@ -1,17 +1,14 @@
-import GeneralDetail from "@/components/apps/blog/blogadd/general-detail";
-import CategoryTags from "@/components/apps/blog/blogadd/category-tags";
-import PostDate from "@/components/apps/blog/blogadd/post-date";
-import { Button } from "@/components/ui/button";
-import Media from "@/components/apps/blog/blogadd/medias";
-import Status from "@/components/apps/blog/blogadd/blog-status";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import GeneralDetail from '@/components/apps/blog/blogadd/general-detail';
+import CategoryTags from '@/components/apps/blog/blogadd/category-tags';
+import PostDate from '@/components/apps/blog/blogadd/post-date';
+import { Button } from '@/components/ui/button';
+import Media from '@/components/apps/blog/blogadd/medias';
+import Status from '@/components/apps/blog/blogadd/blog-status';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Blog Create" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Blog Create' }];
 
 const BlogCreate = () => {
   return (
@@ -50,7 +47,7 @@ const BlogCreate = () => {
         >
           <div className="flex gap-3">
             <Button className="sm:mb-0 mb-3 w-fit">Add Blog</Button>
-            <Button variant={"destructive"}>Cancel</Button>
+            <Button variant={'destructive'}>Cancel</Button>
           </div>
         </StyleAwareWrapper>
       </StyleAwareWrapper>

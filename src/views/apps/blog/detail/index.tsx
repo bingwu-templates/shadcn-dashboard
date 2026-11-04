@@ -1,13 +1,10 @@
-import BlogDetailData from "@/components/apps/blog/detail";
-import { BlogProvider } from "src/context/blog-context";
-import BreadcrumbComp from "src/layouts/full/shared/breadcrumb/BreadcrumbComp";
-import StyleAwareWrapper from "src/components/shared/StyleAwareWrapper";
-import StyleDivider from "src/components/shared/StyleDivider";
+import BlogDetailData from '@/components/apps/blog/detail';
+import { BlogProvider } from 'src/context/blog-context';
+import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
+import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
+import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [
-  { to: "/", title: "Home" },
-  { title: "Blog Detail" },
-];
+const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Blog Detail' }];
 
 const BlogDetail = () => {
   return (

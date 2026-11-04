@@ -1,15 +1,14 @@
-
-import { useEffect, useState } from "react";
-import { Card } from "@/components/ui/card";
-import NotesSidebar from "@/components/apps/notes/notes-sidebar";
-import NoteContent from "@/components/apps/notes/note-content";
-import AddNotes from "@/components/apps/notes/add-notes";
-import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { NotesProvider } from "@/context/notes-context/index";
-import { useLocation } from "react-router";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { mutate } from "swr";
+import { useEffect, useState } from 'react';
+import { Card } from '@/components/ui/card';
+import NotesSidebar from '@/components/apps/notes/notes-sidebar';
+import NoteContent from '@/components/apps/notes/note-content';
+import AddNotes from '@/components/apps/notes/add-notes';
+import { Menu } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { NotesProvider } from '@/context/notes-context/index';
+import { useLocation } from 'react-router';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
+import { mutate } from 'swr';
 
 interface colorsType {
   lineColor: string;
@@ -21,60 +20,58 @@ const NotesApp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = () => setIsOpen(false);
 
-  
-
   const location = useLocation();
   const pathname = location.pathname;
 
   // Reset Notes on browser refresh
   const handleResetTickets = async () => {
-    await mutate("/api/notes");
+    await mutate('/api/notes');
   };
 
   useEffect(() => {
-    const isPageRefreshed = sessionStorage.getItem("isPageRefreshed");
-    if (isPageRefreshed === "true") {
-      console.log("page refreshed");
-      sessionStorage.removeItem("isPageRefreshed");
+    const isPageRefreshed = sessionStorage.getItem('isPageRefreshed');
+    if (isPageRefreshed === 'true') {
+      console.log('page refreshed');
+      sessionStorage.removeItem('isPageRefreshed');
       handleResetTickets();
     }
   }, [pathname]);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
-      sessionStorage.setItem("isPageRefreshed", "true");
+      sessionStorage.setItem('isPageRefreshed', 'true');
     };
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, []);
 
   const colorvariation: colorsType[] = [
     {
       id: 1,
-      lineColor: "chart-4",
-      disp: "chart-4",
+      lineColor: 'chart-4',
+      disp: 'chart-4',
     },
     {
       id: 2,
-      lineColor: "primary",
-      disp: "primary",
+      lineColor: 'primary',
+      disp: 'primary',
     },
     {
       id: 3,
-      lineColor: "destructive",
-      disp: "destructive",
+      lineColor: 'destructive',
+      disp: 'destructive',
     },
     {
       id: 4,
-      lineColor: "chart-2",
-      disp: "chart-2",
+      lineColor: 'chart-2',
+      disp: 'chart-2',
     },
     {
       id: 5,
-      lineColor: "chart-3",
-      disp: "chart-3",
+      lineColor: 'chart-3',
+      disp: 'chart-3',
     },
   ];
 
@@ -87,7 +84,7 @@ const NotesApp = () => {
             <div>
               <Sheet open={isOpen} onOpenChange={handleClose}>
                 <SheetContent
-                                   side="left"
+                  side="left"
 
                   showCloseButton={false}
                   className="!max-w-[320px] !sm:max-w-[320px] w-full h-full lg:z-0 lg:hidden block"

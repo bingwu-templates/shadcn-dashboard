@@ -1,6 +1,5 @@
-
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Select,
   SelectContent,
@@ -9,24 +8,22 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 
-const statuses = ["Draft", "Schedule", "Publish", "Inactive"];
+const statuses = ['Draft', 'Schedule', 'Publish', 'Inactive'];
 const Status = () => {
-  const [selectedStatus, setSelectedStatus] = useState<string | null>(
-    "Publish"
-  );
+  const [selectedStatus, setSelectedStatus] = useState<string | null>('Publish');
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <div className="flex justify-between items-center">
             <h5>Blog Status</h5>
-            {selectedStatus === "Publish" ? (
+            {selectedStatus === 'Publish' ? (
               <span className="h-3 w-3 p-0 bg-chart-2 rounded-full" />
-            ) : selectedStatus === "Schedule" ? (
+            ) : selectedStatus === 'Schedule' ? (
               <span className="h-3 w-3 p-0 rounded-full" />
-            ) : selectedStatus === "Draft" ? (
+            ) : selectedStatus === 'Draft' ? (
               <span className="h-3 w-3 p-0 rounded-full" />
             ) : (
               <span className="h-3 w-3 p-0 bg-chart-4 rounded-full" />
@@ -41,8 +38,7 @@ const Status = () => {
             onValueChange={(value) => {
               setSelectedStatus(value);
             }}
-            defaultValue={"Select status"}
-
+            defaultValue={'Select status'}
           >
             <SelectTrigger className="select-md w-full" id="status">
               <SelectValue />
@@ -58,9 +54,7 @@ const Status = () => {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <small className="text-xs text-muted-foreground">
-            Set the blog status.
-          </small>
+          <small className="text-xs text-muted-foreground">Set the blog status.</small>
         </div>
       </CardContent>
     </Card>

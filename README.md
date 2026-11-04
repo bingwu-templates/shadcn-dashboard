@@ -140,19 +140,19 @@ Available in both **React (Vite)** and **Next.js** versions!
 
 ### Prerequisites
 
-- Node.js 18, 20, or 22+
-- npm
+- Node.js 20.19+ or 22.12+
+- pnpm 10.34.4 (declared in `package.json`)
 
 1. **Install dependencies:**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Start the development server:**
 
    ```bash
-   npm run dev
+   pnpm dev
    ```
 
    The site will be available at `http://localhost:5173`
@@ -160,25 +160,38 @@ Available in both **React (Vite)** and **Next.js** versions!
 3. **Build for production:**
 
    ```bash
-   npm run build
+   pnpm build
    ```
 
 4. **Preview the production build:**
 
    ```bash
-   npm run preview
+   pnpm preview
    ```
 
 ## 🧞 Available Commands
 
-All scripts can be run using npm.
+All scripts can be run using pnpm. `pnpm-lock.yaml` is the lockfile of record;
+use `pnpm install --frozen-lockfile` for reproducible installs.
 
-| Command   | Action                                                                        |
-| :-------- | :---------------------------------------------------------------------------- |
-| `dev`     | Starts the Vite development server with hot-reload at `http://localhost:5173` |
-| `build`   | Creates an optimized production build via TypeScript + Vite                   |
-| `preview` | Preview the production build locally before deploying                         |
-| `lint`    | Runs ESLint to check for potential errors and code quality issues             |
+| Command        | Action                                                                        |
+| :------------- | :---------------------------------------------------------------------------- |
+| `dev`          | Starts the Vite development server with hot-reload at `http://localhost:5173` |
+| `build`        | Creates an optimized production build via TypeScript + Vite                   |
+| `preview`      | Preview the production build locally before deploying                         |
+| `lint`         | Runs Oxlint on TypeScript/TSX with zero warnings allowed                      |
+| `format`       | Formats supported project files with Oxfmt                                    |
+| `format:check` | Checks formatting without writing files                                       |
+
+Oxlint uses `oxlint.config.ts` to preserve the previous ESLint rule selection and
+React Refresh export exceptions. Native rules handle TypeScript, React Hooks,
+and React Refresh. The unavailable `no-octal` rule is intentionally omitted;
+ESLint and its plugins are no longer dependencies. If future rules need an ESLint
+plugin without a native equivalent, configure it through Oxlint's `jsPlugins`.
+
+Oxfmt uses `oxfmt.config.ts` with the previous Prettier style (100 columns, single
+quotes, two spaces, trailing commas). Import, package field, and Tailwind class
+sorting are disabled. Generated files, lockfiles, and SVG artwork are excluded.
 
 ## Documentation 📚
 

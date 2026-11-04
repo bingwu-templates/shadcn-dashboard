@@ -1,10 +1,9 @@
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BlogContext } from "src/context/blog-context";
-import { useContext } from "react";
-import { Label } from "@/components/ui/label";
-import { CloudUpload } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BlogContext } from 'src/context/blog-context';
+import { useContext } from 'react';
+import { Label } from '@/components/ui/label';
+import { CloudUpload } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 const Media = () => {
   const { posts } = useContext(BlogContext);
@@ -34,12 +33,9 @@ const Media = () => {
                 <div className="flex flex-col items-center justify-center pb-6 pt-5">
                   <CloudUpload size={32} className="mb-3 text-primary" />
                   <p className="mb-2 text-sm text-primary ">
-                    <span className="font-semibold">Click to upload</span> or
-                    drag and drop
+                    <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
-                  <p className="text-xs text-primary ">
-                    SVG, PNG, JPG or GIF (MAX. 800x400px)
-                  </p>
+                  <p className="text-xs text-primary ">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                 </div>
               )}
               <Input type="file" id="dropzone-file" className="hidden" />

@@ -1,50 +1,39 @@
+import { useContext, useEffect, useState } from 'react';
 
-import { useContext, useEffect, useState } from "react";
-
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Plus, X } from "lucide-react";
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BlogContext } from "src/context/blog-context";
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Plus, X } from 'lucide-react';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BlogContext } from 'src/context/blog-context';
 
 const CategoryTags = () => {
   const { posts } = useContext(BlogContext);
 
   const [tags, setTags] = useState<string[]>([]);
-  const [tagInput, setTagInput] = useState<string>("");
+  const [tagInput, setTagInput] = useState<string>('');
 
   const [Cats, setCats] = useState<string[]>([]);
   const [showCatOptions, setShowCatOptions] = useState<boolean>(false);
   const [catOptions] = useState<string[]>([
-    "Technology",
-    "Lifestyle",
-    "Travel",
-    "Food",
-    "Business",
-    "social",
+    'Technology',
+    'Lifestyle',
+    'Travel',
+    'Food',
+    'Business',
+    'social',
   ]);
 
   const [showTagOptions, setShowTagOptions] = useState<boolean>(false);
-  const [tagOptions] = useState<string[]>([
-    "Trending",
-    "Tips",
-    "News",
-    "Guide",
-    "Popular",
-  ]);
+  const [tagOptions] = useState<string[]>(['Trending', 'Tips', 'News', 'Guide', 'Popular']);
 
   useEffect(() => {
     if (posts.length > 0) {
       const firstPost = posts[0];
       if (firstPost.category) {
-        setCats(
-          Array.isArray(firstPost.category)
-            ? firstPost.category
-            : [firstPost.category]
-        );
+        setCats(Array.isArray(firstPost.category) ? firstPost.category : [firstPost.category]);
       }
-      setTags(["Trending"]);
+      setTags(['Trending']);
     }
   }, [posts]);
 
@@ -53,7 +42,7 @@ const CategoryTags = () => {
   };
 
   const handleCatInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && Cats.length > 0) {
+    if (e.key === 'Enter' && Cats.length > 0) {
       setCats([]);
       setShowCatOptions(false);
     }
@@ -76,9 +65,9 @@ const CategoryTags = () => {
   };
 
   const handleTagInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && tagInput) {
+    if (e.key === 'Enter' && tagInput) {
       setTags([...tags, tagInput.trim()]);
-      setTagInput("");
+      setTagInput('');
     }
   };
 
@@ -132,9 +121,7 @@ const CategoryTags = () => {
               />
             </div>
 
-            <small className="text-xs text-muted-foreground">
-              Add blog to a category.
-            </small>
+            <small className="text-xs text-muted-foreground">Add blog to a category.</small>
 
             {showCatOptions && (
               <div className="absolute z-10 mt-1 w-full rounded-md bg-card shadow-lg">
@@ -186,9 +173,7 @@ const CategoryTags = () => {
               />
             </div>
 
-            <small className="text-xs text-muted-foreground">
-              Add tags for blog.
-            </small>
+            <small className="text-xs text-muted-foreground">Add tags for blog.</small>
 
             {showTagOptions && (
               <div>
