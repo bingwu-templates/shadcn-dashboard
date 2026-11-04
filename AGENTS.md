@@ -17,7 +17,7 @@ This file provides essential information for AI coding agents working on this pr
 - **Data fetching / mocking**: `swr` for fetching, `msw` for mocked API responses
 - **Charts**: `recharts` (the only charting library in the project)
 - **Icons**: `lucide-react` and `@iconify/react` are the two icon packages in use
-- **Deployment**: static `dist/` build served via Netlify redirect (`netlify.toml`) or Docker + nginx (`Dockerfile`, `nginx.conf`)
+- **Build Output**: `npm run build` generates static assets in `dist/`
 - **Package Manager**: npm (`package-lock.json` is the lockfile of record)
 
 There is no backend in this repo. All "API" calls go through mock handlers (`msw`) backed by static data in `src/api/*/**-data.ts`.
@@ -66,9 +66,6 @@ There is no backend in this repo. All "API" calls go through mock handlers (`msw
 ├── types/                      # Shared TypeScript types (e.g. types/apps/*)
 └── css/                          # Global styles
 
-netlify.toml                  # SPA redirect (all paths → /index.html)
-Dockerfile                    # Multi-stage build: npm ci → vite build → nginx
-nginx.conf                    # SPA fallback for the Docker image
 ```
 
 ---
@@ -153,10 +150,9 @@ ESLint 10 uses `eslint.config.js` (flat config):
 
 ---
 
-## Deployment
+## Build Output
 
-- **Netlify**: `netlify.toml` redirects all paths to `/index.html` for SPA routing — already configured, no changes usually needed.
-
+`npm run build` generates static assets in `dist/`; use `npm run preview` to preview them locally. Hosting configuration is not included. A future host must serve `/index.html` for unmatched paths so client-side routes work on direct navigation and refresh.
 
 ---
 

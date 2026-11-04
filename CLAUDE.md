@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This is a Vite + React 19 + TypeScript admin dashboard ("shadcn-dashboard-free"), styled with Tailwind CSS v4 and Base UI primitives. It is a client-side SPA (no server framework) using `react-router` for routing, deployed as a static build (Netlify via `netlify.toml`, or Docker via `Dockerfile` + nginx).
+This is a Vite + React 19 + TypeScript admin dashboard ("shadcn-dashboard-free"), styled with Tailwind CSS v4 and Base UI primitives. It is a client-side SPA (no server framework) using `react-router` for routing. `npm run build` generates static assets in `dist/`.
 
 ## Stack
 
@@ -32,6 +32,6 @@ This is a Vite + React 19 + TypeScript admin dashboard ("shadcn-dashboard-free")
 - Run `npm run lint` (ESLint 10, `eslint.config.js` with ESLint/TypeScript recommended rules and React hooks checks) before considering frontend changes done.
 - `npm run build` runs `tsc` first — type errors block the build, not just lint.
 
-## Deployment
+## Build output
 
-- **Netlify**: `netlify.toml` redirects all paths to `/index.html` (SPA fallback) — already configured.
+Use `npm run preview` to preview the production build locally. Hosting configuration is not included. A future host must serve `/index.html` for unmatched paths so client-side routes work on direct navigation and refresh.
