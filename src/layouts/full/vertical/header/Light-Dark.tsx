@@ -16,12 +16,12 @@ const LightDark = () => {
       setActiveMode(activeMode === "light" ? "dark" : "light");
     };
 
-    if (!(document as any).startViewTransition) {
+    if (!document.startViewTransition) {
       toggleMode();
       return;
     }
 
-    const transition = (document as any).startViewTransition(() => {
+    const transition = document.startViewTransition(() => {
       toggleMode();
     });
 

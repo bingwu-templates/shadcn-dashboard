@@ -145,9 +145,9 @@ When adding a new feature that needs data, mirror the blog/notes/ticket pattern:
 
 ## Linting
 
-ESLint config is `.eslintrc.cjs` (legacy config format, not flat config):
+ESLint 10 uses `eslint.config.js` (flat config):
 
-- Extends `eslint:recommended`, `plugin:@typescript-eslint/recommended`, `plugin:react-hooks/recommended`
+- Applies the ESLint and TypeScript recommended rules, plus React hooks rules and exhaustive-deps checks
 - `react-refresh/only-export-components` is a warning
 - `npm run lint` runs with `--max-warnings 0` — treat warnings as build-breaking
 

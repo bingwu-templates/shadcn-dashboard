@@ -5,17 +5,22 @@ import { Component, Search as SearchIcon } from 'lucide-react';
 
 import SimpleBar from "simplebar-react";
 import SidebarContent from "../../vertical/sidebar/sidebaritems";
+import type { ChildItem, MenuItem } from "../../vertical/sidebar/sidebaritems";
 
 
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router";
 
-function Search() {
-  const [query, setQuery] = useState("");
+interface SearchResult {
+  name: string;
+  url: string;
+  path?: string;
+  icon?: ChildItem['icon'];
+}
 
-  // 🔍 Recursive search through menu
-  const searchItems = (items: any[], q: string, parentPath = "") => {
-    let results: any[] = [];
+// Recursive search through menu, shared across renders.
+const searchItems = (items: (MenuItem | ChildItem)[], q: string, parentPath = ""): SearchResult[] => {
+    let results: SearchResult[] = [];
 
     items.forEach((item) => {
       const currentPath = parentPath
@@ -43,7 +48,10 @@ function Search() {
     });
 
     return results;
-  };
+};
+
+function Search() {
+  const [query, setQuery] = useState("");
 
   // Memoize filtered results
   const results = useMemo(() => {
@@ -66,11 +74,11 @@ function Search() {
         />
       </div>
       <div
-        className={`absolute w-full bg-card rounded-md top-11 z-10 start-0 shadow-md border border-border ${Boolean(query) ? "block" : "hidden"
+        className={`absolute w-full bg-card rounded-md top-11 z-10 start-0 shadow-md border border-border ${query ? "block" : "hidden"
           }`}
       >
         <SimpleBar className="h-72 p-4 custom-scroll">
-          {Boolean(results.length) ? (
+          {results.length > 0 ? (
             results.map((item, i) => (
               <Link
                 key={i}

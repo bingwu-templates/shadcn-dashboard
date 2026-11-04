@@ -16,7 +16,7 @@ export interface BlogContextProps {
   setLoading: Dispatch<SetStateAction<boolean>>;
   addComment: (postId: number, newComment: BlogType) => void;
 
-  error: null;
+  error: unknown;
 }
 
 // Create context with default values
@@ -39,7 +39,7 @@ export const BlogProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [sortBy, setSortBy] = useState<string>('newest');
   const [selectedPost, setSelectedPost] = useState<BlogPostType | null>(null);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<unknown>(null);
 
   // Fetch Post data from the API
   const {

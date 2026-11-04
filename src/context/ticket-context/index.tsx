@@ -11,10 +11,10 @@ export interface TicketContextType {
   searchTickets: (searchTerm: string) => void;
   ticketSearch: string;
   filter: string;
-  error: null;
+  error: unknown;
   loading: boolean;
   setFilter: (filter: string) => void;
-  addTicket: (ticket: any) => void;
+  addTicket: (ticket: TicketType) => void;
 }
 
 // Create Context
@@ -26,7 +26,7 @@ export const TicketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [ticketSearch, setTicketSearch] = useState<string>('');
   const [filter, setFilter] = useState<string>('total_tickets');
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<unknown>(null);
 
   // Fetch tickets from the API when the component mounts using useEffect
   const {

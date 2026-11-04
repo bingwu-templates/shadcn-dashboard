@@ -51,7 +51,7 @@ const badgeColors = [
   'bg-orange-100 text-orange-700',
 ]
 
-export function getColorForValue(value: string) {
+function getColorForValue(value: string) {
   const index =
     Math.abs(
       value.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
@@ -59,7 +59,7 @@ export function getColorForValue(value: string) {
   return badgeColors[index]
 }
 
-export function toTitleCase(str: string) {
+function toTitleCase(str: string) {
   return str
     .toLowerCase()
     .split(' ')

@@ -29,7 +29,7 @@ This is a Vite + React 19 + TypeScript admin dashboard ("shadcn-dashboard-free")
 - Path alias/component imports follow the existing folder structure under `src/` — check sibling files in `views`/`components` before adding new patterns.
 - Icons: prefer whichever icon set is already used in the file you're editing.
 - Mock data lives in `src/api` and `src/api/mocks` — new features should follow that pattern rather than fetching real endpoints unless one exists.
-- Run `npm run lint` (ESLint, `.eslintrc.cjs` extending `eslint:recommended`, `@typescript-eslint/recommended`, `react-hooks/recommended`) before considering frontend changes done.
+- Run `npm run lint` (ESLint 10, `eslint.config.js` with ESLint/TypeScript recommended rules and React hooks checks) before considering frontend changes done.
 - `npm run build` runs `tsc` first — type errors block the build, not just lint.
 
 ## Deployment

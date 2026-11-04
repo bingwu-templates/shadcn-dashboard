@@ -64,7 +64,7 @@ const BlogDetailData = () => {
     }, 700);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [setLoading]);
 
   return (
     <>

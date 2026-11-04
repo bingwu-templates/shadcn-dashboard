@@ -3,7 +3,6 @@ import { ChevronRight } from "lucide-react";
 import { ChildItem } from "../sidebaritems";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 
 interface NavItemProps {
   item: ChildItem;
@@ -60,13 +59,6 @@ export default function NavItem({
           >
             {item.badgeContent}
           </span>
-        )}
-
-        {/* Pro Badge */}
-        {item.isPro && (
-          <Badge className="ms-auto hide-menu text-[10px]! px-1.5 py-0.5 h-auto! bg-primary! text-background! rounded-md">
-            Pro
-          </Badge>
         )}
 
         {/* Chevron only if it has children */}

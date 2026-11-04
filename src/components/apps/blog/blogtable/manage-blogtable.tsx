@@ -252,11 +252,7 @@ const ManageBlogTable = () => {
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onPaginationChange: setPagination,
-    globalFilterFn: (
-      row: { getValue: (arg0: any) => any },
-      columnId: any,
-      filterValue: string
-    ) => {
+    globalFilterFn: (row, columnId, filterValue: string) => {
       return String(row.getValue(columnId))
         .toLowerCase()
         .includes(filterValue.toLowerCase());
