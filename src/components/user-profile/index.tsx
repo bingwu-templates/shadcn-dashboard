@@ -23,19 +23,19 @@ const UserProfile = () => {
   const BCrumb = [
     {
       to: '/',
-      title: 'Home',
+      title: '首页',
     },
     {
-      title: 'Userprofile',
+      title: '个人资料',
     },
   ];
 
   const [personal, setPersonal] = useState({
-    firstName: 'Mathew',
-    lastName: 'Anderson',
+    firstName: '晨',
+    lastName: '林',
     email: 'mathew.anderson@gmail.com',
     phone: '(347) 528-1947',
-    position: 'Team Leader',
+    position: '团队负责人',
     facebook: 'https://www.facebook.com/wrappixel',
     twitter: 'https://x.com/shadcndashboard',
     github: 'https://github.com/shadcndashboard',
@@ -43,8 +43,8 @@ const UserProfile = () => {
   });
 
   const [address, setAddress] = useState({
-    location: 'United States',
-    state: 'San Diego, California, United States',
+    location: '美国',
+    state: '美国加利福尼亚州圣迭戈',
     pin: '92101',
     zip: '30303',
     taxNo: 'GA45273910',
@@ -89,18 +89,25 @@ const UserProfile = () => {
 
   return (
     <div className="flex flex-col p-px bg-border gap-px">
-      <BreadcrumbComp title="User Profile" items={BCrumb} />
+      <BreadcrumbComp title="个人资料" items={BCrumb} />
       <StyleDivider />
       <div className="flex flex-col gap-px bg-border">
         <Card className="p-6 overflow-hidden">
           <div className="flex flex-col sm:flex-row items-center gap-6 rounded-xl relative w-full break-words">
             <div>
-              <img src={avatar} alt="image" width={80} height={80} className="rounded-full" />
+              <img
+                src={avatar}
+                alt="个人资料图片"
+                width={80}
+                height={80}
+                className="rounded-full"
+              />
             </div>
             <div className="flex flex-wrap gap-4 justify-center sm:justify-between items-center w-full">
               <div className="flex flex-col sm:text-left text-center gap-1.5">
                 <h5 className="card-title">
-                  {personal.firstName} {personal.lastName}
+                  {personal.lastName}
+                  {personal.firstName}
                 </h5>
                 <div className="flex flex-wrap items-center gap-1 md:gap-3">
                   <p className="text-sm text-gray-500 dark:text-gray-400">{personal.position}</p>
@@ -126,26 +133,26 @@ const UserProfile = () => {
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-px">
           <div className="space-y-6 bg-background md:p-6 p-4 relative w-full break-words">
-            <h5 className="card-title">Personal Information</h5>
+            <h5 className="card-title">个人信息</h5>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-7 2xl:gap-x-32">
               <div>
-                <p className="text-xs text-gray-500">First Name</p>
+                <p className="text-xs text-gray-500">名</p>
                 <p>{personal.firstName}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Last Name</p>
+                <p className="text-xs text-gray-500">姓</p>
                 <p>{personal.lastName}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Email</p>
+                <p className="text-xs text-gray-500">邮箱</p>
                 <p>{personal.email}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Phone</p>
+                <p className="text-xs text-gray-500">电话</p>
                 <p>{personal.phone}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Position</p>
+                <p className="text-xs text-gray-500">职位</p>
                 <p>{personal.position}</p>
               </div>
             </div>
@@ -157,32 +164,32 @@ const UserProfile = () => {
                 }}
                 className="flex items-center gap-1.5 rounded-md"
               >
-                <Icon icon="ic:outline-edit" width="18" height="18" /> Edit
+                <Icon icon="ic:outline-edit" width="18" height="18" /> 编辑
               </Button>
             </div>
           </div>
 
           <div className="space-y-6 bg-background md:p-6 p-4 relative w-full break-words">
-            <h5 className="card-title">Address Details</h5>
+            <h5 className="card-title">地址信息</h5>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-7 2xl:gap-x-32">
               <div>
-                <p className="text-xs text-gray-500">Location</p>
+                <p className="text-xs text-gray-500">位置</p>
                 <p>{address.location}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Province / State</p>
+                <p className="text-xs text-gray-500">省／州</p>
                 <p>{address.state}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">PIN Code</p>
+                <p className="text-xs text-gray-500">个人识别码</p>
                 <p>{address.pin}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">ZIP</p>
+                <p className="text-xs text-gray-500">邮政编码</p>
                 <p>{address.zip}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500">Federal Tax No.</p>
+                <p className="text-xs text-gray-500">联邦税号</p>
                 <p>{address.taxNo}</p>
               </div>
             </div>
@@ -194,7 +201,7 @@ const UserProfile = () => {
                 }}
                 className="flex items-center gap-1.5 rounded-md"
               >
-                <Icon icon="ic:outline-edit" width="18" height="18" /> Edit
+                <Icon icon="ic:outline-edit" width="18" height="18" /> 编辑
               </Button>
             </div>
           </div>
@@ -205,17 +212,17 @@ const UserProfile = () => {
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle className="mb-4">
-              {modalType === 'personal' ? 'Edit Personal Information' : 'Edit Address Details'}
+              {modalType === 'personal' ? '编辑个人信息' : '编辑地址信息'}
             </DialogTitle>
           </DialogHeader>
 
           {modalType === 'personal' ? (
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <Label htmlFor="firstName">First Name</Label>
+                <Label htmlFor="firstName">名</Label>
                 <Input
                   id="firstName"
-                  placeholder="First Name"
+                  placeholder="名"
                   value={tempPersonal.firstName}
                   onChange={(e) =>
                     setTempPersonal({
@@ -226,10 +233,10 @@ const UserProfile = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="lastName">Last Name</Label>
+                <Label htmlFor="lastName">姓</Label>
                 <Input
                   id="lastName"
-                  placeholder="Last Name"
+                  placeholder="姓"
                   value={tempPersonal.lastName}
                   onChange={(e) =>
                     setTempPersonal({
@@ -240,28 +247,28 @@ const UserProfile = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">邮箱</Label>
                 <Input
                   id="email"
-                  placeholder="Email"
+                  placeholder="邮箱"
                   value={tempPersonal.email}
                   onChange={(e) => setTempPersonal({ ...tempPersonal, email: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="phone">Phone</Label>
+                <Label htmlFor="phone">电话</Label>
                 <Input
                   id="phone"
-                  placeholder="Phone"
+                  placeholder="电话"
                   value={tempPersonal.phone}
                   onChange={(e) => setTempPersonal({ ...tempPersonal, phone: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="position">Position</Label>
+                <Label htmlFor="position">职位</Label>
                 <Input
                   id="position"
-                  placeholder="Position"
+                  placeholder="职位"
                   value={tempPersonal.position}
                   onChange={(e) =>
                     setTempPersonal({
@@ -272,10 +279,10 @@ const UserProfile = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="facebook">Facebook URL</Label>
+                <Label htmlFor="facebook">Facebook 链接</Label>
                 <Input
                   id="facebook"
-                  placeholder="Facebook URL"
+                  placeholder="Facebook 链接"
                   value={tempPersonal.facebook}
                   onChange={(e) =>
                     setTempPersonal({
@@ -286,10 +293,10 @@ const UserProfile = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="twitter">Twitter URL</Label>
+                <Label htmlFor="twitter">Twitter 链接</Label>
                 <Input
                   id="twitter"
-                  placeholder="Twitter URL"
+                  placeholder="Twitter 链接"
                   value={tempPersonal.twitter}
                   onChange={(e) =>
                     setTempPersonal({
@@ -300,19 +307,19 @@ const UserProfile = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="github">GitHub URL</Label>
+                <Label htmlFor="github">GitHub 链接</Label>
                 <Input
                   id="github"
-                  placeholder="GitHub URL"
+                  placeholder="GitHub 链接"
                   value={tempPersonal.github}
                   onChange={(e) => setTempPersonal({ ...tempPersonal, github: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="dribbble">Dribbble URL</Label>
+                <Label htmlFor="dribbble">Dribbble 链接</Label>
                 <Input
                   id="dribbble"
-                  placeholder="Dribbble URL"
+                  placeholder="Dribbble 链接"
                   value={tempPersonal.dribbble}
                   onChange={(e) =>
                     setTempPersonal({
@@ -326,46 +333,46 @@ const UserProfile = () => {
           ) : (
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <Label htmlFor="location">Location</Label>
+                <Label htmlFor="location">位置</Label>
                 <Input
                   id="location"
-                  placeholder="Location"
+                  placeholder="位置"
                   value={tempAddress.location}
                   onChange={(e) => setTempAddress({ ...tempAddress, location: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="state">Province / State</Label>
+                <Label htmlFor="state">省／州</Label>
                 <Input
                   id="state"
-                  placeholder="Province / State"
+                  placeholder="省／州"
                   value={tempAddress.state}
                   onChange={(e) => setTempAddress({ ...tempAddress, state: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="pin">PIN Code</Label>
+                <Label htmlFor="pin">个人识别码</Label>
                 <Input
                   id="pin"
-                  placeholder="PIN Code"
+                  placeholder="个人识别码"
                   value={tempAddress.pin}
                   onChange={(e) => setTempAddress({ ...tempAddress, pin: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="zip">ZIP</Label>
+                <Label htmlFor="zip">邮政编码</Label>
                 <Input
                   id="zip"
-                  placeholder="ZIP"
+                  placeholder="邮政编码"
                   value={tempAddress.zip}
                   onChange={(e) => setTempAddress({ ...tempAddress, zip: e.target.value })}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label htmlFor="taxNo">Federal Tax No.</Label>
+                <Label htmlFor="taxNo">联邦税号</Label>
                 <Input
                   id="taxNo"
-                  placeholder="Federal Tax No."
+                  placeholder="联邦税号"
                   value={tempAddress.taxNo}
                   onChange={(e) => setTempAddress({ ...tempAddress, taxNo: e.target.value })}
                 />
@@ -375,13 +382,13 @@ const UserProfile = () => {
 
           <DialogFooter className="flex gap-2 mt-4">
             <Button className="rounded-md" onClick={handleSave}>
-              Save Changes
+              保存更改
             </Button>
             <Button
               className="rounded-md bg-lighterror dark:bg-darkerror text-error hover:bg-error hover:text-white"
               onClick={() => setOpenModal(false)}
             >
-              Close
+              关闭
             </Button>
           </DialogFooter>
         </DialogContent>

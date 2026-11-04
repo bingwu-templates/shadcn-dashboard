@@ -1,3 +1,4 @@
+import { ticketStatusLabels } from '@/lib/locale';
 import { useNavigate } from 'react-router';
 import { useContext } from 'react';
 import { CircleAlert, Trash } from 'lucide-react';
@@ -6,7 +7,7 @@ import { Table, TableCell, TableHead, TableHeader, TableRow } from '@/components
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { format } from 'date-fns';
+import { formatDate } from '@/lib/locale';
 import { TicketContext } from '@/context/ticket-context';
 import {
   AnimatedTableWrapper,
@@ -79,14 +80,14 @@ const TicketListing = () => {
         <div className="px-6 pt-3 flex justify-center ">
           <Alert variant="destructive" className="max-w-sm w-full text-center ">
             <CircleAlert size={18} />
-            <AlertTitle>No Tickets available.</AlertTitle>
+            <AlertTitle>暂无工单。</AlertTitle>
           </Alert>
         </div>
       ) : (
         <div className="my-6">
           <div className="flex justify-between  flex-wrap  items-center mb-4 gap-4">
             <Button onClick={() => router('/apps/tickets/create')} className=" whitespace-nowrap">
-              Create Ticket
+              创建工单
             </Button>
             <div className="relative sm:max-w-60 max-w-full w-full">
               <SearchIcon
@@ -96,7 +97,7 @@ const TicketListing = () => {
               <InputPlaceholderAnimate
                 value={ticketSearch}
                 onChange={setTicketSearch}
-                placeholders={['Search ticket...', 'Find ticket...', 'Look up ticket...']}
+                placeholders={['搜索工单…', '查找工单…', '查找相关工单…']}
                 className="pl-9!"
               />
             </div>
@@ -106,21 +107,21 @@ const TicketListing = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead className="text-base font-semibold py-3 whitespace-nowrap">
-                    Id
+                    编号
                   </TableHead>
                   <TableHead className="text-base font-semibold py-3 whitespace-nowrap">
-                    Ticket
+                    工单
                   </TableHead>
                   <TableHead className="text-base font-semibold py-3 whitespace-nowrap">
-                    Assigned To
+                    负责人
                   </TableHead>
                   <TableHead className="text-base font-semibold py-3 whitespace-nowrap">
-                    Status
+                    状态
                   </TableHead>
                   <TableHead className="text-base font-semibold py-3 whitespace-nowrap">
-                    Date
+                    日期
                   </TableHead>
-                  <TableHead className="text-base font-semibold py-3 text-end">Action</TableHead>
+                  <TableHead className="text-base font-semibold py-3 text-end">操作</TableHead>
                 </TableRow>
               </TableHeader>
               <AnimatedTableBody className="divide-y divide-border">
@@ -145,11 +146,13 @@ const TicketListing = () => {
                       </div>
                     </TableCell>
                     <TableCell className="whitespace-nowrap">
-                      <Badge className={`${ticketBadge(ticket)} `}>{ticket.Status}</Badge>
+                      <Badge className={`${ticketBadge(ticket)} `}>
+                        {ticketStatusLabels[ticket.Status] ?? ticket.Status}
+                      </Badge>
                     </TableCell>
                     <TableCell className="whitespace-nowrap">
                       <p className="text-sm text-muted-foreground">
-                        {format(new Date(ticket.Date), 'E, MMM d')}
+                        {formatDate(new Date(ticket.Date), 'M月d日 EEEE')}
                       </p>
                     </TableCell>
                     <TableCell className="text-end">
@@ -166,7 +169,7 @@ const TicketListing = () => {
                             </Button>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Delete Ticket</p>
+                            <p>删除工单</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>

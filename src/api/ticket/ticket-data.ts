@@ -16,97 +16,89 @@ const chance = new Chance();
 let TicketData: TicketType[] = [
   {
     Id: 1,
-    ticketTitle: 'Sed ut perspiciatis unde omnis iste',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '账户登录后无法查看个人资料',
+    ticketDescription: '登录成功后个人资料页面一直显示加载中，请协助排查账户权限和数据加载问题。',
     Status: 'Closed',
     Label: 'error',
     thumb: userImg10,
-    AgentName: 'Liam',
+    AgentName: '李明',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 2,
-    ticketTitle: 'Consequuntur magni dolores eos qui ratione',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '订单状态更新后未收到通知',
+    ticketDescription: '订单状态已变更，但站内通知没有更新，请检查通知设置并协助处理。',
     Status: 'Pending',
     Label: 'warning',
     thumb: userImg2,
-    AgentName: 'Steve',
+    AgentName: '王磊',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 3,
-    ticketTitle: 'Exercitationem ullam corporis',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '移动端表单提交失败',
+    ticketDescription: '在手机上填写完整信息后仍无法提交表单，请协助检查字段校验和页面兼容性。',
     Status: 'Open',
     Label: 'success',
     thumb: userImg3,
-    AgentName: 'Jack',
+    AgentName: '姜华',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 4,
-    ticketTitle: 'Sed ut perspiciatis unde omnis iste',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '账户登录后无法查看个人资料',
+    ticketDescription: '登录成功后个人资料页面一直显示加载中，请协助排查账户权限和数据加载问题。',
     Status: 'Closed',
     Label: 'error',
     thumb: userImg4,
-    AgentName: 'Steve',
+    AgentName: '王磊',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 5,
-    ticketTitle: 'Exercitationem ullam corporis',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '移动端表单提交失败',
+    ticketDescription: '在手机上填写完整信息后仍无法提交表单，请协助检查字段校验和页面兼容性。',
     Status: 'Closed',
     Label: 'error',
     thumb: userImg5,
-    AgentName: 'Liam',
+    AgentName: '李明',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 6,
-    ticketTitle: 'Consequuntur magni dolores eos qui ratione',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '订单状态更新后未收到通知',
+    ticketDescription: '订单状态已变更，但站内通知没有更新，请检查通知设置并协助处理。',
     Status: 'Pending',
     Label: 'warning',
     thumb: userImg6,
-    AgentName: 'Jack',
+    AgentName: '姜华',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 7,
-    ticketTitle: 'Sed ut perspiciatis unde omnis iste',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '账户登录后无法查看个人资料',
+    ticketDescription: '登录成功后个人资料页面一直显示加载中，请协助排查账户权限和数据加载问题。',
     Status: 'Open',
     Label: 'success',
     thumb: userImg7,
-    AgentName: 'Steve',
+    AgentName: '王磊',
     Date: chance.date(),
     deleted: false,
   },
   {
     Id: 8,
-    ticketTitle: 'Consequuntur magni dolores eos qui ratione',
-    ticketDescription:
-      'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
+    ticketTitle: '订单状态更新后未收到通知',
+    ticketDescription: '订单状态已变更，但站内通知没有更新，请检查通知设置并协助处理。',
     Status: 'Closed',
     Label: 'error',
     thumb: userImg8,
-    AgentName: 'John',
+    AgentName: '张伟',
     Date: chance.date(),
     deleted: false,
   },
@@ -116,11 +108,11 @@ export const TicketHandlers = [
   // Mock GET request to retrieve Ticket data
   http.get('/api/data/ticket/TicketData', () => {
     try {
-      return HttpResponse.json({ status: 200, msg: 'Success', data: TicketData });
+      return HttpResponse.json({ status: 200, msg: '成功', data: TicketData });
     } catch (error) {
       return HttpResponse.json({
         status: 400,
-        msg: 'Internal server error',
+        msg: '服务器内部错误',
         error,
       });
     }
@@ -132,11 +124,11 @@ export const TicketHandlers = [
       const { id } = (await request.json()) as { id: string | number };
       const remainingTickets = TicketData.filter((ticket) => ticket.Id !== id);
       TicketData = remainingTickets;
-      return HttpResponse.json({ status: 200, msg: 'Success', data: TicketData });
+      return HttpResponse.json({ status: 200, msg: '成功', data: TicketData });
     } catch (error) {
       return HttpResponse.json({
         status: 400,
-        msg: 'Internal server error',
+        msg: '服务器内部错误',
         error,
       });
     }
@@ -147,11 +139,11 @@ export const TicketHandlers = [
     try {
       const newTicket = (await request.json()) as TicketType;
       TicketData.push(newTicket);
-      return HttpResponse.json({ status: 200, msg: 'Success', data: TicketData });
+      return HttpResponse.json({ status: 200, msg: '成功', data: TicketData });
     } catch (error) {
       return HttpResponse.json({
         status: 400,
-        msg: 'Internal server error',
+        msg: '服务器内部错误',
         error,
       });
     }

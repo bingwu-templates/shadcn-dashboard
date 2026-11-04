@@ -8,7 +8,7 @@ import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Blog Create' }];
+const BCrumb = [{ to: '/', title: '首页' }, { title: '新建文章' }];
 
 const BlogCreate = () => {
   return (
@@ -16,7 +16,7 @@ const BlogCreate = () => {
       lyraClassName="flex flex-col p-px gap-px bg-border"
       defaultClassName="flex flex-col gap-4"
     >
-      <BreadcrumbComp title="Blog Create" items={BCrumb} />
+      <BreadcrumbComp title="新建文章" items={BCrumb} />
       <StyleDivider />
       <StyleAwareWrapper
         lyraClassName="grid grid-cols-12 gap-px bg-border"
@@ -46,8 +46,8 @@ const BlogCreate = () => {
           defaultClassName="lg:col-span-8 col-span-12"
         >
           <div className="flex gap-3">
-            <Button className="sm:mb-0 mb-3 w-fit">Add Blog</Button>
-            <Button variant={'destructive'}>Cancel</Button>
+            <Button className="sm:mb-0 mb-3 w-fit">添加文章</Button>
+            <Button variant={'destructive'}>取消</Button>
           </div>
         </StyleAwareWrapper>
       </StyleAwareWrapper>

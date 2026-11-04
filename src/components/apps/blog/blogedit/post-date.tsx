@@ -3,7 +3,7 @@ import { Label } from '@/components/ui/label';
 import { useState, useContext, useEffect } from 'react';
 import { BlogContext } from 'src/context/blog-context';
 // ShadCN UI Date Picker components
-import { format } from 'date-fns';
+import { formatDate } from '@/lib/locale';
 import { CalendarCog } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -25,14 +25,14 @@ const PostDate = () => {
     <Card className="h-full">
       <CardHeader>
         <CardTitle>
-          <h5>Publish Date</h5>
+          <h5>发布日期</h5>
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="publishDate">
-              Select publish date <span className="text-destructive">*</span>
+              选择发布日期 <span className="text-destructive">*</span>
             </Label>
           </div>
           <div>
@@ -46,7 +46,7 @@ const PostDate = () => {
                   )}
                 >
                   <CalendarCog />
-                  {publishDate ? format(publishDate, 'PPP') : <span>Pick a date</span>}
+                  {publishDate ? formatDate(publishDate, 'yyyy年M月d日') : <span>选择日期</span>}
                 </Button>
               </PopoverTrigger>
               <PopoverContent align="start">
@@ -54,9 +54,7 @@ const PostDate = () => {
               </PopoverContent>
             </Popover>
           </div>
-          <small className="text-xs text-muted-foreground">
-            Choose the date when this blog post should be published.
-          </small>
+          <small className="text-xs text-muted-foreground">选择这篇文章的发布日期。</small>
         </div>
       </CardContent>
     </Card>

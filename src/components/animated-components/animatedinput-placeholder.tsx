@@ -30,6 +30,7 @@ const PlaceholdersInput = forwardRef<PlaceholdersInputHandle, PlaceholdersInputP
     const [animating, setAnimating] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
+    const composingRef = useRef(false);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const newDataRef = useRef<PixelData[]>([]);
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -128,7 +129,7 @@ const PlaceholdersInput = forwardRef<PlaceholdersInputHandle, PlaceholdersInputP
     };
 
     const vanishAndSubmit = () => {
-      if (!value) return;
+      if (!value || animating || composingRef.current) return;
       setAnimating(true);
       draw();
       const maxX = newDataRef.current.reduce((m, p) => Math.max(m, p.x), 0);
@@ -141,6 +142,7 @@ const PlaceholdersInput = forwardRef<PlaceholdersInputHandle, PlaceholdersInputP
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      if (composingRef.current) return;
       vanishAndSubmit();
     };
 
@@ -161,10 +163,27 @@ const PlaceholdersInput = forwardRef<PlaceholdersInputHandle, PlaceholdersInputP
         <Input
           ref={inputRef}
           value={value}
+          aria-label={placeholders[0]}
+          onCompositionStart={() => {
+            composingRef.current = true;
+          }}
+          onCompositionEnd={() => {
+            composingRef.current = false;
+          }}
           onChange={(e) => {
             if (!animating) onChange(e.target.value);
           }}
-          onKeyDown={(e) => e.key === 'Enter' && !animating && vanishAndSubmit()}
+          onKeyDown={(e) => {
+            if (
+              e.key === 'Enter' &&
+              !e.nativeEvent.isComposing &&
+              !composingRef.current &&
+              !animating
+            ) {
+              e.preventDefault();
+              vanishAndSubmit();
+            }
+          }}
           onBlur={() => onBlur?.(value)}
           type="text"
           disabled={disabled}

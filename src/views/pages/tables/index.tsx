@@ -8,12 +8,12 @@ import { EmployeeData } from 'src/components/tables/table-data';
 import StyleDivider from 'src/components/shared/StyleDivider';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 
-const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Tables' }];
+const BCrumb = [{ to: '/', title: '首页' }, { title: '表格' }];
 
 function TablesPage() {
   return (
     <StyleAwareWrapper lyraClassName="flex flex-col p-px gap-px bg-border">
-      <BreadcrumbComp title="Tables" items={BCrumb} />
+      <BreadcrumbComp title="表格" items={BCrumb} />
       <StyleDivider />
 
       <StyleAwareWrapper lyraClassName="grid grid-cols-12 gap-px bg-border">

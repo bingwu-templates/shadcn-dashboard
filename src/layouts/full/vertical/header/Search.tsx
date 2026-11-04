@@ -62,7 +62,7 @@ function Search() {
           className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
         />
         <Input
-          placeholder="Search...."
+          placeholder="搜索…"
           className="rounded-lg pl-10!"
           required
           value={query}
@@ -94,7 +94,7 @@ function Search() {
             ))
           ) : (
             <div className="flex items-center justify-center h-full">
-              <h1 className="text-medium font-medium ">No Components Found!</h1>
+              <h1 className="text-medium font-medium ">未找到组件</h1>
             </div>
           )}
         </SimpleBar>

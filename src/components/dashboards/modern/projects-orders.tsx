@@ -21,11 +21,11 @@ import avatar6 from '@/assets/images/profile/user-6.png';
 
 type StatusKey = 'Processing' | 'Delayed' | 'Delivered' | 'Cancelled';
 
-const statusConfig: Record<StatusKey, { bg: string; text: string }> = {
-  Processing: { bg: 'bg-[#f54900]/10', text: 'text-[#f54900]' },
-  Delayed: { bg: 'bg-[#ec003f]/10', text: 'text-[#ec003f]' },
-  Delivered: { bg: 'bg-[#009689]/10', text: 'text-[#009689]' },
-  Cancelled: { bg: 'bg-[#ec003f]/10', text: 'text-[#ec003f]' },
+const statusConfig: Record<StatusKey, { bg: string; text: string; label: string }> = {
+  Processing: { label: '处理中', bg: 'bg-[#f54900]/10', text: 'text-[#f54900]' },
+  Delayed: { label: '已延期', bg: 'bg-[#ec003f]/10', text: 'text-[#ec003f]' },
+  Delivered: { label: '已交付', bg: 'bg-[#009689]/10', text: 'text-[#009689]' },
+  Cancelled: { label: '已取消', bg: 'bg-[#ec003f]/10', text: 'text-[#ec003f]' },
 };
 
 const orders: {
@@ -42,71 +42,71 @@ const orders: {
     id: 'SD-2026-001',
     project: 'Modernize',
     avatar: avatar2,
-    name: 'Emily Carter',
-    role: 'Project Manager',
+    name: '陈雨桐',
+    role: '项目经理',
     status: 'Processing',
     price: '$2,499.00',
-    deadline: 'Jun 14, 2026',
+    deadline: '2026年6月14日',
   },
   {
     id: 'SD-2026-002',
     project: 'Spike Admin',
     avatar: avatar3,
-    name: 'Jason Miller',
-    role: 'Web Developer',
+    name: '王子轩',
+    role: '网站开发工程师',
     status: 'Delayed',
     price: '$1,348.00',
-    deadline: 'May 10, 2026',
+    deadline: '2026年5月10日',
   },
   {
     id: 'SD-2026-003',
     project: 'Material Pro',
     avatar: avatar7,
-    name: 'Ryan Scott',
-    role: 'UI/UX Designer',
+    name: '林浩',
+    role: '界面与体验设计师',
     status: 'Delivered',
     price: '$1,198.00',
-    deadline: 'Jul 2, 2026',
+    deadline: '2026年7月2日',
   },
   {
     id: 'SD-2026-004',
     project: 'Xtreme Admin',
     avatar: avatar6,
-    name: 'Olivia Williams',
-    role: 'Frontend Developer',
+    name: '周欣怡',
+    role: '前端开发工程师',
     status: 'Delivered',
     price: '$799.00',
-    deadline: 'May 30, 2026',
+    deadline: '2026年5月30日',
   },
   {
     id: 'SD-2026-005',
     project: 'Nova Suite',
     avatar: avatar4,
-    name: 'Lisa Park',
-    role: 'Frontend Developer',
+    name: '李思远',
+    role: '前端开发工程师',
     status: 'Cancelled',
     price: '$599.00',
-    deadline: 'Jul 15, 2026',
+    deadline: '2026年7月15日',
   },
   {
     id: 'SD-2026-006',
     project: 'Pulse CRM',
     avatar: avatar9,
-    name: 'David Kim',
-    role: 'Backend Developer',
+    name: '金晨',
+    role: '后端开发工程师',
     status: 'Processing',
     price: '$5,498.00',
-    deadline: 'Jun 5, 2026',
+    deadline: '2026年6月5日',
   },
   {
     id: 'SD-2026-007',
     project: 'Vertex UI',
     avatar: avatar1,
-    name: 'Anna Martinez',
-    role: 'UI/UX Designer',
+    name: '安可',
+    role: '界面与体验设计师',
     status: 'Delivered',
     price: '$1,199.00',
-    deadline: 'Jun 18, 2026',
+    deadline: '2026年6月18日',
   },
 ];
 
@@ -117,7 +117,7 @@ export default function ProjectsOrders() {
       <CardHeader className="border-b border-border">
         <CardTitle className="flex items-center gap-2">
           <BriefcaseBusiness size={16} className="text-foreground" />
-          <span>Projects & Orders</span>
+          <span>项目与订单</span>
         </CardTitle>
       </CardHeader>
 
@@ -131,31 +131,31 @@ export default function ProjectsOrders() {
                   <TableRow className="hover:bg-transparent border-border">
                     <TableHead className="pl-4! px-4 py-3 h-auto text-sm font-normal text-muted-foreground w-[160px]">
                       <div className="flex items-center gap-1.5 whitespace-nowrap">
-                        Project
+                        项目
                         <ArrowDownUp size={14} className="text-muted-foreground shrink-0" />
                       </div>
                     </TableHead>
                     <TableHead className="px-4 py-3 h-auto text-sm font-normal text-muted-foreground">
                       <div className="flex items-center gap-1.5 whitespace-nowrap">
-                        Item
+                        条目
                         <ArrowDownUp size={14} className="text-muted-foreground shrink-0" />
                       </div>
                     </TableHead>
                     <TableHead className="px-4 py-3 h-auto text-sm font-normal text-muted-foreground w-[130px]">
                       <div className="flex items-center gap-1.5 whitespace-nowrap">
-                        Status
+                        状态
                         <ArrowDownUp size={14} className="text-muted-foreground shrink-0" />
                       </div>
                     </TableHead>
                     <TableHead className="px-4 py-3 h-auto text-sm font-normal text-muted-foreground w-[120px]">
                       <div className="flex items-center gap-1.5 whitespace-nowrap">
-                        Price
+                        价格
                         <ArrowDownUp size={14} className="text-muted-foreground shrink-0" />
                       </div>
                     </TableHead>
                     <TableHead className="px-4 py-3 h-auto text-sm font-normal text-muted-foreground w-[130px]">
                       <div className="flex items-center gap-1.5 whitespace-nowrap">
-                        Deadline
+                        截止日期
                         <ArrowDownUp size={14} className="text-muted-foreground shrink-0" />
                       </div>
                     </TableHead>
@@ -165,7 +165,7 @@ export default function ProjectsOrders() {
 
                 <TableBody>
                   {orders.map((order) => {
-                    const { bg, text } = statusConfig[order.status];
+                    const { bg, text, label } = statusConfig[order.status];
                     return (
                       <TableRow key={order.id} className="border-border hover:bg-muted/30">
                         {/* Project */}
@@ -206,7 +206,7 @@ export default function ProjectsOrders() {
                           <span
                             className={`inline-flex items-center justify-center rounded-full px-2 py-0.5 text-xs font-normal whitespace-nowrap ${bg} ${text}`}
                           >
-                            {order.status}
+                            {label}
                           </span>
                         </TableCell>
 
@@ -229,7 +229,7 @@ export default function ProjectsOrders() {
                           <Button
                             variant="ghost"
                             className="p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
-                            aria-label="More options"
+                            aria-label="更多选项"
                           >
                             <Ellipsis size={16} className="text-foreground" />
                           </Button>

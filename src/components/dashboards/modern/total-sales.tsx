@@ -13,85 +13,85 @@ import {
 } from '@/components/ui/select';
 
 const allChartData: Record<string, { date: string; newUser: number; existingUser: number }[]> = {
-  'Last 30 Days': [
-    { date: 'Mar 30', newUser: 12, existingUser: 20 },
-    { date: 'Apr 1', newUser: 18, existingUser: 25 },
-    { date: 'Apr 2', newUser: 14, existingUser: 22 },
-    { date: 'Apr 4', newUser: 22, existingUser: 30 },
-    { date: 'Apr 5', newUser: 16, existingUser: 18 },
-    { date: 'Apr 7', newUser: 20, existingUser: 24 },
-    { date: 'Apr 9', newUser: 18, existingUser: 32 },
-    { date: 'Apr 11', newUser: 26, existingUser: 22 },
-    { date: 'Apr 12', newUser: 20, existingUser: 26 },
-    { date: 'Apr 14', newUser: 30, existingUser: 20 },
-    { date: 'Apr 15', newUser: 22, existingUser: 28 },
-    { date: 'Apr 17', newUser: 26, existingUser: 22 },
-    { date: 'Apr 19', newUser: 28, existingUser: 18 },
-    { date: 'Apr 20', newUser: 24, existingUser: 24 },
-    { date: 'Apr 22', newUser: 38, existingUser: 18 },
-    { date: 'Apr 23', newUser: 22, existingUser: 26 },
-    { date: 'Apr 24', newUser: 20, existingUser: 22 },
-    { date: 'Apr 26', newUser: 24, existingUser: 20 },
-    { date: 'Apr 27', newUser: 18, existingUser: 24 },
-    { date: 'Apr 29', newUser: 22, existingUser: 20 },
-    { date: 'May 1', newUser: 20, existingUser: 18 },
-    { date: 'May 4', newUser: 24, existingUser: 22 },
+  '近 30 天': [
+    { date: '3月30日', newUser: 12, existingUser: 20 },
+    { date: '4月1日', newUser: 18, existingUser: 25 },
+    { date: '4月2日', newUser: 14, existingUser: 22 },
+    { date: '4月4日', newUser: 22, existingUser: 30 },
+    { date: '4月5日', newUser: 16, existingUser: 18 },
+    { date: '4月7日', newUser: 20, existingUser: 24 },
+    { date: '4月9日', newUser: 18, existingUser: 32 },
+    { date: '4月11日', newUser: 26, existingUser: 22 },
+    { date: '4月12日', newUser: 20, existingUser: 26 },
+    { date: '4月14日', newUser: 30, existingUser: 20 },
+    { date: '4月15日', newUser: 22, existingUser: 28 },
+    { date: '4月17日', newUser: 26, existingUser: 22 },
+    { date: '4月19日', newUser: 28, existingUser: 18 },
+    { date: '4月20日', newUser: 24, existingUser: 24 },
+    { date: '4月22日', newUser: 38, existingUser: 18 },
+    { date: '4月23日', newUser: 22, existingUser: 26 },
+    { date: '4月24日', newUser: 20, existingUser: 22 },
+    { date: '4月26日', newUser: 24, existingUser: 20 },
+    { date: '4月27日', newUser: 18, existingUser: 24 },
+    { date: '4月29日', newUser: 22, existingUser: 20 },
+    { date: '5月1日', newUser: 20, existingUser: 18 },
+    { date: '5月4日', newUser: 24, existingUser: 22 },
   ],
-  'Last 7 Days': [
-    { date: 'Apr 28', newUser: 18, existingUser: 22 },
-    { date: 'Apr 29', newUser: 22, existingUser: 20 },
-    { date: 'Apr 30', newUser: 20, existingUser: 28 },
-    { date: 'May 1', newUser: 30, existingUser: 18 },
-    { date: 'May 2', newUser: 24, existingUser: 26 },
-    { date: 'May 3', newUser: 32, existingUser: 20 },
-    { date: 'May 4', newUser: 22, existingUser: 28 },
+  '近 7 天': [
+    { date: '4月28日', newUser: 18, existingUser: 22 },
+    { date: '4月29日', newUser: 22, existingUser: 20 },
+    { date: '4月30日', newUser: 20, existingUser: 28 },
+    { date: '5月1日', newUser: 30, existingUser: 18 },
+    { date: '5月2日', newUser: 24, existingUser: 26 },
+    { date: '5月3日', newUser: 32, existingUser: 20 },
+    { date: '5月4日', newUser: 22, existingUser: 28 },
   ],
-  'Last 90 Days': [
-    { date: 'Feb 1', newUser: 14, existingUser: 22 },
-    { date: 'Feb 15', newUser: 20, existingUser: 28 },
-    { date: 'Mar 1', newUser: 18, existingUser: 24 },
-    { date: 'Mar 15', newUser: 26, existingUser: 20 },
-    { date: 'Mar 30', newUser: 22, existingUser: 30 },
-    { date: 'Apr 14', newUser: 32, existingUser: 22 },
-    { date: 'Apr 22', newUser: 38, existingUser: 18 },
-    { date: 'Apr 29', newUser: 24, existingUser: 26 },
-    { date: 'May 4', newUser: 28, existingUser: 20 },
+  '近 90 天': [
+    { date: '2月1日', newUser: 14, existingUser: 22 },
+    { date: '2月15日', newUser: 20, existingUser: 28 },
+    { date: '3月1日', newUser: 18, existingUser: 24 },
+    { date: '3月15日', newUser: 26, existingUser: 20 },
+    { date: '3月30日', newUser: 22, existingUser: 30 },
+    { date: '4月14日', newUser: 32, existingUser: 22 },
+    { date: '4月22日', newUser: 38, existingUser: 18 },
+    { date: '4月29日', newUser: 24, existingUser: 26 },
+    { date: '5月4日', newUser: 28, existingUser: 20 },
   ],
 };
 
 const xAxisLabels: Record<string, Set<string>> = {
-  'Last 30 Days': new Set([
-    'Mar 30',
-    'Apr 4',
-    'Apr 9',
-    'Apr 14',
-    'Apr 19',
-    'Apr 24',
-    'Apr 29',
-    'May 4',
+  '近 30 天': new Set([
+    '3月30日',
+    '4月4日',
+    '4月9日',
+    '4月14日',
+    '4月19日',
+    '4月24日',
+    '4月29日',
+    '5月4日',
   ]),
-  'Last 7 Days': new Set(['Apr 28', 'Apr 29', 'Apr 30', 'May 1', 'May 2', 'May 3', 'May 4']),
-  'Last 90 Days': new Set([
-    'Feb 1',
-    'Feb 15',
-    'Mar 1',
-    'Mar 15',
-    'Mar 30',
-    'Apr 14',
-    'Apr 29',
-    'May 4',
+  '近 7 天': new Set(['4月28日', '4月29日', '4月30日', '5月1日', '5月2日', '5月3日', '5月4日']),
+  '近 90 天': new Set([
+    '2月1日',
+    '2月15日',
+    '3月1日',
+    '3月15日',
+    '3月30日',
+    '4月14日',
+    '4月29日',
+    '5月4日',
   ]),
 };
 
 const chartConfig = {
-  newUser: { label: 'New User', color: 'var(--color-primary)' },
+  newUser: { label: '新用户', color: 'var(--color-primary)' },
   existingUser: {
-    label: 'Existing User',
+    label: '已有用户',
     color: 'color-mix(in srgb, var(--primary) 60%, transparent)',
   },
 } satisfies ChartConfig;
 
-const periodOptions = ['Last 30 Days', 'Last 7 Days', 'Last 90 Days'];
+const periodOptions = ['近 30 天', '近 7 天', '近 90 天'];
 
 function useAnimatedNumber(target: number, duration = 450) {
   const [display, setDisplay] = useState(0);
@@ -125,7 +125,7 @@ function useAnimatedNumber(target: number, duration = 450) {
 
 function AnimatedValue({ value }: { value: number }) {
   const animated = useAnimatedNumber(value);
-  return <>{animated.toLocaleString()}</>;
+  return <>{animated.toLocaleString('zh-CN')}</>;
 }
 
 type TooltipItem = {
@@ -188,7 +188,7 @@ export default function TotalSales() {
       <CardHeader className="border-b border-border">
         <CardTitle className="flex items-center gap-2">
           <TrendingUp size={16} className="text-muted-foreground" />
-          Sales Overview
+          销售概览
         </CardTitle>
       </CardHeader>
 
@@ -196,13 +196,13 @@ export default function TotalSales() {
         {/* Stats row + period selector */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex flex-col gap-1">
-            <span className="text-base font-normal text-foreground leading-6">Total Sales</span>
+            <span className="text-base font-normal text-foreground leading-6">销售总额</span>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-2xl font-semibold tracking-[-0.3px] text-foreground leading-8">
                 $12,450.00
               </span>
               <span className="text-sm font-medium text-chart-2">+22%</span>
-              <span className="text-sm font-normal text-muted-foreground">vs last month</span>
+              <span className="text-sm font-normal text-muted-foreground">较上月</span>
             </div>
           </div>
 
@@ -240,7 +240,7 @@ export default function TotalSales() {
               tick={{ fontSize: 12, fill: 'var(--muted-foreground)' }}
               ticks={[0, 10, 20, 30, 40]}
               domain={[0, 40]}
-              tickFormatter={(v) => (v === 0 ? '0' : `${v}k`)}
+              tickFormatter={(v) => (v === 0 ? '0' : `${v}千`)}
             />
             <ChartTooltip
               cursor={{
@@ -251,7 +251,7 @@ export default function TotalSales() {
               content={<AnimatedTooltipContent config={chartConfig} />}
             />
             <ReferenceLine
-              x="Apr 22"
+              x="4月22日"
               stroke="var(--border)"
               strokeWidth={1}
               strokeDasharray="4 4"

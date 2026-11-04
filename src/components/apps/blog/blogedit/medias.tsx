@@ -14,7 +14,7 @@ const Media = () => {
       <Card>
         <CardHeader>
           <CardTitle>
-            <h5>Cover Image</h5>
+            <h5>封面图片</h5>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -26,16 +26,18 @@ const Media = () => {
               {coverImage ? (
                 <img
                   src={coverImage}
-                  alt="Cover"
+                  alt="封面"
                   className="h-full w-full object-cover rounded-lg "
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center pb-6 pt-5">
                   <CloudUpload size={32} className="mb-3 text-primary" />
                   <p className="mb-2 text-sm text-primary ">
-                    <span className="font-semibold">Click to upload</span> or drag and drop
+                    <span className="font-semibold">点击上传</span> 或拖放文件
                   </p>
-                  <p className="text-xs text-primary ">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                  <p className="text-xs text-primary ">
+                    SVG、PNG、JPG 或 GIF（最大尺寸 800×400 像素）
+                  </p>
                 </div>
               )}
               <Input type="file" id="dropzone-file" className="hidden" />

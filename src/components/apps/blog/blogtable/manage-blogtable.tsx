@@ -86,7 +86,7 @@ const ManageBlogTable = () => {
       ),
     }),
     columnHelper.accessor('title', {
-      header: 'Title',
+      header: '标题',
       cell: (info) => {
         const { title, coverImg } = info.row.original;
         return (
@@ -106,16 +106,16 @@ const ManageBlogTable = () => {
       },
     }),
     columnHelper.accessor('category', {
-      header: 'Category',
+      header: '分类',
       cell: (info) => {
-        const category = info.getValue() ?? 'Unknown';
+        const category = info.getValue() ?? '未知';
 
         const categoryColors: Record<string, string> = {
-          Design: 'bg-chart-2/12! text-chart-2!',
-          Lifestyle: 'bg-chart-4/12! text-chart-4!',
-          Gadget: 'bg-primary/5! text-primary!',
-          Social: 'bg-destructive/12! text-destructive!',
-          Health: 'bg-chart-5/12! text-chart-5!',
+          设计: 'bg-chart-2/12! text-chart-2!',
+          生活方式: 'bg-chart-4/12! text-chart-4!',
+          数码: 'bg-primary/5! text-primary!',
+          社会: 'bg-destructive/12! text-destructive!',
+          健康: 'bg-chart-5/12! text-chart-5!',
         };
 
         return (
@@ -132,7 +132,7 @@ const ManageBlogTable = () => {
     }),
     columnHelper.accessor((row) => row.author, {
       id: 'authorName',
-      header: 'Author',
+      header: '作者',
       cell: (info) => (
         <div className="flex items-center gap-2 whitespace-nowrap ">
           <Avatar>
@@ -144,14 +144,24 @@ const ManageBlogTable = () => {
       ),
     }),
     columnHelper.accessor('createdAt', {
-      header: 'Created At',
+      header: '创建时间',
       cell: (info) => {
         const dateValue = info.getValue();
-        return <span>{dateValue ? new Date(dateValue).toLocaleDateString() : '—'}</span>;
+        return (
+          <span>
+            {dateValue
+              ? new Date(dateValue).toLocaleDateString('zh-CN', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })
+              : '—'}
+          </span>
+        );
       },
     }),
     columnHelper.accessor('published', {
-      header: 'published',
+      header: '发布状态',
       cell: ({ row }) => {
         const postId = row.original.id;
         const published = row.original.published;
@@ -176,7 +186,7 @@ const ManageBlogTable = () => {
     }),
     columnHelper.display({
       id: 'actions',
-      header: 'Actions',
+      header: '操作',
       cell: ({ row }) => {
         const { id } = row.original;
 
@@ -212,7 +222,7 @@ const ManageBlogTable = () => {
                     <Pen size={18} />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Edit Blog</TooltipContent>
+                <TooltipContent>编辑文章</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger>
@@ -227,7 +237,7 @@ const ManageBlogTable = () => {
                     <Trash2 size={18} />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Delete Blog</TooltipContent>
+                <TooltipContent>删除文章</TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </div>
@@ -277,7 +287,7 @@ const ManageBlogTable = () => {
       <CardHeader>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between ">
           <CardTitle>
-            <h3 className="text-base font-semibold   mb-4 md:mb-0">Blog List</h3>
+            <h3 className="text-base font-semibold   mb-4 md:mb-0">文章列表</h3>
           </CardTitle>
           <div className="flex items-center gap-1 md:gap-2">
             {/* Search */}
@@ -289,7 +299,7 @@ const ManageBlogTable = () => {
                       <SearchIcon size={16} />
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>Search</TooltipContent>
+                  <TooltipContent>搜索</TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             ) : (
@@ -300,7 +310,7 @@ const ManageBlogTable = () => {
                 onBlur={() => {
                   if (!globalFilter) setShowSearch(false);
                 }}
-                placeholders={['Search blogs...', 'Find top blogs...', 'Look up blogs...']}
+                placeholders={['搜索文章…', '查找热门文章…', '查找文章…']}
               />
             )}
             {/* Category Filter */}
@@ -312,23 +322,23 @@ const ManageBlogTable = () => {
               }}
             >
               <SelectTrigger className={'cursor-pointer'}>
-                <SelectValue>{categoryFilter ? categoryFilter : 'All Categories'}</SelectValue>
+                <SelectValue>{categoryFilter ? categoryFilter : '全部分类'}</SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem className={'cursor-pointer'} value="Design">
-                  Design
+                <SelectItem className={'cursor-pointer'} value="设计">
+                  设计
                 </SelectItem>
-                <SelectItem className={'cursor-pointer'} value="Lifestyle">
-                  Lifestyle
+                <SelectItem className={'cursor-pointer'} value="生活方式">
+                  生活方式
                 </SelectItem>
-                <SelectItem className={'cursor-pointer'} value="Gadget">
-                  Gadget
+                <SelectItem className={'cursor-pointer'} value="数码">
+                  数码
                 </SelectItem>
-                <SelectItem className={'cursor-pointer'} value="Social">
-                  Social
+                <SelectItem className={'cursor-pointer'} value="社会">
+                  社会
                 </SelectItem>
-                <SelectItem className={'cursor-pointer'} value="Health">
-                  Health
+                <SelectItem className={'cursor-pointer'} value="健康">
+                  健康
                 </SelectItem>
               </SelectContent>
             </Select>
@@ -388,13 +398,13 @@ const ManageBlogTable = () => {
                         <div className="flex flex-col items-center">
                           <img
                             src="/images/svgs/no-data.webp"
-                            alt="No data"
+                            alt="暂无数据"
                             height={100}
                             width={100}
                             className="mb-4"
                           />
                         </div>
-                        No data found!
+                        未找到数据
                       </td>
                     </tr>
                   ) : (
@@ -418,7 +428,7 @@ const ManageBlogTable = () => {
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-4 gap-3">
               {/* Page Size Selector */}
               <div className="flex items-center gap-2">
-                <p className="text-sm text-muted-foreground ">Show</p>
+                <p className="text-sm text-muted-foreground ">每页显示</p>
                 <Select
                   value={String(table.getState().pagination.pageSize)}
                   onValueChange={(value) => table.setPageSize(Number(value))}
@@ -435,7 +445,7 @@ const ManageBlogTable = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <p className="text-sm text-muted-foreground ">per page</p>
+                <p className="text-sm text-muted-foreground ">条</p>
               </div>
               <div className="flex items-center gap-3">
                 {/* Page Summary */}
@@ -450,8 +460,8 @@ const ManageBlogTable = () => {
                           (table.getState().pagination.pageIndex + 1) *
                             table.getState().pagination.pageSize,
                           table.getFilteredRowModel().rows.length,
-                        )} of ${table.getFilteredRowModel().rows.length}`
-                      : `0 of 0`}
+                        )} 条，共 ${table.getFilteredRowModel().rows.length} 条`
+                      : `共 0 条`}
                   </p>
                 </div>
                 {/* Custom Pagination Controls */}
@@ -487,11 +497,11 @@ const ManageBlogTable = () => {
           <Dialog open={showConfirm} onOpenChange={setShowConfirm}>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Confirm Deletion</DialogTitle>
+                <DialogTitle>确认删除</DialogTitle>
               </DialogHeader>
               <div className="text-center">
                 <p className="mb-5 text-lg font-normal text-muted-foreground">
-                  Are you sure you want to delete the selected posts?
+                  确定要删除选中的文章吗？
                 </p>
               </div>
               <DialogFooter className="flex justify-center gap-4">
@@ -499,10 +509,10 @@ const ManageBlogTable = () => {
                   onClick={handleDelete}
                   className={'bg-primary/5 text-primary hover:bg-primary/30 '}
                 >
-                  Yes, Delete
+                  确认删除
                 </Button>
                 <Button variant="destructive" onClick={() => setShowConfirm(false)}>
-                  Cancel
+                  取消
                 </Button>
               </DialogFooter>
             </DialogContent>

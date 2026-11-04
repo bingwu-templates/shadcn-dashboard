@@ -17,25 +17,25 @@ export default function OverviewTab() {
     const hour = new Date().getHours();
 
     if (hour >= 5 && hour < 12) {
-      setGreeting('Good Morning');
+      setGreeting('早上好');
     } else if (hour >= 12 && hour < 17) {
-      setGreeting('Good Afternoon');
+      setGreeting('下午好');
     } else if (hour >= 17 && hour < 21) {
-      setGreeting('Good Evening');
+      setGreeting('晚上好');
     } else {
-      setGreeting('Good Night');
+      setGreeting('夜深了');
     }
   }, []);
 
   const getGreetingIcon = () => {
-    if (greeting === 'Good Morning' || greeting === 'Good Afternoon') {
+    if (greeting === '早上好' || greeting === '下午好') {
       return <Sun size={25} color="orange" />;
     } else {
       return <Moon size={25} />;
     }
   };
 
-  const dropdownItems = ['Monthly', 'Yearly'];
+  const dropdownItems = ['每月', '每年'];
   const [selectedYear, setSelectedYear] = useState(dropdownItems[0]);
 
   return (
@@ -43,11 +43,9 @@ export default function OverviewTab() {
       <div className="flex items-center flex-wrap lg:flex-nowrap lg:gap-0 gap-4 justify-between">
         <div className="flex flex-col items-start">
           <h2 className="text-xl flex item-center gap-2">
-            {greeting}, Cameron <span className="flex items-center">{getGreetingIcon()}</span>
+            {greeting}，陈晨 <span className="flex items-center">{getGreetingIcon()}</span>
           </h2>
-          <p className="text-sm font-normal text-muted-foreground">
-            Stay informed with today’s analytics
-          </p>
+          <p className="text-sm font-normal text-muted-foreground">及时了解今天的数据动态</p>
         </div>
         <div className="flex items-center lg:flex-nowrap flex-wrap gap-2">
           <Button variant="outline" className={'p-2.5 h-auto outline rounded-lg cursor-pointer'}>
@@ -72,7 +70,7 @@ export default function OverviewTab() {
           </div>
           <Button className="flex items-center gap-1.5 h-auto px-4 py-2 rounded-lg cursor-pointer">
             <Download size={16} />
-            <span className="text-sm font-medium">Export</span>
+            <span className="text-sm font-medium">导出</span>
           </Button>
         </div>
       </div>

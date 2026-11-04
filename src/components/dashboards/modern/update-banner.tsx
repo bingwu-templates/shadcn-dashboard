@@ -13,10 +13,10 @@ export default function UpdateBanner() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-chart-1 animate-ping absolute inline-flex" />
             <span className="h-2 w-2 rounded-full bg-chart-1 absolute inline-flex" />
-            <p className="text-sm font-medium  ps-4">Update</p>
+            <p className="text-sm font-medium  ps-4">最新动态</p>
             <span className="w-1 h-1 rounded-full bg-border" />
             <p className="text-sm font-normal text-muted-foreground">
-              {new Date().toLocaleDateString('en-US', {
+              {new Date().toLocaleDateString('zh-CN', {
                 month: 'short',
                 day: 'numeric',
                 year: 'numeric',
@@ -24,7 +24,7 @@ export default function UpdateBanner() {
             </p>
           </div>
           <p className="text-sm font-normal">
-            Sales revenue increased <span className="text-emerald-600">40%</span> in 1 week
+            销售收入在一周内增长了 <span className="text-emerald-600">40%</span> 。
           </p>
         </div>
         <Link to={'#'}>
@@ -32,7 +32,7 @@ export default function UpdateBanner() {
             variant={'outline'}
             className="flex gap-1.5 px-4 py-2 h-auto rounded-md cursor-pointer"
           >
-            See Statistics
+            查看统计
             <span>
               <ArrowRight width={18} height={18} />
             </span>

@@ -12,7 +12,8 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import { useNavigate } from 'react-router';
-import { isValid, format } from 'date-fns';
+import { isValid } from 'date-fns';
+import { formatDate } from '@/lib/locale';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronDown } from 'lucide-react';
 import { TicketType } from 'src/types/apps/ticket';
@@ -22,10 +23,10 @@ import user3 from '@/assets/images/profile/user-3.png';
 import user8 from '@/assets/images/profile/user-8.png';
 
 const agents = [
-  { id: 1, name: 'Liam', photo: user10 },
-  { id: 2, name: 'Steve', photo: user2 },
-  { id: 3, name: 'Jack', photo: user3 },
-  { id: 4, name: 'John', photo: user8 },
+  { id: 1, name: '李明', photo: user10 },
+  { id: 2, name: '王磊', photo: user2 },
+  { id: 3, name: '姜华', photo: user3 },
+  { id: 4, name: '张伟', photo: user8 },
 ];
 
 const CreateTicketForm = () => {
@@ -48,7 +49,7 @@ const CreateTicketForm = () => {
 
   const handleSubmit = () => {
     if (!ticketTitle || !ticketDescription) {
-      alert('Please fill out all fields.');
+      alert('请填写所有必填项。');
       return;
     }
 
@@ -78,41 +79,41 @@ const CreateTicketForm = () => {
     setAgentPhoto(agents[0].photo);
   };
   const parsedDate = isValid(new Date(ticketDate)) ? new Date(ticketDate) : new Date();
-  const formattedOrderDate = format(parsedDate, 'EEEE, MMMM dd, yyyy');
+  const formattedOrderDate = formatDate(parsedDate, 'yyyy年M月d日 EEEE');
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>
-          <h2 className="text-lg font-semibold ">Create New Ticket</h2>
+          <h2 className="text-lg font-semibold ">新建工单</h2>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p> ID : {ticketId !== undefined ? ticketId : ''}</p>
-        <p>Date : {formattedOrderDate}</p>
+        <p> 编号： {ticketId !== undefined ? ticketId : ''}</p>
+        <p>日期： {formattedOrderDate}</p>
         <div className="bg-background border   my-6 rounded-xl p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="ticketTitle">Ticket Title</Label>
+                <Label htmlFor="ticketTitle">工单标题</Label>
               </div>
               <Input
                 id="ticketTitle"
                 value={ticketTitle}
                 onChange={(e) => setTicketTitle(e.target.value)}
-                placeholder="Ticket Title"
+                placeholder="工单标题"
                 className="w-full"
               />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="ticketDescription">Ticket Description</Label>
+                <Label htmlFor="ticketDescription">工单描述</Label>
               </div>
               <Input
                 id="ticketDescription"
                 value={ticketDescription}
                 onChange={(e) => setTicketDescription(e.target.value)}
-                placeholder="Ticket Description"
+                placeholder="工单描述"
                 className="w-full "
               />
             </div>
@@ -149,7 +150,7 @@ const CreateTicketForm = () => {
               </DropdownMenu>
             </div>
             <div className="flex gap-3 ">
-              <Button onClick={handleSubmit}>Save</Button>
+              <Button onClick={handleSubmit}>保存</Button>
               <Button
                 variant={'destructive'}
                 className="rounded-md"
@@ -157,7 +158,7 @@ const CreateTicketForm = () => {
                   router('/apps/tickets');
                 }}
               >
-                Cancel
+                取消
               </Button>
             </div>
           </div>

@@ -1,4 +1,5 @@
-import { format } from 'date-fns';
+import { getBlogSlug } from '@/lib/blog';
+import { formatDate } from '@/lib/locale';
 import { Circle, Eye, MessageSquare } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Link } from 'react-router';
@@ -14,12 +15,7 @@ interface Btype {
 }
 const BlogCard = ({ post }: Btype) => {
   const { coverImg, title, view, comments, category, author, createdAt } = post;
-  const linkTo = title
-    ? title
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '')
-    : '';
+  const linkTo = getBlogSlug(post);
   return (
     <>
       <div className="lg:col-span-4 md:col-span-6 col-span-12 ">
@@ -29,12 +25,12 @@ const BlogCard = ({ post }: Btype) => {
               <div className="overflow-hidden! h-[240px]">
                 <img
                   src={coverImg || ''}
-                  alt="shadcn-admin"
+                  alt="博客封面"
                   className="w-full h-full object-cover object-center transition-transform duration-200 group-hover:scale-[1.09] overflow-hidden!"
                 />
               </div>
               <Badge className="absolute bottom-8 end-6 bg-muted text-muted-foreground">
-                2 min Read
+                阅读约 2 分钟
               </Badge>
             </div>
           </Link>
@@ -72,7 +68,7 @@ const BlogCard = ({ post }: Btype) => {
                 </div>
                 <div className="ms-auto flex gap-2 items-center  text-sm">
                   <Circle size={7} />
-                  <small>{createdAt ? format(new Date(createdAt), 'E, MMM d') : ''}</small>
+                  <small>{createdAt ? formatDate(new Date(createdAt), 'M月d日 EEEE') : ''}</small>
                 </div>
               </div>
             </div>

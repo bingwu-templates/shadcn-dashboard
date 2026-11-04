@@ -1,10 +1,11 @@
+import { getBlogSlug } from '@/lib/blog';
 import React, { useEffect, useContext } from 'react';
 
 import { Circle, Eye, MessageSquare, Quote } from 'lucide-react';
-import { format } from 'date-fns';
+import { formatDate } from '@/lib/locale';
 import { uniqueId } from 'lodash';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useLocation } from 'react-router';
+import { useParams } from 'react-router';
 import { BlogContext, BlogContextProps } from '../../../../context/blog-context/index';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -17,33 +18,24 @@ import { BlogType } from 'src/types/apps/blog';
 
 const BlogDetailData = () => {
   const { posts, setLoading, addComment }: BlogContextProps = useContext(BlogContext);
-  const location = useLocation();
-  const pathName = location.pathname;
-
-  const getTitle = pathName.split('/').pop();
-  const post = posts.find(
-    (p) =>
-      (p.title || '')
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '') === getTitle,
-  );
+  const { id } = useParams();
+  const post = posts.find((p) => getBlogSlug(p) === id);
   const [replyTxt, setReplyTxt] = React.useState('');
 
   const onSubmit = () => {
-    if (!post || !post.id) return;
+    if (!post || !post.id || !replyTxt.trim()) return;
     const newComment = {
       id: uniqueId('#comm_'),
       profile: {
         id: uniqueId('#USER_'),
         avatar: post.author?.avatar || '',
         name: post.author?.name || '',
-        time: 'Now',
+        time: '刚刚',
       },
       comment: replyTxt,
       replies: [],
     };
-    addComment(Number(post.id), newComment);
+    addComment(post.id, newComment);
     setReplyTxt('');
   };
 
@@ -65,13 +57,13 @@ const BlogDetailData = () => {
               <div className="overflow-hidden h-[450px]">
                 <img
                   src={post?.coverImg || ''}
-                  alt="shadcn-admin"
+                  alt="博客封面"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
 
               <Badge className="absolute bottom-8 end-6 bg-muted text-muted-foreground">
-                2 min Read
+                阅读约 2 分钟
               </Badge>
             </div>
             <div className="flex justify-between items-center -mt-7 px-6">
@@ -108,7 +100,9 @@ const BlogDetailData = () => {
                   <div className="ms-auto flex gap-2 items-center   text-sm">
                     <Circle size={7} />
                     <small>
-                      {post && post.createdAt ? format(new Date(post.createdAt), 'E, MMM d') : ''}
+                      {post && post.createdAt
+                        ? formatDate(new Date(post.createdAt), 'M月d日 EEEE')
+                        : ''}
                     </small>
                   </div>
                 </div>
@@ -116,58 +110,46 @@ const BlogDetailData = () => {
             </div>
             <Separator className="my-8" />
             <div className="px-6 pb-6">
-              <h2 className="md:text-3xl text-2xl pb-5">Title of the paragraph</h2>
+              <h2 className="md:text-3xl text-2xl pb-5">深入了解这个话题</h2>
               <p>
-                But you cannot figure out what it is or what it can do. MTA web directory is the
-                simplest way in which one can bid on a link, or a few links if they wish to do so.
-                The link directory on MTA displays all of the links it currently has, and does so in
-                alphabetical order, which makes it much easier for someone to find what they are
-                looking for if it is something specific and they do not want to go through all the
-                other sites and links as well. It allows you to start your bid at the bottom and
-                slowly work your way to the top of the list
+                从日常使用场景出发，我们可以更清楚地了解一款产品的价值。清晰的信息结构、顺畅的操作流程和及时的反馈，能够帮助使用者更快找到需要的内容，也让复杂的任务变得简单。
               </p>
               <br></br>
               <p>
-                Gigure out what it is or what it can do. MTA web directory is the simplest way in
-                which one can bid on a link, or a few links if they wish to do so. The link
-                directory on MTA displays all of the links it currently has, and does so in
-                alphabetical order, which makes it much easier for someone to find what they are
-                looking for if it is something specific and they do not want to go through all the
-                other sites and links as well. It allows you to start your bid at the bottom and
-                slowly work your way to the top of the
+                在设计和使用数字产品时，细节同样值得关注。可以从最常见的需求开始，逐步验证每个功能是否好用，再根据真实反馈持续改进。让信息更容易理解，让每一次操作都有明确的结果。
               </p>
               <br></br>
               <p>
-                <b>This is strong text.</b>
+                <b>这是一段加粗文字。</b>
               </p>
-              <i>This is italic text.</i>
+              <i>这是一段斜体文字。</i>
 
               <Separator className="my-8" />
-              <h3 className="text-xl mb-3">Unorder list</h3>
+              <h3 className="text-xl mb-3">无序列表</h3>
               <ul className="list-disc pl-6">
-                <li>Gigure out what it is or</li>
-                <li>The links it currently</li>
-                <li>It allows you to start your bid</li>
-                <li>Gigure out what it is or</li>
-                <li>The links it currently</li>
-                <li>It allows you to start your bid</li>
+                <li>明确目标与使用场景</li>
+                <li>整理现有资料和相关链接</li>
+                <li>从简单的步骤开始实践</li>
+                <li>明确目标与使用场景</li>
+                <li>整理现有资料和相关链接</li>
+                <li>从简单的步骤开始实践</li>
               </ul>
               <Separator className="my-8" />
-              <h3 className="text-xl mb-3">Order list</h3>
+              <h3 className="text-xl mb-3">有序列表</h3>
               <ol className="list-decimal pl-6">
-                <li>Gigure out what it is or</li>
-                <li>The links it currently</li>
-                <li>It allows you to start your bid</li>
-                <li>Gigure out what it is or</li>
-                <li>The links it currently</li>
-                <li>It allows you to start your bid</li>
+                <li>明确目标与使用场景</li>
+                <li>整理现有资料和相关链接</li>
+                <li>从简单的步骤开始实践</li>
+                <li>明确目标与使用场景</li>
+                <li>整理现有资料和相关链接</li>
+                <li>从简单的步骤开始实践</li>
               </ol>
               <Separator className="my-8" />
-              <h3 className="text-xl mb-3">Quotes</h3>
+              <h3 className="text-xl mb-3">引用</h3>
               <div className="pt-5 pb-4 px-4 rounded-md border-s-2 border-primary flex gap-1 items-start bg-primary/5">
                 <Quote size={20} className="-mt-1" />
                 <h2 className="text-base font-bold">
-                  Life is short, Smile while you still have teeth!
+                  认真记录每一次尝试，在持续改进中发现新的可能。
                 </h2>
               </div>
             </div>
@@ -176,7 +158,7 @@ const BlogDetailData = () => {
           <Card className="mt-6">
             <CardHeader>
               <CardTitle>
-                <h5 className="text-xl mb-2">Post Comments</h5>
+                <h5 className="text-xl mb-2">发表评论</h5>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -186,11 +168,11 @@ const BlogDetailData = () => {
                 onChange={(e) => setReplyTxt(e.target.value)}
               ></Textarea>
               <Button variant={'default'} className="w-fit mt-3 rounded-md " onClick={onSubmit}>
-                Post Comment
+                发布评论
               </Button>
               <div className="mt-6">
                 <div className="flex gap-3 items-center">
-                  <h5 className="text-xl ">Comments</h5>
+                  <h5 className="text-xl ">评论</h5>
                   <div className="h-8 w-8 rounded-full flex items-center justify-center text-primary bg-primary/5 font-bold">
                     {post?.comments?.length || 0}
                   </div>
@@ -205,7 +187,7 @@ const BlogDetailData = () => {
           </Card>
         </>
       ) : (
-        <p className="text-xl text-center py-6 font-bold">No Post Found</p>
+        <p className="text-xl text-center py-6 font-bold">未找到文章</p>
       )}
     </>
   );

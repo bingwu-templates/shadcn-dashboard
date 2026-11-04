@@ -23,52 +23,52 @@ const BoxedRegister = () => {
               <div className="space-y-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="name" className="text-sm font-normal text-muted-foreground">
-                    Name*
+                    姓名 *
                   </Label>
                   <Input
                     id="name"
                     type="text"
-                    placeholder="Enter your name"
+                    placeholder="请输入姓名"
 
                     required
                   />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-sm font-normal text-muted-foreground">
-                    Email*
+                    邮箱 *
                   </Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="Enter Your Email"
+                    placeholder="请输入邮箱"
 
                     required
                   />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="password" className="text-sm font-normal text-muted-foreground">
-                    Password*
+                    密码 *
                   </Label>
                   <Input
                     id="password"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="请输入密码"
 
                     required
                   />
                 </div>
               </div>
               <Button size="lg" className="w-full rounded-lg">
-                Sign in
+                注册
               </Button>
             </form>
             <div className="flex gap-2 text-base text-muted-foreground font-medium mt-4 items-center justify-center">
-              <p>Already have an Account?</p>
+              <p>已有账户？</p>
               <Link
                 to={'/auth/auth2/login'}
                 className="text-primary/80 text-base hover:text-primary font-medium"
               >
-                Sign in
+                登录
               </Link>
             </div>
           </Card>

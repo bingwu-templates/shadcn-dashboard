@@ -22,15 +22,15 @@ const BoxedLogin = () => {
             <div className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="email" className="text-sm font-normal text-muted-foreground">
-                  Email*
+                  邮箱 *
                 </Label>
-                <Input id="email" type="email" placeholder="Enter Your Email" required />
+                <Input id="email" type="email" placeholder="请输入邮箱" required />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="password" className="text-sm font-normal text-muted-foreground">
-                  Password*
+                  密码 *
                 </Label>
-                <Input id="password" type="password" placeholder="Enter your password" required />
+                <Input id="password" type="password" placeholder="请输入密码" required />
               </div>
               <div className="flex items-center justify-between text-sm flex-wrap gap-4">
                 <div className="flex items-center space-x-3">
@@ -39,29 +39,29 @@ const BoxedLogin = () => {
                     htmlFor="remember"
                     className="text-muted-foreground font-normal cursor-pointer leading-0"
                   >
-                    Remember this device
+                    记住此设备
                   </Label>
                 </div>
                 <a
                   href="/auth/auth2/forgot-password"
                   className=" text-sm font-medium hover:underline underline-offset-4 transition-all"
                 >
-                  Forgot Password?
+                  忘记密码？
                 </a>
               </div>
             </div>
             <Button size="lg" className="w-full rounded-lg">
-              Sign in
+              登录
             </Button>
           </form>
           {/* Footer */}
           <div className="flex gap-2 text-base font-medium mt-4 items-center justify-center">
-            <p className="text-muted-foreground">New to ShadcnDashboard ?</p>
+            <p className="text-muted-foreground">还没有 ShadcnDashboard 账户？</p>
             <Link
               to={'/auth/auth2/register'}
               className="text-primary/80 hover:text-primary text-sm font-medium"
             >
-              Create an account
+              创建账户
             </Link>
           </div>
         </Card>

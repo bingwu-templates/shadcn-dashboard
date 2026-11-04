@@ -27,7 +27,7 @@ const Notifications = ({ className }: { className?: string }) => {
   return (
     <div className={cn('', className)}>
       <DropdownMenu>
-        <DropdownMenuTrigger>
+        <DropdownMenuTrigger aria-label="查看通知">
           <div className="relative cursor-pointer">
             {unreadCount > 0 && (
               <>
@@ -42,10 +42,10 @@ const Notifications = ({ className }: { className?: string }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-screen sm:w-[360px] py-6 px-0">
           <div className="flex items-center px-6 justify-between">
-            <h3 className="text-lg font-semibold">Notifications</h3>
+            <h3 className="text-lg font-semibold">通知</h3>
             {unreadCount > 0 && (
               <Badge className="px-3 bg-primary dark:bg-primary hover:bg-primary">
-                {unreadCount} new
+                {unreadCount} 条未读
               </Badge>
             )}
           </div>
@@ -97,7 +97,7 @@ const Notifications = ({ className }: { className?: string }) => {
           {/* Footer Button */}
           <div className="pt-5 px-6">
             <Button className="w-full" render={<Link to="#" />}>
-              See All Notifications
+              查看全部通知
             </Button>
           </div>
         </DropdownMenuContent>

@@ -14,7 +14,7 @@ export interface BlogContextProps {
   setSortBy: Dispatch<SetStateAction<string>>;
   setSelectedPost: Dispatch<SetStateAction<BlogPostType | null>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
-  addComment: (postId: number, newComment: BlogType) => void;
+  addComment: (postId: number | string, newComment: BlogType) => void;
 
   error: unknown;
 }
@@ -61,7 +61,7 @@ export const BlogProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [postsData, postsError, isPostsLoading]);
 
   // Adds a new comment to a specific post by updating the state.
-  const addComment = (postId: number, newComment: BlogType) => {
+  const addComment = (postId: number | string, newComment: BlogType) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
         post.id === postId ? { ...post, comments: [newComment, ...(post.comments || [])] } : post,

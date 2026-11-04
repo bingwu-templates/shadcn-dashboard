@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DayPicker, getDefaultClassNames, type DayButton, type Locale } from 'react-day-picker';
+import { zhCN } from 'react-day-picker/locale';
 
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -11,7 +12,7 @@ function Calendar({
   showOutsideDays = true,
   captionLayout = 'label',
   buttonVariant = 'ghost',
-  locale,
+  locale = zhCN,
   formatters,
   components,
   ...props
@@ -31,6 +32,13 @@ function Calendar({
       )}
       captionLayout={captionLayout}
       locale={locale}
+      weekStartsOn={1}
+      labels={{
+        labelNext: () => '下个月',
+        labelPrevious: () => '上个月',
+        labelMonthDropdown: () => '选择月份',
+        labelYearDropdown: () => '选择年份',
+      }}
       formatters={{
         formatMonthDropdown: (date) => date.toLocaleString(locale?.code, { month: 'short' }),
         ...formatters,

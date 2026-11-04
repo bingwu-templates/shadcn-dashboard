@@ -11,9 +11,9 @@ export default function TotalProfit() {
         <div className="flex flex-col items-start gap-4 w-full">
           <div className="flex items-center justify-between w-full">
             <div className="flex flex-col gap-1">
-              <p className="text-sm font-normal text-foreground">New users</p>
+              <p className="text-sm font-normal text-foreground">新增用户</p>
               <div className="flex items-center gap-2">
-                <h3 className="text-2xl font-semibold">1.35m</h3>
+                <h3 className="text-2xl font-semibold">135万</h3>
                 <Badge variant={'destructive'}>20%</Badge>
               </div>
             </div>
@@ -25,7 +25,7 @@ export default function TotalProfit() {
             variant={'outline'}
             className="flex gap-1.5 px-4 py-2 h-auto rounded-md cursor-pointer"
           >
-            See Statistics
+            查看统计
             <span>
               <ArrowRight width={18} height={18} />
             </span>

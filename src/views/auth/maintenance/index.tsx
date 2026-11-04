@@ -8,14 +8,12 @@ const Maintenance = () => {
       <div className="h-screen flex items-center  justify-center bg-white dark:bg-card">
         <div className="text-center">
           <div className="max-w-3xl">
-            <img src={maintenance} alt="error" className="mb-4" width={500} height={500} />
+            <img src={maintenance} alt="网站维护插图" className="mb-4" width={500} height={500} />
           </div>
-          <h1 className="text-foreground text-4xl mb-6">Maintenance Mode!!!</h1>
-          <h6 className="text-xl text-foreground">
-            Website is Under Construction. Check back later!
-          </h6>
+          <h1 className="text-foreground text-4xl mb-6">维护中</h1>
+          <h6 className="text-xl text-foreground">网站正在建设中，请稍后再来！</h6>
           <Button className="mt-6 mx-auto">
-            <Link to="/">Go Back to Home</Link>
+            <Link to="/">返回首页</Link>
           </Button>
         </div>
       </div>

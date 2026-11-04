@@ -5,30 +5,30 @@ import { Bookmark, BriefcaseBusiness, Box, Users, File } from 'lucide-react';
 
 const assetsData = [
   {
-    id: 'Employees',
-    title: 'Employees',
+    id: '员工',
+    title: '员工',
     href: '/apps/kanban',
     value: '96',
     icon: Users,
   },
 
   {
-    id: 'Projects',
-    title: 'Projects',
+    id: '项目',
+    title: '项目',
     href: '/apps/calendar',
     value: '356',
     icon: File,
   },
   {
-    id: 'Clients',
-    title: 'Clients',
+    id: '客户',
+    title: '客户',
     href: '/',
     value: '3,650',
     icon: BriefcaseBusiness,
   },
   {
-    id: 'Events',
-    title: 'Events',
+    id: '活动',
+    title: '活动',
     href: '/',
     value: '86',
     icon: Bookmark,
@@ -62,7 +62,7 @@ export default function TotalAssets() {
       <CardHeader className="border-b border-border">
         <CardTitle className="flex items-center gap-2">
           <Box size={16} className="text-muted-foreground" />
-          Total Assets
+          资产总额
         </CardTitle>
       </CardHeader>
       <CardContent className="h-full! px-0!">

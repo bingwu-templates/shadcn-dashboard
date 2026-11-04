@@ -6,15 +6,15 @@ type SearchType = {
 };
 
 const searchSugg: SearchType[] = [
-  { title: 'Support', href: 'https://shadcndashboard.dev/support' },
-  { title: 'License', href: 'https://shadcndashboard.dev/license' },
+  { title: '技术支持', href: 'https://shadcndashboard.dev/support' },
+  { title: '许可证', href: 'https://shadcndashboard.dev/license' },
 ];
 
 export default function Footer() {
   return (
     <div className="flex md:flex-row flex-col items-center justify-between gap-3 text-center">
       <p className="text-sm text-muted-foreground">
-        © 2026 by{' '}
+        © 2026 版权所有{' '}
         <Link
           to="https://www.wrappixel.com/"
           target="_blank"
@@ -22,7 +22,7 @@ export default function Footer() {
         >
           shadcndashboard
         </Link>
-        , creating a better web for you.
+        ，为你打造更好的网络体验。
       </p>
 
       <div className="flex gap-4">

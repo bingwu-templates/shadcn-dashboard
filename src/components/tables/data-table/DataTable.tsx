@@ -50,6 +50,14 @@ function getColorForValue(value: string) {
   return badgeColors[index];
 }
 
+const columnLabels: Record<string, string> = {
+  name: '姓名',
+  position: '职位',
+  salary: '薪资',
+  department: '部门',
+  status: '状态',
+};
+
 function toTitleCase(str: string) {
   return str
     .toLowerCase()
@@ -87,7 +95,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
 
     const baseColumns = keys.map((col) => ({
       accessorKey: col as keyof T & string,
-      header: toTitleCase(col.replace(/([A-Z])/g, ' $1').trim()),
+      header: columnLabels[col] ?? toTitleCase(col.replace(/([A-Z])/g, ' $1').trim()),
       cell: (info: CellContext<T, unknown>) => {
         const value = info.getValue();
 
@@ -155,11 +163,11 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
         if (typeof value === 'boolean') {
           return value ? (
             <Badge className="px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">
-              Inactive
+              未启用
             </Badge>
           ) : (
             <Badge className="px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
-              Active
+              已启用
             </Badge>
           );
         }
@@ -317,7 +325,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
 
     const actionColumn: ColumnDef<T, unknown> = {
       id: 'action',
-      header: 'Action',
+      header: '操作',
       enableSorting: false,
       cell: () => {
         return (
@@ -367,7 +375,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
     );
 
     const csvContent = [headers.join(','), ...rows.map((row) => row.join(','))].join('\n');
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob(['\uFEFF', csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -381,7 +389,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
     <Card>
       <div>
         {data?.length === 0 ? (
-          <p className="text-center py-8 text-gray-500">No data available.</p>
+          <p className="text-center py-8 text-gray-500">暂无可用数据。</p>
         ) : (
           <>
             {/* Search + Download */}
@@ -389,7 +397,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
               <div className="pt-0 flex items-center justify-between flex-wrap gap-4">
                 <CardTitle>
                   <h3 className="text-xl font-semibold"></h3>
-                  Employee Data Table
+                  员工数据表
                 </CardTitle>
                 <div className="flex items-center gap-2 flex-wrap">
                   <Input
@@ -397,7 +405,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
                     className="max-w-96 lg:min-w-96 min-w-full placeholder:text-gray-400 dark:placeholder:text-white/20"
                     value={globalFilter ?? ''}
                     onChange={(e) => setGlobalFilter(e.target.value)}
-                    placeholder="Search your relevant items..."
+                    placeholder="搜索相关内容…"
                   />
                   <Button onClick={handleDownload} className="p-2 px-4 rounded-md ">
                     <Icon icon="material-symbols:download-rounded" width={24} height={24} />
@@ -457,7 +465,7 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
                           colSpan={columns.length}
                           className="text-center p-6 text-gray-500 dark:text-white/70 font-medium"
                         >
-                          No results found.
+                          未找到匹配结果。
                         </TableCell>
                       </TableRow>
                     )}
@@ -474,15 +482,15 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
                   disabled={!table.getCanPreviousPage()}
                   variant={'secondary'}
                 >
-                  Previous
+                  上一页
                 </Button>
                 <Button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-                  Next
+                  下一页
                 </Button>
               </div>
 
               <div className="text-forest-black dark:text-white/90 font-medium text-base">
-                Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+                第 {table.getState().pagination.pageIndex + 1} 页，共 {table.getPageCount()} 页
               </div>
 
               <div className="flex items-center gap-2">
@@ -490,14 +498,14 @@ const DataTable = <T extends Record<string, unknown>>({ data = [] }: DynamicTabl
                   htmlFor="pageSize"
                   className="mr-0 text-forest-black dark:text-white/90 text-base font-medium whitespace-nowrap min-w-32"
                 >
-                  Rows per page:
+                  每页行数：
                 </Label>
                 <Select
                   value={String(table.getState().pagination.pageSize)}
                   onValueChange={(value) => table.setPageSize(Number(value))}
                 >
                   <SelectTrigger className="w-18! cursor-pointer">
-                    <SelectValue placeholder="Page size" />
+                    <SelectValue placeholder="每页条数" />
                   </SelectTrigger>
                   <SelectContent>
                     {paginationOptions.map((size) => (

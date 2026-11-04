@@ -35,7 +35,7 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
                   <CornerUpLeft size={18} className="shrink-0!" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Reply</TooltipContent>
+              <TooltipContent>回复</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -73,8 +73,8 @@ const BlogComment = ({ comment }: { comment: BlogType }) => {
                 <AvatarFallback>{comment.profile?.name}</AvatarFallback>
               </Avatar>
             </div>
-            <Input className=" md:w-full w-fit" placeholder="Reply" />
-            <Button>Reply</Button>
+            <Input className=" md:w-full w-fit" placeholder="回复" />
+            <Button>回复</Button>
           </div>
         </div>
       ) : (

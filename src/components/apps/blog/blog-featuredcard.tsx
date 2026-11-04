@@ -1,5 +1,6 @@
+import { getBlogSlug } from '@/lib/blog';
 import { Circle, Eye, MessageSquare } from 'lucide-react';
-import { format } from 'date-fns';
+import { formatDate } from '@/lib/locale';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { useEffect, useContext } from 'react';
@@ -14,12 +15,7 @@ interface Btype {
 }
 const BlogFeaturedCard = ({ post, index }: Btype) => {
   const { coverImg, title, view, comments, category, author, createdAt } = post;
-  const linkTo = title
-    ? title
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '')
-    : '';
+  const linkTo = getBlogSlug(post);
   const mainPost = index === 0;
   const { setLoading }: BlogContextProps = useContext(BlogContext);
   useEffect(() => {
@@ -40,7 +36,7 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
             <div className="absolute inset-0">
               <img
                 src={coverImg || ''}
-                alt={title || 'blog image'}
+                alt={title || '博客配图'}
                 className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.09]"
                 width={786}
                 height={400}
@@ -71,7 +67,9 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
                       </div>
                       <div className="ms-auto flex gap-2 items-center text-white text-sm">
                         <Circle size={7} />
-                        <small>{createdAt ? format(new Date(createdAt), 'E, MMM d') : ''}</small>
+                        <small>
+                          {createdAt ? formatDate(new Date(createdAt), 'M月d日 EEEE') : ''}
+                        </small>
                       </div>
                     </div>
                   </div>

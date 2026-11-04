@@ -13,6 +13,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
 
   return (
     <Sonner
+      containerAriaLabel="通知提示"
       theme={theme as ToasterProps['theme']}
       className="toaster group"
       icons={{
@@ -31,6 +32,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
         } as React.CSSProperties
       }
       toastOptions={{
+        closeButtonAriaLabel: '关闭通知',
         classNames: {
           toast: 'cn-toast',
         },

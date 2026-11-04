@@ -15,14 +15,13 @@ const BoxedForgotpwd = () => {
               <FullLogo />
             </div>
             <p className="text-sm font-normal text-muted-foreground">
-              Please enter the email address associated with your account and we will email you a
-              link to reset your password.
+              请输入与你账户关联的邮箱地址，我们将向你发送重置密码的链接。
             </p>
             <form className="space-y-6 w-full">
               <div className="space-y-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-sm font-normal text-muted-foreground">
-                    Email*
+                    邮箱 *
                   </Label>
                   <Input
                     id="email"
@@ -34,10 +33,10 @@ const BoxedForgotpwd = () => {
                 </div>
               </div>
 
-              <Button className="w-full rounded-lg">Forgot password</Button>
+              <Button className="w-full rounded-lg">找回密码</Button>
             </form>
             <Button className="w-full " variant={'outline'}>
-              <Link to="/auth/auth2/login">Back to Login</Link>
+              <Link to="/auth/auth2/login">返回登录</Link>
             </Button>
           </Card>
         </div>

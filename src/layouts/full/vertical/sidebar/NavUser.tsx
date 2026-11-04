@@ -11,12 +11,12 @@ import {
 export function NavUser() {
   const navItems = [
     {
-      title: 'Help Center',
+      title: '帮助中心',
       url: 'https://demos.shadcndashboard.dev/theme-pages/faq',
       icon: LifeBuoy,
     },
     {
-      title: 'Documentation',
+      title: '使用文档',
       url: 'https://shadcndashboard.dev/docs',
       icon: BookOpen,
     },

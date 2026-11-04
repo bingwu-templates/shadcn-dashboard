@@ -20,15 +20,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 function HoverTable() {
   const tableActionData = [
-    { icon: 'solar:add-circle-outline', listtitle: 'Add' },
-    { icon: 'solar:pen-new-square-broken', listtitle: 'Edit' },
-    { icon: 'solar:trash-bin-minimalistic-outline', listtitle: 'Delete' },
+    { icon: 'solar:add-circle-outline', listtitle: '添加' },
+    { icon: 'solar:pen-new-square-broken', listtitle: '编辑' },
+    { icon: 'solar:trash-bin-minimalistic-outline', listtitle: '删除' },
   ];
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Hover Table</CardTitle>
+        <CardTitle>悬停表格</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col border rounded-md border-ld">
@@ -38,10 +38,10 @@ function HoverTable() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="text-sm font-semibold">Assigned</TableHead>
-                      <TableHead className="text-sm font-semibold">Project</TableHead>
-                      <TableHead className="text-sm font-semibold">Priority</TableHead>
-                      <TableHead className="text-sm font-semibold">Actions</TableHead>
+                      <TableHead className="text-sm font-semibold">负责人</TableHead>
+                      <TableHead className="text-sm font-semibold">项目</TableHead>
+                      <TableHead className="text-sm font-semibold">优先级</TableHead>
+                      <TableHead className="text-sm font-semibold">操作</TableHead>
                     </TableRow>
                   </TableHeader>
 
@@ -55,7 +55,7 @@ function HoverTable() {
                           <div className="flex gap-3 items-center">
                             <img
                               src={item.profileImg}
-                              alt="profile"
+                              alt="用户头像"
                               width={40}
                               height={40}
                               className="h-10 w-10 rounded-full"

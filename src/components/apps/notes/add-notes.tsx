@@ -47,11 +47,11 @@ const AddNotes = ({ colors }: Props) => {
   return (
     <Dialog open={openNoteModal} onOpenChange={setOpenNoteModal}>
       <DialogTrigger>
-        <Button>Add Note</Button>
+        <Button>添加笔记</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-lg rtl:[&_[data-slot=dialog-close]]:left-2 rtl:[&_[data-slot=dialog-close]]:right-auto">
         <DialogHeader>
-          <DialogTitle>Add New Note</DialogTitle>
+          <DialogTitle>新建笔记</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-2">
@@ -60,9 +60,9 @@ const AddNotes = ({ colors }: Props) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full"
-            placeholder="Write your note here..."
+            placeholder="在此输入笔记内容…"
           />
-          <h6 className="text-base pt-4">Change Note Color</h6>
+          <h6 className="text-base pt-4">更改笔记颜色</h6>
           <div className="flex gap-2 items-center">
             {colors?.map((color) => (
               <div
@@ -78,14 +78,14 @@ const AddNotes = ({ colors }: Props) => {
 
         <DialogFooter className="pt-4">
           <Button disabled={!title} onClick={handleSave}>
-            Save
+            保存
           </Button>
           <Button
             variant="destructive"
 
             onClick={() => setOpenNoteModal(false)}
           >
-            Close
+            关闭
           </Button>
         </DialogFooter>
       </DialogContent>

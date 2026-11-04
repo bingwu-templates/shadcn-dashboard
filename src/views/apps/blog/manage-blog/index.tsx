@@ -4,7 +4,7 @@ import ManageBlogTable from '@/components/apps/blog/blogtable/manage-blogtable';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Manage Blog' }];
+const BCrumb = [{ to: '/', title: '首页' }, { title: '文章管理' }];
 
 const MangeBlog = () => {
   return (
@@ -13,7 +13,7 @@ const MangeBlog = () => {
         lyraClassName="flex flex-col p-px gap-px bg-border"
         defaultClassName="flex flex-col gap-4"
       >
-        <BreadcrumbComp title=" Manage Blog" items={BCrumb} />
+        <BreadcrumbComp title="文章管理" items={BCrumb} />
         <StyleDivider />
         <ManageBlogTable />
       </StyleAwareWrapper>

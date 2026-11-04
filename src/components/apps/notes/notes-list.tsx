@@ -62,10 +62,10 @@ const Notelist = () => {
             value={searchTerm}
             className="pl-9!"
             onChange={setSearchTerm}
-            placeholders={['Search Notes...', 'Find Your Notes...', 'Look up Notes...']}
+            placeholders={['搜索笔记…', '查找你的笔记…', '查找笔记…']}
           />
         </div>
-        <h6 className="text-base mt-6">All Notes</h6>
+        <h6 className="text-base mt-6">全部笔记</h6>
         <div className="flex flex-col gap-3 mt-4">
           {filteredNotes && filteredNotes.length ? (
             filteredNotes.map((note, index) => (
@@ -82,7 +82,13 @@ const Notelist = () => {
                   >
                     <h6 className={`text-base truncate text-primary`}>{note.title}</h6>
                     <div className="flex items-center justify-between">
-                      <p className="text-xs">{new Date(note.datef ?? '').toLocaleDateString()}</p>
+                      <p className="text-xs">
+                        {new Date(note.datef ?? '').toLocaleDateString('zh-CN', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </p>
                       <div>
                         <TooltipProvider>
                           <Tooltip>
@@ -94,12 +100,12 @@ const Notelist = () => {
                                 }
                                 size="icon"
                                 onClick={() => deleteNote(note.id)}
-                                aria-label="Delete note"
+                                aria-label="删除笔记"
                               >
                                 <Trash2 size={18} />
                               </Button>
                             </TooltipTrigger>
-                            <TooltipContent>Delete</TooltipContent>
+                            <TooltipContent>删除</TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
                       </div>
@@ -110,7 +116,7 @@ const Notelist = () => {
             ))
           ) : (
             <Alert variant="destructive">
-              <AlertTitle>No Notes Found!</AlertTitle>
+              <AlertTitle>未找到笔记</AlertTitle>
             </Alert>
           )}
         </div>

@@ -8,7 +8,7 @@ const FullLogo = () => {
       {/* Dark Logo   */}
       <img
         src={Logo}
-        alt="logo"
+        alt="品牌标志"
         width={100}
         height={32}
         className="block dark:hidden max-w-[120px] rtl:scale-x-[-1]"
@@ -16,7 +16,7 @@ const FullLogo = () => {
       {/* Light Logo  */}
       <img
         src={Logowhite}
-        alt="logo"
+        alt="品牌标志"
         width={100}
         height={32}
         className="hidden dark:block max-w-[120px] rtl:scale-x-[-1]"

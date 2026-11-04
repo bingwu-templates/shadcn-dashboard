@@ -9,7 +9,7 @@ import Status from '@/components/apps/blog/blogedit/blog-status';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Blog Edit' }];
+const BCrumb = [{ to: '/', title: '首页' }, { title: '编辑文章' }];
 
 const BlogEdit = () => {
   return (
@@ -18,7 +18,7 @@ const BlogEdit = () => {
         lyraClassName="flex flex-col p-px gap-px bg-border"
         defaultClassName="flex flex-col gap-4"
       >
-        <BreadcrumbComp title="Blog Edit" items={BCrumb} />
+        <BreadcrumbComp title="编辑文章" items={BCrumb} />
         <StyleDivider />
         <StyleAwareWrapper
           lyraClassName="grid grid-cols-12 gap-px bg-border"
@@ -50,8 +50,8 @@ const BlogEdit = () => {
             defaultClassName="lg:col-span-8 col-span-12"
           >
             <div className="flex gap-3">
-              <Button className="sm:mb-0 mb-3 w-fit">Save changes</Button>
-              <Button variant={'destructive'}>Cancel</Button>
+              <Button className="sm:mb-0 mb-3 w-fit">保存更改</Button>
+              <Button variant={'destructive'}>取消</Button>
             </div>
           </StyleAwareWrapper>
         </StyleAwareWrapper>

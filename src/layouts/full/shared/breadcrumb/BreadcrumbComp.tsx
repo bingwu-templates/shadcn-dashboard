@@ -18,10 +18,10 @@ const BreadcrumbComp = ({ title }: BreadCrumbType) => {
       <Card className={`py-5 px-6 bg-background  overflow-hidden rounded-xl border`}>
         <div className="flex items-center justify-between gap-6 relative">
           <h4 className="font-semibold text-xl text-forground">{title}</h4>
-          <ol className="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
+          <ol className="flex items-center whitespace-nowrap" aria-label="面包屑导航">
             <li className="flex items-center">
               <Link className="text-forground text-sm  leading-none" to="/">
-                Home
+                首页
               </Link>
             </li>
             <li className="mx-2">

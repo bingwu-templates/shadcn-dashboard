@@ -14,24 +14,17 @@ const CategoryTags = () => {
 
   const [Cats, setCats] = useState<string[]>([]);
   const [showCatOptions, setShowCatOptions] = useState<boolean>(false);
-  const [catOptions] = useState<string[]>([
-    'Technology',
-    'Lifestyle',
-    'Travel',
-    'Food',
-    'Business',
-    'social',
-  ]);
+  const [catOptions] = useState<string[]>(['科技', '生活方式', '旅行', '美食', '商业', '社会']);
 
   const [showTagOptions, setShowTagOptions] = useState<boolean>(false);
-  const [tagOptions] = useState<string[]>(['Trending', 'Tips', 'News', 'Guide', 'Popular']);
+  const [tagOptions] = useState<string[]>(['热门趋势', '技巧', '新闻', '指南', '热门']);
 
   const handleCatInputChange = () => {
     setShowCatOptions(true);
   };
 
   const handleCatInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && Cats.length > 0) {
+    if (!e.nativeEvent.isComposing && e.key === 'Enter' && Cats.length > 0) {
       setCats([]);
       setShowCatOptions(false);
     }
@@ -76,14 +69,14 @@ const CategoryTags = () => {
     <Card>
       <CardHeader>
         <CardTitle>
-          <h5>Blog Category</h5>
+          <h5>文章分类</h5>
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="">
           <div className="mb-2 block">
             <Label htmlFor="cat">
-              Categories
+              分类
               <span className="text-destructive">*</span>
             </Label>
           </div>
@@ -112,7 +105,7 @@ const CategoryTags = () => {
               />
             </div>
 
-            <small className="text-xs text-muted-foreground">Add blog to a category.</small>
+            <small className="text-xs text-muted-foreground">为文章选择分类。</small>
 
             {showCatOptions && (
               <div className="absolute z-10 mt-1 w-full rounded-md bg-card shadow-lg">
@@ -132,13 +125,13 @@ const CategoryTags = () => {
 
         <div className="mt-2">
           <Button variant="outline">
-            <Plus size={18} /> Add selected category
+            <Plus size={18} /> 添加所选分类
           </Button>
         </div>
 
         <div className="mt-4">
           <div className="mb-2 block">
-            <Label htmlFor="tags">Tags</Label>
+            <Label htmlFor="tags">标签</Label>
           </div>
 
           <div className="relative">
@@ -165,7 +158,7 @@ const CategoryTags = () => {
               />
             </div>
 
-            <small className="text-xs text-muted-foreground">Add tags for blog.</small>
+            <small className="text-xs text-muted-foreground">为文章添加标签。</small>
 
             {showTagOptions && (
               <div>

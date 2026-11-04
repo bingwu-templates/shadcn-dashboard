@@ -3,7 +3,7 @@ import BreadcrumbComp from 'src/layouts/full/shared/breadcrumb/BreadcrumbComp';
 import StyleAwareWrapper from 'src/components/shared/StyleAwareWrapper';
 import StyleDivider from 'src/components/shared/StyleDivider';
 
-const BCrumb = [{ to: '/', title: 'Home' }, { title: 'Notes' }];
+const BCrumb = [{ to: '/', title: '首页' }, { title: '笔记' }];
 
 const Notes = () => {
   return (
@@ -11,7 +11,7 @@ const Notes = () => {
       lyraClassName="flex flex-col p-px gap-px bg-border"
       defaultClassName="flex flex-col gap-4"
     >
-      <BreadcrumbComp title="Notes app" items={BCrumb} />
+      <BreadcrumbComp title="笔记应用" items={BCrumb} />
       <StyleDivider />
       <NotesApp />
     </StyleAwareWrapper>

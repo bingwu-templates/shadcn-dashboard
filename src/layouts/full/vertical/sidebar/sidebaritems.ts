@@ -54,90 +54,90 @@ import {
 } from 'lucide-react';
 const SidebarContent: MenuItem[] = [
   {
-    heading: 'Dashboard',
+    heading: '仪表盘',
     items: [
       {
         id: uniqueId(),
-        name: 'Modern',
+        name: '现代仪表盘',
         icon: House,
         url: '/',
       },
     ],
   },
   {
-    heading: 'Pages',
+    heading: '页面',
     items: [
       {
         id: uniqueId(),
-        name: 'Table',
+        name: '表格',
         icon: Table2,
         url: '/pages/tables',
       },
       {
         id: uniqueId(),
-        name: 'Form',
+        name: '表单',
         icon: Form,
         url: '/pages/form',
       },
       {
         id: uniqueId(),
-        name: 'User Profile',
+        name: '个人资料',
         icon: CircleUserRound,
         url: '/pages/user-profile',
       },
     ],
   },
   {
-    heading: 'Apps',
+    heading: '应用',
     items: [
       {
         id: uniqueId(),
-        name: 'Notes',
+        name: '笔记',
         icon: NotebookText,
         url: '/apps/notes',
       },
       {
-        name: 'Blogs',
+        name: '博客',
         id: uniqueId(),
         icon: BookOpen,
         items: [
           {
             id: uniqueId(),
-            name: 'Blog Listing',
+            name: '文章列表',
             url: '/apps/blog/post',
           },
           {
             id: uniqueId(),
-            name: 'Blog Detail',
+            name: '文章详情',
             url: '/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow',
           },
           {
             id: uniqueId(),
-            name: 'Blog Edit',
+            name: '编辑文章',
             url: '/apps/blog/edit',
           },
           {
             id: uniqueId(),
-            name: 'Blog Create',
+            name: '新建文章',
             url: '/apps/blog/create',
           },
           {
             id: uniqueId(),
-            name: 'Manage Blog',
+            name: '文章管理',
             url: '/apps/blog/manage-blog',
           },
         ],
       },
       {
         id: uniqueId(),
-        name: 'Tickets',
+        name: '工单',
         icon: Ticket,
         url: '/apps/tickets',
       },
     ],
   },
   {
-    heading: 'UI ELEMENTS',
+    heading: '界面组件',
     items: [
       {
         name: 'ShadCn',
@@ -146,85 +146,85 @@ const SidebarContent: MenuItem[] = [
         items: [
           {
             id: uniqueId(),
-            name: 'Button',
+            name: '按钮',
             url: 'https://shadcndashboard.dev/components/button',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Avatar',
+            name: '头像',
             url: 'https://shadcndashboard.dev/components/avatar',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Badge',
+            name: '徽标',
             url: 'https://shadcndashboard.dev/components/badge',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Tooltip',
+            name: '工具提示',
             url: 'https://shadcndashboard.dev/components/tooltip',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Input',
+            name: '输入框',
             url: 'https://shadcndashboard.dev/components/input',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Textarea',
+            name: '多行文本框',
             url: 'https://shadcndashboard.dev/components/textarea',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Switch',
+            name: '开关',
             url: 'https://shadcndashboard.dev/components/switch',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Tab',
+            name: '选项卡',
             url: 'https://shadcndashboard.dev/components/tab',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Select',
+            name: '选择器',
             url: 'https://shadcndashboard.dev/components/select',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Checkbox',
+            name: '复选框',
             url: 'https://shadcndashboard.dev/components/checkbox',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Accordion',
+            name: '折叠面板',
             url: 'https://shadcndashboard.dev/components/accordion',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Card',
+            name: '卡片',
             url: 'https://shadcndashboard.dev/components/card',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Radio Group',
+            name: '单选组',
             url: 'https://shadcndashboard.dev/components/radio-group',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Datepicker',
+            name: '日期选择器',
             url: 'https://shadcndashboard.dev/components/calendar',
             external: true,
           },
@@ -233,46 +233,46 @@ const SidebarContent: MenuItem[] = [
     ],
   },
   {
-    heading: 'FORM ELEMENTS',
+    heading: '表单组件',
     items: [
       {
-        name: 'Shadcn Forms',
+        name: 'Shadcn 表单',
         id: uniqueId(),
         icon: Banknote,
         items: [
           {
             id: uniqueId(),
-            name: 'Input',
+            name: '输入框',
             url: 'https://shadcndashboard.dev/components/input',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Select',
+            name: '选择器',
             url: 'https://shadcndashboard.dev/components/select',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Checkbox',
+            name: '复选框',
             url: 'https://shadcndashboard.dev/components/checkbox',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Radio',
+            name: '单选框',
             url: 'https://shadcndashboard.dev/components/radio-group',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Datepicker',
+            name: '日期选择器',
             url: 'https://shadcndashboard.dev/components/calendar',
             external: true,
           },
           {
             id: uniqueId(),
-            name: 'Select',
+            name: '选择器',
             url: 'https://shadcndashboard.dev/components/select',
             external: true,
           },
@@ -281,17 +281,17 @@ const SidebarContent: MenuItem[] = [
     ],
   },
   {
-    heading: 'Widgets',
+    heading: '小组件',
     items: [
       {
-        name: 'Cards',
+        name: '卡片',
         id: uniqueId(),
         icon: CreditCard,
         url: 'https://shadcndashboard.dev/ui-blocks/card',
         external: true,
       },
       {
-        name: 'Charts',
+        name: '图表',
         id: uniqueId(),
         icon: PieChart,
         url: 'https://shadcndashboard.dev/ui-blocks/chart',
@@ -300,85 +300,85 @@ const SidebarContent: MenuItem[] = [
     ],
   },
   {
-    heading: 'Icons',
+    heading: '图标',
     items: [
       {
         id: uniqueId(),
-        name: 'Iconify Icons',
+        name: '图标库',
         icon: Smile,
         url: '/icons/iconify',
       },
     ],
   },
   {
-    heading: 'Auth',
+    heading: '身份验证',
     items: [
       {
         id: uniqueId(),
-        name: 'Error',
+        name: '错误页面',
         icon: Unlink,
         url: '/auth/error',
       },
       {
-        name: 'Login',
+        name: '登录',
         id: uniqueId(),
         icon: LogIn,
         items: [
           {
             id: uniqueId(),
-            name: 'Boxed Login',
+            name: '卡片式登录',
             url: '/auth/auth2/login',
           },
         ],
       },
       {
-        name: 'Register',
+        name: '注册',
         id: uniqueId(),
         icon: UserPlus,
         items: [
           {
             id: uniqueId(),
-            name: 'Boxed Register',
+            name: '卡片式注册',
             url: '/auth/auth2/register',
           },
         ],
       },
       {
-        name: 'Forgot Password',
+        name: '忘记密码',
         id: uniqueId(),
         icon: Lock,
         items: [
           {
             id: uniqueId(),
-            name: 'Boxed Forgot Pwd',
+            name: '卡片式找回密码',
             url: '/auth/auth2/forgot-password',
           },
         ],
       },
       {
-        name: 'Two Steps',
+        name: '两步验证',
         id: uniqueId(),
         icon: ShieldCheck,
         items: [
           {
             id: uniqueId(),
-            name: 'Boxed Two Steps',
+            name: '卡片式两步验证',
             url: '/auth/auth2/two-steps',
           },
         ],
       },
       {
         id: uniqueId(),
-        name: 'Menu Level',
+        name: '多级菜单',
         icon: BarChart3,
         items: [
           {
             id: uniqueId(),
-            name: 'Level 1',
+            name: '一级菜单',
             items: [
               {
                 id: uniqueId(),
-                name: 'Level 1.1',
+                name: '二级菜单',
                 url: '#',
               },
             ],

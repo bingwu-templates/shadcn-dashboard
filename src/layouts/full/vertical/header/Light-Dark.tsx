@@ -52,6 +52,7 @@ const LightDark = () => {
           variant="ghost"
           className=" h-10 w-10  hover:bg-primary/5  rounded-full cursor-pointer"
           onClick={toggleTheme}
+          aria-label="切换深色主题"
         >
           <Moon className="size-5" />
         </Button>
@@ -61,6 +62,7 @@ const LightDark = () => {
           variant="ghost"
           className=" h-10 w-10  hover:bg-primary/5  rounded-full cursor-pointer"
           onClick={toggleTheme}
+          aria-label="切换浅色主题"
         >
           <Sun className="size-5" />
         </Button>

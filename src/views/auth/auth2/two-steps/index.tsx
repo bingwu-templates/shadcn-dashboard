@@ -16,8 +16,7 @@ const BoxedTwoStep = () => {
             </div>
             <div className="text-center flex flex-col gap-2">
               <p className="text-sm font-normal text-muted-foreground">
-                We sent a verification code to your mobile. Enter the code below to verify your
-                identity.
+                验证码已发送至你的手机，请在下方输入以验证身份。
               </p>
               <p className="font-bold">******1234</p>
             </div>
@@ -38,16 +37,16 @@ const BoxedTwoStep = () => {
 
                   <Field className="gap-4">
                     <Button type="submit" size={'lg'} className="rounded-lg">
-                      Verify Now
+                      立即验证
                     </Button>
                   </Field>
                 </div>
               </FieldGroup>
             </form>
             <div className="flex gap-2 text-base text-muted-foreground font-medium mt-4 items-center justify-center">
-              <p>Didn't get the code?</p>
+              <p>没有收到验证码？</p>
               <Link to={'/'} className="text-primary text-sm font-medium">
-                Resend
+                重新发送
               </Link>
             </div>
           </Card>
